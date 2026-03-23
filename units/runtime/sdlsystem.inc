@@ -118,7 +118,7 @@ Var
  * \since This function is available since SDL 2.0.2.
  *}
 Type
-  TSDL_DXGIGetOutputInfo_fun = function(displ
+  TSDL_DXGIGetOutputInfo_fun = function(displayIndex: cint; adapterIndex, outputIndex: pcint): TSDL_Bool;cdecl;
 Var
   SDL_DXGIGetOutputInfo : TSDL_DXGIGetOutputInfo_fun = Nil;
 

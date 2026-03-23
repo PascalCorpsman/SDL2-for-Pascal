@@ -92,13 +92,19 @@ type
 
 
 Type
-  TSDL_CreateThread_func = function(fn: T
+  TSDL_CreateThread_func = function(fn: TSDL_ThreadFunction; name: PAnsiChar;
+  data: Pointer;
+  pfnBeginThread: TpfnSDL_CurrentBeginThread;
+  pfnEndThread: TpfnSDL_CurrentEndThread): PSDL_Thread;cdecl;
 Var
   SDL_CreateThread : TSDL_CreateThread_func = Nil;
 
 
 Type
-  TSDL_CreateThreadWithStackSize_func = function(fn: T
+  TSDL_CreateThreadWithStackSize_func = function(fn: TSDL_ThreadFunction;
+  name: PAnsiChar; const stacksize: csize_t; data: Pointer;
+  pfnBeginThread: TpfnSDL_CurrentBeginThread;
+  pfnEndThread: TpfnSDL_CurrentEndThread): PSDL_Thread; cdecl;
 Var
   SDL_CreateThreadWithStackSize : TSDL_CreateThreadWithStackSize_func = Nil;
 
@@ -106,10 +112,10 @@ Var
 { SDL2-For-Pascal:  #note : In the C header are two versions
     of these macro functions. One for SDL's dynamic API and one without.
     We can go with this for the moment. Improvement surely possible. }
-function SDL_CreateThread(fn: TSDL_ThreadFunction; name: PAnsiChar;
+function SDL_CreateThread2(fn: TSDL_ThreadFunction; name: PAnsiChar;
   data: Pointer): PSDL_Thread; overload;
 
-function SDL_CreateThreadWithStackSize(fn: TSDL_ThreadFunction; name: PAnsiChar;
+function SDL_CreateThreadWithStackSize2(fn: TSDL_ThreadFunction; name: PAnsiChar;
   const stacksize: csize_t; data: Pointer): PSDL_Thread; overload;
 
 

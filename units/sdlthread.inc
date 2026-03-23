@@ -106,10 +106,10 @@ function SDL_CreateThreadWithStackSize(fn: TSDL_ThreadFunction;
 { SDL2-For-Pascal:  #note : In the C header are two versions
     of these macro functions. One for SDL's dynamic API and one without.
     We can go with this for the moment. Improvement surely possible. }
-function SDL_CreateThread(fn: TSDL_ThreadFunction; name: PAnsiChar;
+function SDL_CreateThread2(fn: TSDL_ThreadFunction; name: PAnsiChar;
   data: Pointer): PSDL_Thread; overload;
 
-function SDL_CreateThreadWithStackSize(fn: TSDL_ThreadFunction; name: PAnsiChar;
+function SDL_CreateThreadWithStackSize2(fn: TSDL_ThreadFunction; name: PAnsiChar;
   const stacksize: csize_t; data: Pointer): PSDL_Thread; overload;
 
 

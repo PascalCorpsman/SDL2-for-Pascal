@@ -149,51 +149,8 @@ const
 {$I ctypes.inc}                  // C data types
 
                                  {SDL2 version of the represented header file}
-{$ifdef SDL_RUNTIME_LOADING}
-{$I runtime/sdlstdinc.inc}
-{$I runtime/sdlversion.inc}              // 2.0.14
-{$I runtime/sdlerror.inc}                // 2.0.14
-{$I runtime/sdlplatform.inc}             // 2.0.14
-{$I runtime/sdlpower.inc}                // 2.0.14
-{$I runtime/sdlthread.inc}               // 2.30.2
-{$I runtime/sdlatomic.inc}               // 2.0.20
-{$I runtime/sdlmutex.inc}                // 2.26.5
-{$I runtime/sdltimer.inc}                // 2.0.18
-{$I runtime/sdlpixels.inc}               // 2.26.5
-{$I runtime/sdlrect.inc}                 // 2.24.0
-{$I runtime/sdlrwops.inc}                // 2.0.14
-{$I runtime/sdlaudio.inc}                // 2.26.3
-{$I runtime/sdlblendmode.inc}            // 2.0.14
-{$I runtime/sdlsurface.inc}              // 2.0.14
-{$I runtime/sdlvideo.inc}                // 2.28.0
-{$I runtime/sdlshape.inc}                // 2.24.0
-{$I runtime/sdlhints.inc}                // 2.26.0
-{$I runtime/sdlloadso.inc}               // 2.24.1
-{$I runtime/sdlmessagebox.inc}           // 2.0.14
-{$I runtime/sdlrenderer.inc}             // 2.0.22
-{$I runtime/sdlscancode.inc}             // 2.26.2
-{$I runtime/sdlkeycode.inc}              // 2.26.2
-{$I runtime/sdlkeyboard.inc}             // 2.24.1
-{$I runtime/sdlmouse.inc}                // 2.0.24
-{$I runtime/sdlguid.inc}                 // 2.24.0
-{$I runtime/sdljoystick.inc}             // 2.24.0
-{$I runtime/sdlsensor.inc}               // 2.26.0
-{$I runtime/sdlgamecontroller.inc}       // 2.30.0
-{$I runtime/sdlhaptic.inc}               // 2.26.2
-{$I runtime/sdlhidapi.inc}               // 2.0.18
-{$I runtime/sdltouch.inc}                // 2.24.0
-{$I runtime/sdlgesture.inc}              // 2.26.2
-{$I runtime/sdlsyswm.inc}                // 2.26.5
-{$I runtime/sdlevents.inc}               // 2.24.0
-{$I runtime/sdllocale.inc}               // 2.0.14
-{$I runtime/sdlclipboard.inc}            // 2.24.1
-{$I runtime/sdlcpuinfo.inc}              // 2.0.14
-{$I runtime/sdlfilesystem.inc}           // 2.24.1
-{$I runtime/sdllog.inc}                  // 2.0.14
-{$I runtime/sdlmisc.inc}                 // 2.0.14
-{$I runtime/sdlsystem.inc}               // 2.24.0
-{$I runtime/sdl.inc}                     // 2.0.14
-{$else}
+{$ifndef SDL_RUNTIME_LOADING}
+
 {$I sdlstdinc.inc}
 {$I sdlversion.inc}              // 2.0.14
 {$I sdlerror.inc}                // 2.0.14
@@ -237,11 +194,83 @@ const
 {$I sdlmisc.inc}                 // 2.0.14
 {$I sdlsystem.inc}               // 2.24.0
 {$I sdl.inc}                     // 2.0.14
+
+{$else}
+
+{$I runtime/sdlstdinc.inc}
+{$I runtime/sdlversion.inc}              // 2.0.14
+{$I runtime/sdlerror.inc}                // 2.0.14
+{$I runtime/sdlplatform.inc}             // 2.0.14
+{$I runtime/sdlpower.inc}                // 2.0.14
+{$I runtime/sdlthread.inc}               // 2.30.2
+{$I runtime/sdlatomic.inc}               // 2.0.20
+{$I runtime/sdlmutex.inc}                // 2.26.5
+{$I runtime/sdltimer.inc}                // 2.0.18
+{$I runtime/sdlpixels.inc}               // 2.26.5
+{$I runtime/sdlrect.inc}                 // 2.24.0
+{$I runtime/sdlrwops.inc}                // 2.0.14
+{$I runtime/sdlaudio.inc}                // 2.26.3
+{$I runtime/sdlblendmode.inc}            // 2.0.14
+{$I runtime/sdlsurface.inc}              // 2.0.14
+{$I runtime/sdlvideo.inc}                // 2.28.0
+{$I runtime/sdlshape.inc}                // 2.24.0
+{$I runtime/sdlhints.inc}                // 2.26.0
+{$I runtime/sdlloadso.inc}               // 2.24.1
+{$I runtime/sdlmessagebox.inc}           // 2.0.14
+{$I runtime/sdlrenderer.inc}             // 2.0.22
+{$I runtime/sdlscancode.inc}             // 2.26.2
+{$I runtime/sdlkeycode.inc}              // 2.26.2
+{$I runtime/sdlkeyboard.inc}             // 2.24.1
+{$I runtime/sdlmouse.inc}                // 2.0.24
+{$I runtime/sdlguid.inc}                 // 2.24.0
+{$I runtime/sdljoystick.inc}             // 2.24.0
+{$I runtime/sdlsensor.inc}               // 2.26.0
+{$I runtime/sdlgamecontroller.inc}       // 2.30.0
+{$I runtime/sdlhaptic.inc}               // 2.26.2
+{$I runtime/sdlhidapi.inc}               // 2.0.18
+{$I runtime/sdltouch.inc}                // 2.24.0
+{$I runtime/sdlgesture.inc}              // 2.26.2
+{$I runtime/sdlsyswm.inc}                // 2.26.5
+{$I runtime/sdlevents.inc}               // 2.24.0
+{$I runtime/sdllocale.inc}               // 2.0.14
+{$I runtime/sdlclipboard.inc}            // 2.24.1
+{$I runtime/sdlcpuinfo.inc}              // 2.0.14
+{$I runtime/sdlfilesystem.inc}           // 2.24.1
+{$I runtime/sdllog.inc}                  // 2.0.14
+{$I runtime/sdlmisc.inc}                 // 2.0.14
+{$I runtime/sdlsystem.inc}               // 2.24.0
+{$I runtime/sdl.inc}                     // 2.0.14
+
 {$endif}
 
 {$ifdef SDL_RUNTIME_LOADING}
-Function SDL_LoadLib(LibFilename: String): Boolean;
-Procedure SDL_UnLoadLib();
+
+// Loads the SDL library dynamically at runtime.
+//
+// Note:
+//   This is NOT a native SDL function. It is part of this binding layer
+//   to support runtime (dynamic) loading of the SDL library.
+//
+// Parameters:
+//   LibFilename:
+//     Path or filename of the SDL shared library to load.
+//     If an empty string is provided, the default library name
+//     (SDL_LibName) will be used.
+//
+// Returns:
+//   True if the library was successfully loaded, False otherwise.
+function SDL_LoadLib(LibFilename: string): Boolean;
+
+// Unloads the previously loaded SDL library.
+//
+// Note:
+//   This is NOT a native SDL function. It is part of this binding layer
+//   and complements SDL_LoadLib for runtime unloading.
+//
+// After calling this function, all dynamically loaded SDL function
+// pointers become invalid.
+procedure SDL_UnLoadLib();
+
 {$endif}
 
 implementation

@@ -69,10 +69,10 @@ function SDL_GetMouseFocus: PSDL_Window; cdecl;
  * \sa SDL_GetRelativeMouseState
  * \sa SDL_PumpEvents
  *}
-Type
-  TSDL_GetMouseState_fun = function(x: pcint; y: pcint): cuint32; cdecl;
-Var
-  SDL_GetMouseState : TSDL_GetMouseState_fun = Nil;
+type
+  TSDL_GetMouseState_func = function(x: pcint; y: pcint): cuint32; cdecl;
+var
+  SDL_GetMouseState : TSDL_GetMouseState_func = Nil;
 
 
 
@@ -103,10 +103,10 @@ Var
  *
  * \sa SDL_CaptureMouse
  *}
-Type
-  TSDL_GetGlobalMouseState_fun = function(x, y: pcint32): cuint32; cdecl;
-Var
-  SDL_GetGlobalMouseState : TSDL_GetGlobalMouseState_fun = Nil;
+type
+  TSDL_GetGlobalMouseState_func = function(x, y: pcint32): cuint32; cdecl;
+var
+  SDL_GetGlobalMouseState : TSDL_GetGlobalMouseState_func = Nil;
 
 
   {**
@@ -126,10 +126,10 @@ Var
  *
  * \sa SDL_GetMouseState
  *}
-Type
-  TSDL_GetRelativeMouseState_fun = function(x: pcint; y: pcint): cuint32; cdecl;
-Var
-  SDL_GetRelativeMouseState : TSDL_GetRelativeMouseState_fun = Nil;
+type
+  TSDL_GetRelativeMouseState_func = function(x: pcint; y: pcint): cuint32; cdecl;
+var
+  SDL_GetRelativeMouseState : TSDL_GetRelativeMouseState_func = Nil;
 
 
   {**
@@ -151,9 +151,9 @@ Var
  *
  * \sa SDL_WarpMouseGlobal
  *}
-Type
+type
   TSDL_WarpMouseInWindow_proc = procedure(window: PSDL_Window; x: cint; y: cint); cdecl;
-Var
+var
   SDL_WarpMouseInWindow : TSDL_WarpMouseInWindow_proc = Nil;
 
 
@@ -177,10 +177,10 @@ Var
  *
  * \sa SDL_WarpMouseInWindow
  *}
-Type
-  TSDL_WarpMouseGlobal_fun = function(x, y: cint): cint; cdecl;
-Var
-  SDL_WarpMouseGlobal : TSDL_WarpMouseGlobal_fun = Nil;
+type
+  TSDL_WarpMouseGlobal_func = function(x, y: cint): cint; cdecl;
+var
+  SDL_WarpMouseGlobal : TSDL_WarpMouseGlobal_func = Nil;
 
 
   {**
@@ -206,10 +206,10 @@ Var
  *
  * \sa SDL_GetRelativeMouseMode
  *}
-Type
-  TSDL_SetRelativeMouseMode_fun = function(enabled: TSDL_Bool): cint; cdecl;
-Var
-  SDL_SetRelativeMouseMode : TSDL_SetRelativeMouseMode_fun = Nil;
+type
+  TSDL_SetRelativeMouseMode_func = function(enabled: TSDL_Bool): cint; cdecl;
+var
+  SDL_SetRelativeMouseMode : TSDL_SetRelativeMouseMode_func = Nil;
 
 
   {**
@@ -256,10 +256,10 @@ Var
  *
  * \sa SDL_GetGlobalMouseState
  *}
-Type
-  TSDL_CaptureMouse_fun = function(enabled: TSDL_Bool): cint; cdecl;
-Var
-  SDL_CaptureMouse : TSDL_CaptureMouse_fun = Nil;
+type
+  TSDL_CaptureMouse_func = function(enabled: TSDL_Bool): cint; cdecl;
+var
+  SDL_CaptureMouse : TSDL_CaptureMouse_func = Nil;
 
 
   {**
@@ -315,13 +315,13 @@ function SDL_GetRelativeMouseMode: TSDL_Bool; cdecl;
  * \sa SDL_SetCursor
  * \sa SDL_ShowCursor
  *}
-  Type
+  type
     TSDL_CreateCursor_func = function(
     const data: pcuint8;
     const mask: pcuint8;
     w: cint; h: cint;
     hot_x: cint; hot_y: cint): PSDL_Cursor; cdecl;
-  Var
+  var
     SDL_CreateCursor : TSDL_CreateCursor_func = Nil;
 
   {**
@@ -338,12 +338,12 @@ function SDL_GetRelativeMouseMode: TSDL_Bool; cdecl;
  * \sa SDL_CreateCursor
  * \sa SDL_FreeCursor
  *}
-Type
+type
   TSDL_CreateColorCursor_func = function(
     surface: PSDL_Surface;
      hot_x: cint;
      hot_y: cint): PSDL_Cursor; cdecl;
-Var
+var
   SDL_CreateColorCursor : TSDL_CreateColorCursor_func = Nil;
 
   {**
@@ -357,10 +357,10 @@ Var
  *
  * \sa SDL_FreeCursor
  *}
-Type
-  TSDL_CreateSystemCursor_fun = function(id: TSDL_SystemCursor): PSDL_Cursor; cdecl;
-Var
-  SDL_CreateSystemCursor : TSDL_CreateSystemCursor_fun = Nil;
+type
+  TSDL_CreateSystemCursor_func = function(id: TSDL_SystemCursor): PSDL_Cursor; cdecl;
+var
+  SDL_CreateSystemCursor : TSDL_CreateSystemCursor_func = Nil;
 
 
   {**
@@ -379,9 +379,9 @@ Var
  * \sa SDL_GetCursor
  * \sa SDL_ShowCursor
  *}
-Type
+type
   TSDL_SetCursor_proc = procedure(cursor: PSDL_Cursor); cdecl;
-Var
+var
   SDL_SetCursor : TSDL_SetCursor_proc = Nil;
 
 
@@ -426,9 +426,9 @@ function SDL_GetDefaultCursor: PSDL_Cursor; cdecl;
  * \sa SDL_CreateCursor
  * \sa SDL_CreateSystemCursor
  *}
-Type
+type
   TSDL_FreeCursor_proc = procedure(cursor: PSDL_Cursor); cdecl;
-Var
+var
   SDL_FreeCursor : TSDL_FreeCursor_proc = Nil;
 
 
@@ -452,10 +452,10 @@ Var
  * \sa SDL_CreateCursor
  * \sa SDL_SetCursor
  *}
-Type
-  TSDL_ShowCursor_fun = function(toggle: cint): cint; cdecl;
-Var
-  SDL_ShowCursor : TSDL_ShowCursor_fun = Nil;
+type
+  TSDL_ShowCursor_func = function(toggle: cint): cint; cdecl;
+var
+  SDL_ShowCursor : TSDL_ShowCursor_func = Nil;
 
 
 {**

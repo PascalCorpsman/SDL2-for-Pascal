@@ -2415,10 +2415,10 @@ const
  *
  *  \return SDL_TRUE if the hint was set, SDL_FALSE otherwise
  */}
-Type
-  TSDL_SetHintWithPriority_fun = function(const name: PAnsiChar; const value: PAnsiChar; priority: TSDL_HintPriority): TSDL_Bool; cdecl;
-Var
-  SDL_SetHintWithPriority : TSDL_SetHintWithPriority_fun = Nil;
+type
+  TSDL_SetHintWithPriority_func = function(const name: PAnsiChar; const value: PAnsiChar; priority: TSDL_HintPriority): TSDL_Bool; cdecl;
+var
+  SDL_SetHintWithPriority : TSDL_SetHintWithPriority_func = Nil;
 
 
 {/**
@@ -2426,10 +2426,10 @@ Var
  *
  *  \return SDL_TRUE if the hint was set, SDL_FALSE otherwise
  */}
-Type
-  TSDL_SetHint_fun = function(const name: PAnsiChar; const value: PAnsiChar): TSDL_Bool; cdecl;
-Var
-  SDL_SetHint : TSDL_SetHint_fun = Nil;
+type
+  TSDL_SetHint_func = function(const name: PAnsiChar; const value: PAnsiChar): TSDL_Bool; cdecl;
+var
+  SDL_SetHint : TSDL_SetHint_func = Nil;
 
 
 {**
@@ -2444,10 +2444,10 @@ Var
  *
  * \since This function is available since SDL 2.24.0.
  *}
-Type
-  TSDL_ResetHint_fun = function(const name: PAnsiChar): TSDL_Bool; cdecl;
-Var
-  SDL_ResetHint : TSDL_ResetHint_fun = Nil;
+type
+  TSDL_ResetHint_func = function(const name: PAnsiChar): TSDL_Bool; cdecl;
+var
+  SDL_ResetHint : TSDL_ResetHint_func = Nil;
 
 
 {**
@@ -2463,9 +2463,9 @@ Var
  * \sa SDL_SetHint
  * \sa SDL_ResetHint
  *}
-Type
+type
   TSDL_ResetHints_proc = procedure(); cdecl;
-Var
+var
   SDL_ResetHints : TSDL_ResetHints_proc = Nil;
 
 
@@ -2474,10 +2474,10 @@ Var
  *
  *  \return The string value of a hint variable.
  */}
-Type
-  TSDL_GetHint_fun = function(const name: PAnsiChar): PAnsiChar; cdecl;
-Var
-  SDL_GetHint : TSDL_GetHint_fun = Nil;
+type
+  TSDL_GetHint_func = function(const name: PAnsiChar): PAnsiChar; cdecl;
+var
+  SDL_GetHint : TSDL_GetHint_func = Nil;
 
 
 {/**
@@ -2485,10 +2485,10 @@ Var
  *
  *  \return The boolean value of a hint variable.
  */}
-Type
-  TSDL_GetHintBoolean_fun = function(const name: PAnsiChar; default_value: TSDL_Bool): TSDL_Bool; cdecl;
-Var
-  SDL_GetHintBoolean : TSDL_GetHintBoolean_fun = Nil;
+type
+  TSDL_GetHintBoolean_func = function(const name: PAnsiChar; default_value: TSDL_Bool): TSDL_Bool; cdecl;
+var
+  SDL_GetHintBoolean : TSDL_GetHintBoolean_func = Nil;
 
 
 {/**
@@ -2503,9 +2503,9 @@ type
   PSDL_HintCallback = ^TSDL_HintCallback;
   TSDL_HintCallback = procedure(userdata: Pointer; const name: PAnsiChar; const oldValue: PAnsiChar; const newValue: PAnsiChar); cdecl;
 
-Type
+type
   TSDL_AddHintCallback_proc = procedure(const name: PAnsiChar; callback: TSDL_HintCallback; userdata: Pointer); cdecl;
-Var
+var
   SDL_AddHintCallback : TSDL_AddHintCallback_proc = Nil;
 
 
@@ -2516,9 +2516,9 @@ Var
  *  \param callback The function being called when the hint value changes
  *  \param userdata A pointer being passed to the callback function
  */}
-Type
+type
   TSDL_DelHintCallback_proc = procedure(const name: PAnsiChar; callback: TSDL_HintCallback; userdata: Pointer); cdecl;
-Var
+var
   SDL_DelHintCallback : TSDL_DelHintCallback_proc = Nil;
 
 
@@ -2536,8 +2536,8 @@ Var
  *
  * \sa SDL_ResetHints
  *}
-Type
+type
   TSDL_ClearHints_proc = procedure(); cdecl;
-Var
+var
   SDL_ClearHints : TSDL_ClearHints_proc = Nil;
 

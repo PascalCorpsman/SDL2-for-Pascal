@@ -78,8 +78,8 @@ const
  *  and
  *      dstA = dstA * dstAlphaFactor alphaOperation srcA * srcAlphaFactor
  *}
-Type
+type
   TSDL_ComposeCustomBlendMode_func = function(srcColorFactor, dstColorFactor: TSDL_BlendFactor; colorOperation: TSDL_BlendOperation; srcAlphaFactor, dstAlphaFactor: TSDL_BlendFactor; alphaOperation: TSDL_BlendOperation): TSDL_BlendMode; cdecl;
-Var
+var
   SDL_ComposeCustomBlendMode : TSDL_ComposeCustomBlendMode_func = Nil;
 

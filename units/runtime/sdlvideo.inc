@@ -254,10 +254,10 @@ function SDL_GetNumVideoDrivers: cint; cdecl;
    *  SDL_GetNumVideoDrivers()
    *}
 
-Type
-  TSDL_GetVideoDriver_fun = function(index: cint): PAnsiChar; cdecl;
-Var
-  SDL_GetVideoDriver : TSDL_GetVideoDriver_fun = Nil;
+type
+  TSDL_GetVideoDriver_func = function(index: cint): PAnsiChar; cdecl;
+var
+  SDL_GetVideoDriver : TSDL_GetVideoDriver_func = Nil;
 
 
   {**
@@ -275,10 +275,10 @@ Var
    *  SDL_VideoQuit()
    *}
 
-Type
-  TSDL_VideoInit_fun = function(const driver_name: PAnsiChar): cint; cdecl;
-Var
-  SDL_VideoInit : TSDL_VideoInit_fun = Nil;
+type
+  TSDL_VideoInit_func = function(const driver_name: PAnsiChar): cint; cdecl;
+var
+  SDL_VideoInit : TSDL_VideoInit_func = Nil;
 
 
   {**
@@ -321,10 +321,10 @@ function SDL_GetNumVideoDisplays: cint; cdecl;
    *  SDL_GetNumVideoDisplays()
    *}
 
-Type
-  TSDL_GetDisplayName_fun = function(displayIndex: cint): PAnsiChar; cdecl;
-Var
-  SDL_GetDisplayName : TSDL_GetDisplayName_fun = Nil;
+type
+  TSDL_GetDisplayName_func = function(displayIndex: cint): PAnsiChar; cdecl;
+var
+  SDL_GetDisplayName : TSDL_GetDisplayName_func = Nil;
 
 
   {**
@@ -336,10 +336,10 @@ Var
    *  SDL_GetNumVideoDisplays()
    *}
 
-Type
-  TSDL_GetDisplayBounds_fun = function(displayIndex: cint; rect: PSDL_Rect): cint; cdecl;
-Var
-  SDL_GetDisplayBounds : TSDL_GetDisplayBounds_fun = Nil;
+type
+  TSDL_GetDisplayBounds_func = function(displayIndex: cint; rect: PSDL_Rect): cint; cdecl;
+var
+  SDL_GetDisplayBounds : TSDL_GetDisplayBounds_func = Nil;
 
 
 {**
@@ -359,10 +359,10 @@ Var
  *  \sa SDL_GetDisplayBounds()
  *  \sa SDL_GetNumVideoDisplays()
  *}
-Type
-  TSDL_GetDisplayUsableBounds_fun = function(displayIndex: cint; rect: PSDL_Rect): cint; cdecl;
-Var
-  SDL_GetDisplayUsableBounds : TSDL_GetDisplayUsableBounds_fun = Nil;
+type
+  TSDL_GetDisplayUsableBounds_func = function(displayIndex: cint; rect: PSDL_Rect): cint; cdecl;
+var
+  SDL_GetDisplayUsableBounds : TSDL_GetDisplayUsableBounds_func = Nil;
 
 
   {**
@@ -375,10 +375,10 @@ Var
    *
    *  \sa SDL_GetNumVideoDisplays()
    *}
-Type
-  TSDL_GetDisplayDPI_fun = function(displayIndex: cint; ddpi, hdpi, vdpi: pcfloat): cint; cdecl;
-Var
-  SDL_GetDisplayDPI : TSDL_GetDisplayDPI_fun = Nil;
+type
+  TSDL_GetDisplayDPI_func = function(displayIndex: cint; ddpi, hdpi, vdpi: pcfloat): cint; cdecl;
+var
+  SDL_GetDisplayDPI : TSDL_GetDisplayDPI_func = Nil;
 
 
 {**
@@ -388,10 +388,10 @@ Var
  *
  *  \sa SDL_GetNumVideoDisplays()
  *}
-Type
-  TSDL_GetDisplayOrientation_fun = function(displayIndex: cint): TSDL_DisplayOrientation; cdecl;
-Var
-  SDL_GetDisplayOrientation : TSDL_GetDisplayOrientation_fun = Nil;
+type
+  TSDL_GetDisplayOrientation_func = function(displayIndex: cint): TSDL_DisplayOrientation; cdecl;
+var
+  SDL_GetDisplayOrientation : TSDL_GetDisplayOrientation_func = Nil;
 
 
   {**
@@ -400,10 +400,10 @@ Var
    *  SDL_GetDisplayMode()
    *}
 
-Type
-  TSDL_GetNumDisplayModes_fun = function(displayIndex: cint): cint; cdecl;
-Var
-  SDL_GetNumDisplayModes : TSDL_GetNumDisplayModes_fun = Nil;
+type
+  TSDL_GetNumDisplayModes_func = function(displayIndex: cint): cint; cdecl;
+var
+  SDL_GetNumDisplayModes : TSDL_GetNumDisplayModes_func = Nil;
 
 
   {**
@@ -418,30 +418,30 @@ Var
    *  SDL_GetNumDisplayModes()
    *}
 
-Type
-  TSDL_GetDisplayMode_fun = function(displayIndex: cint; modeIndex: cint; mode: PSDL_DisplayMode): cint; cdecl;
-Var
-  SDL_GetDisplayMode : TSDL_GetDisplayMode_fun = Nil;
+type
+  TSDL_GetDisplayMode_func = function(displayIndex: cint; modeIndex: cint; mode: PSDL_DisplayMode): cint; cdecl;
+var
+  SDL_GetDisplayMode : TSDL_GetDisplayMode_func = Nil;
 
 
   {**
    *  Fill in information about the desktop display mode.
    *}
 
-Type
-  TSDL_GetDesktopDisplayMode_fun = function(displayIndex: cint; mode: PSDL_DisplayMode): cint; cdecl;
-Var
-  SDL_GetDesktopDisplayMode : TSDL_GetDesktopDisplayMode_fun = Nil;
+type
+  TSDL_GetDesktopDisplayMode_func = function(displayIndex: cint; mode: PSDL_DisplayMode): cint; cdecl;
+var
+  SDL_GetDesktopDisplayMode : TSDL_GetDesktopDisplayMode_func = Nil;
 
 
   {**
    *  Fill in information about the current display mode.
    *}
 
-Type
-  TSDL_GetCurrentDisplayMode_fun = function(displayIndex: cint; mode: PSDL_DisplayMode): cint; cdecl;
-Var
-  SDL_GetCurrentDisplayMode : TSDL_GetCurrentDisplayMode_fun = Nil;
+type
+  TSDL_GetCurrentDisplayMode_func = function(displayIndex: cint; mode: PSDL_DisplayMode): cint; cdecl;
+var
+  SDL_GetCurrentDisplayMode : TSDL_GetCurrentDisplayMode_func = Nil;
 
 
   {**
@@ -465,10 +465,10 @@ Var
    *  SDL_GetDisplayMode()
    *}
 
-Type
-  TSDL_GetClosestDisplayMode_fun = function(displayIndex: cint; const mode: PSDL_DisplayMode; closest: PSDL_DisplayMode): PSDL_DisplayMode; cdecl;
-Var
-  SDL_GetClosestDisplayMode : TSDL_GetClosestDisplayMode_fun = Nil;
+type
+  TSDL_GetClosestDisplayMode_func = function(displayIndex: cint; const mode: PSDL_DisplayMode; closest: PSDL_DisplayMode): PSDL_DisplayMode; cdecl;
+var
+  SDL_GetClosestDisplayMode : TSDL_GetClosestDisplayMode_func = Nil;
 
 
 {**
@@ -483,10 +483,10 @@ Var
  * \sa SDL_GetDisplayBounds
  * \sa SDL_GetNumVideoDisplays
  *}
-Type
-  TSDL_GetPointDisplayIndex_fun = function(const point: PSDL_Point): cint; cdecl;
-Var
-  SDL_GetPointDisplayIndex : TSDL_GetPointDisplayIndex_fun = Nil;
+type
+  TSDL_GetPointDisplayIndex_func = function(const point: PSDL_Point): cint; cdecl;
+var
+  SDL_GetPointDisplayIndex : TSDL_GetPointDisplayIndex_func = Nil;
 
 
 {**
@@ -502,10 +502,10 @@ Var
  * \sa SDL_GetDisplayBounds
  * \sa SDL_GetNumVideoDisplays
  *}
-Type
-  TSDL_GetRectDisplayIndex_fun = function(const rect: PSDL_Rect): cint; cdecl;
-Var
-  SDL_GetRectDisplayIndex : TSDL_GetRectDisplayIndex_fun = Nil;
+type
+  TSDL_GetRectDisplayIndex_func = function(const rect: PSDL_Rect): cint; cdecl;
+var
+  SDL_GetRectDisplayIndex : TSDL_GetRectDisplayIndex_func = Nil;
 
 
   {**
@@ -515,10 +515,10 @@ Var
    *  window, or -1 on error.
    *}
 
-Type
-  TSDL_GetWindowDisplayIndex_fun = function(window: PSDL_Window): cint; cdecl;
-Var
-  SDL_GetWindowDisplayIndex : TSDL_GetWindowDisplayIndex_fun = Nil;
+type
+  TSDL_GetWindowDisplayIndex_func = function(window: PSDL_Window): cint; cdecl;
+var
+  SDL_GetWindowDisplayIndex : TSDL_GetWindowDisplayIndex_func = Nil;
 
 
   {**
@@ -535,10 +535,10 @@ Var
    *  SDL_SetWindowFullscreen()
    *}
 
-Type
-  TSDL_SetWindowDisplayMode_fun = function(window: PSDL_Window; const mode: PSDL_DisplayMode): cint; cdecl;
-Var
-  SDL_SetWindowDisplayMode : TSDL_SetWindowDisplayMode_fun = Nil;
+type
+  TSDL_SetWindowDisplayMode_func = function(window: PSDL_Window; const mode: PSDL_DisplayMode): cint; cdecl;
+var
+  SDL_SetWindowDisplayMode : TSDL_SetWindowDisplayMode_func = Nil;
 
 
   {**
@@ -549,10 +549,10 @@ Var
    *  SDL_SetWindowFullscreen()
    *}
 
-Type
-  TSDL_GetWindowDisplayMode_fun = function(window: PSDL_Window; mode: PSDL_DisplayMode): cint; cdecl;
-Var
-  SDL_GetWindowDisplayMode : TSDL_GetWindowDisplayMode_fun = Nil;
+type
+  TSDL_GetWindowDisplayMode_func = function(window: PSDL_Window; mode: PSDL_DisplayMode): cint; cdecl;
+var
+  SDL_GetWindowDisplayMode : TSDL_GetWindowDisplayMode_func = Nil;
 
 
 {**
@@ -567,20 +567,20 @@ Var
  *
  * \since This function is available since SDL 2.0.18.
  *}
-Type
-  TSDL_GetWindowICCProfile_fun = function(window: PSDL_Window; size: pcsize_t): Pointer; cdecl;
-Var
-  SDL_GetWindowICCProfile : TSDL_GetWindowICCProfile_fun = Nil;
+type
+  TSDL_GetWindowICCProfile_func = function(window: PSDL_Window; size: pcsize_t): Pointer; cdecl;
+var
+  SDL_GetWindowICCProfile : TSDL_GetWindowICCProfile_func = Nil;
 
 
   {**
    *  Get the pixel format associated with the window.
    *}
 
-Type
-  TSDL_GetWindowPixelFormat_fun = function(window: PSDL_Window): cuint32; cdecl;
-Var
-  SDL_GetWindowPixelFormat : TSDL_GetWindowPixelFormat_fun = Nil;
+type
+  TSDL_GetWindowPixelFormat_func = function(window: PSDL_Window): cuint32; cdecl;
+var
+  SDL_GetWindowPixelFormat : TSDL_GetWindowPixelFormat_func = Nil;
 
 
   {**
@@ -626,10 +626,10 @@ Var
    *  \sa SDL_Vulkan_LoadLibrary()
    *}
 
-Type
-  TSDL_CreateWindow_fun = function(const title: PAnsiChar; x: cint; y: cint; w: cint; h: cint; flags: TSDL_WindowFlags): PSDL_Window; cdecl;
-Var
-  SDL_CreateWindow : TSDL_CreateWindow_fun = Nil;
+type
+  TSDL_CreateWindow_func = function(const title: PAnsiChar; x: cint; y: cint; w: cint; h: cint; flags: TSDL_WindowFlags): PSDL_Window; cdecl;
+var
+  SDL_CreateWindow : TSDL_CreateWindow_func = Nil;
 
 
   {**
@@ -642,40 +642,40 @@ Var
    *  SDL_DestroyWindow()
    *}
 
-Type
-  TSDL_CreateWindowFrom_fun = function(const data: Pointer): PSDL_Window; cdecl;
-Var
-  SDL_CreateWindowFrom : TSDL_CreateWindowFrom_fun = Nil;
+type
+  TSDL_CreateWindowFrom_func = function(const data: Pointer): PSDL_Window; cdecl;
+var
+  SDL_CreateWindowFrom : TSDL_CreateWindowFrom_func = Nil;
 
 
   {**
    *  Get the numeric ID of a window, for logging purposes.
    *}
 
-Type
-  TSDL_GetWindowID_fun = function(window: PSDL_Window): cuint32; cdecl;
-Var
-  SDL_GetWindowID : TSDL_GetWindowID_fun = Nil;
+type
+  TSDL_GetWindowID_func = function(window: PSDL_Window): cuint32; cdecl;
+var
+  SDL_GetWindowID : TSDL_GetWindowID_func = Nil;
 
 
   {**
    *  Get a window from a stored ID, or nil if it doesn't exist.
    *}
 
-Type
-  TSDL_GetWindowFromID_fun = function(id: cuint32): PSDL_Window; cdecl;
-Var
-  SDL_GetWindowFromID : TSDL_GetWindowFromID_fun = Nil;
+type
+  TSDL_GetWindowFromID_func = function(id: cuint32): PSDL_Window; cdecl;
+var
+  SDL_GetWindowFromID : TSDL_GetWindowFromID_func = Nil;
 
 
   {**
    *  Get the window flags.
    *}
 
-Type
-  TSDL_GetWindowFlags_fun = function(window: PSDL_Window): TSDL_WindowFlags; cdecl;
-Var
-  SDL_GetWindowFlags : TSDL_GetWindowFlags_fun = Nil;
+type
+  TSDL_GetWindowFlags_func = function(window: PSDL_Window): TSDL_WindowFlags; cdecl;
+var
+  SDL_GetWindowFlags : TSDL_GetWindowFlags_func = Nil;
 
 
   {**
@@ -684,9 +684,9 @@ Var
    *  SDL_GetWindowTitle()
    *}
 
-Type
+type
   TSDL_SetWindowTitle_proc = procedure(window: PSDL_Window; const title: PAnsiChar); cdecl;
-Var
+var
   SDL_SetWindowTitle : TSDL_SetWindowTitle_proc = Nil;
 
 
@@ -696,10 +696,10 @@ Var
    *  SDL_SetWindowTitle()
    *}
 
-Type
-  TSDL_GetWindowTitle_fun = function(window: PSDL_Window): PAnsiChar; cdecl;
-Var
-  SDL_GetWindowTitle : TSDL_GetWindowTitle_fun = Nil;
+type
+  TSDL_GetWindowTitle_func = function(window: PSDL_Window): PAnsiChar; cdecl;
+var
+  SDL_GetWindowTitle : TSDL_GetWindowTitle_func = Nil;
 
 
   {**
@@ -708,9 +708,9 @@ Var
    *  icon The icon for the window.
    *}
 
-Type
+type
   TSDL_SetWindowIcon_proc = procedure(window: PSDL_Window; icon: PSDL_Surface); cdecl;
-Var
+var
   SDL_SetWindowIcon : TSDL_SetWindowIcon_proc = Nil;
 
 
@@ -728,10 +728,10 @@ Var
    *  SDL_GetWindowData()
    *}
 
-Type
-  TSDL_SetWindowData_fun = function(window: PSDL_Window; const name: PAnsiChar; userdata: Pointer): Pointer; cdecl;
-Var
-  SDL_SetWindowData : TSDL_SetWindowData_fun = Nil;
+type
+  TSDL_SetWindowData_func = function(window: PSDL_Window; const name: PAnsiChar; userdata: Pointer): Pointer; cdecl;
+var
+  SDL_SetWindowData : TSDL_SetWindowData_func = Nil;
 
 
   {**
@@ -745,10 +745,10 @@ Var
    *  SDL_SetWindowData()
    *}
 
-Type
-  TSDL_GetWindowData_fun = function(window: PSDL_Window; const name: PAnsiChar): Pointer; cdecl;
-Var
-  SDL_GetWindowData : TSDL_GetWindowData_fun = Nil;
+type
+  TSDL_GetWindowData_func = function(window: PSDL_Window; const name: PAnsiChar): Pointer; cdecl;
+var
+  SDL_GetWindowData : TSDL_GetWindowData_func = Nil;
 
 
   {**
@@ -765,9 +765,9 @@ Var
    *  SDL_GetWindowPosition()
    *}
 
-Type
+type
   TSDL_SetWindowPosition_proc = procedure(window: PSDL_Window; x: cint; y: cint); cdecl;
-Var
+var
   SDL_SetWindowPosition : TSDL_SetWindowPosition_proc = Nil;
 
 
@@ -780,9 +780,9 @@ Var
    *  SDL_SetWindowPosition()
    *}
 
-Type
+type
   TSDL_GetWindowPosition_proc = procedure(window: PSDL_Window; x: pcint; y: pcint); cdecl;
-Var
+var
   SDL_GetWindowPosition : TSDL_GetWindowPosition_proc = Nil;
 
 
@@ -798,9 +798,9 @@ Var
    *  SDL_GetWindowSize()
    *}
 
-Type
+type
   TSDL_SetWindowSize_proc = procedure(window: PSDL_Window; w: cint; h: cint); cdecl;
-Var
+var
   SDL_SetWindowSize : TSDL_SetWindowSize_proc = Nil;
 
 
@@ -813,9 +813,9 @@ Var
    *  SDL_SetWindowSize()
    *}
 
-Type
+type
   TSDL_GetWindowSize_proc = procedure(window: PSDL_Window; w: pcint; h: pcint); cdecl;
-Var
+var
   SDL_GetWindowSize : TSDL_GetWindowSize_proc = Nil;
 
 
@@ -834,10 +834,10 @@ Var
    *        initialized to 0, 0, 0, 0 (if a non-NULL pointer is provided), as
    *        if the window in question was borderless.
    *}
-Type
-  TSDL_GetWindowBordersSize_fun = function(window: PSDL_Window; top, left, bottom, right: pcint): cint; cdecl;
-Var
-  SDL_GetWindowBordersSize : TSDL_GetWindowBordersSize_fun = Nil;
+type
+  TSDL_GetWindowBordersSize_func = function(window: PSDL_Window; top, left, bottom, right: pcint): cint; cdecl;
+var
+  SDL_GetWindowBordersSize : TSDL_GetWindowBordersSize_func = Nil;
 
 
   {**
@@ -858,9 +858,9 @@ Var
    * \sa SDL_CreateWindow
    * \sa SDL_GetWindowSize
    *}
-Type
+type
   TSDL_GetWindowSizeInPixels_proc = procedure(window: PSDL_Window; w, h: pcuint); cdecl;
-Var
+var
   SDL_GetWindowSizeInPixels : TSDL_GetWindowSizeInPixels_proc = Nil;
 
 
@@ -877,9 +877,9 @@ Var
    *  SDL_SetWindowMaximumSize()
    *}
 
-Type
+type
   TSDL_SetWindowMinimumSize_proc = procedure(window: PSDL_Window; min_w: cint; min_h: cint); cdecl;
-Var
+var
   SDL_SetWindowMinimumSize : TSDL_SetWindowMinimumSize_proc = Nil;
 
     
@@ -893,9 +893,9 @@ Var
    *  SDL_SetWindowMinimumSize()
    *}
 
-Type
+type
   TSDL_GetWindowMinimumSize_proc = procedure(window: PSDL_Window; w: pcint; h: pcint); cdecl;
-Var
+var
   SDL_GetWindowMinimumSize : TSDL_GetWindowMinimumSize_proc = Nil;
 
 
@@ -912,9 +912,9 @@ Var
    *  SDL_SetWindowMinimumSize()
    *}
 
-Type
+type
   TSDL_SetWindowMaximumSize_proc = procedure(window: PSDL_Window; max_w: cint; max_h: cint); cdecl;
-Var
+var
   SDL_SetWindowMaximumSize : TSDL_SetWindowMaximumSize_proc = Nil;
 
 
@@ -928,9 +928,9 @@ Var
    *  SDL_SetWindowMaximumSize()
    *}
 
-Type
+type
   TSDL_GetWindowMaximumSize_proc = procedure(window: PSDL_Window; w: pcint; h: pcint); cdecl;
-Var
+var
   SDL_GetWindowMaximumSize : TSDL_GetWindowMaximumSize_proc = Nil;
 
 
@@ -949,9 +949,9 @@ Var
    *  SDL_GetWindowFlags()
    *}
 
-Type
+type
   TSDL_SetWindowBordered_proc = procedure(window: PSDL_Window; bordered: TSDL_Bool); cdecl;
-Var
+var
   SDL_SetWindowBordered : TSDL_SetWindowBordered_proc = Nil;
 
 
@@ -969,9 +969,9 @@ Var
    *
    *  \sa SDL_GetWindowFlags()
    *}
-Type
+type
   TSDL_SetWindowResizable_proc = procedure(window: PSDL_Window; resizable: TSDL_Bool); cdecl;
-Var
+var
   SDL_SetWindowResizable : TSDL_SetWindowResizable_proc = Nil;
 
 
@@ -989,9 +989,9 @@ Var
  *
  * \sa SDL_GetWindowFlags
  *}
-Type
+type
   TSDL_SetWindowAlwaysOnTop_proc = procedure(window: PSDL_Window; on_top: TSDL_Bool); cdecl;
-Var
+var
   SDL_SetWindowAlwaysOnTop : TSDL_SetWindowAlwaysOnTop_proc = Nil;
 
 
@@ -1001,9 +1001,9 @@ Var
    *  SDL_HideWindow()
    *}
 
-Type
+type
   TSDL_ShowWindow_proc = procedure(window: PSDL_Window); cdecl;
-Var
+var
   SDL_ShowWindow : TSDL_ShowWindow_proc = Nil;
 
 
@@ -1013,9 +1013,9 @@ Var
    *  SDL_ShowWindow()
    *}
 
-Type
+type
   TSDL_HideWindow_proc = procedure(window: PSDL_Window); cdecl;
-Var
+var
   SDL_HideWindow : TSDL_HideWindow_proc = Nil;
 
 
@@ -1023,9 +1023,9 @@ Var
    *  Raise a window above other windows and set the input focus.
    *}
 
-Type
+type
   TSDL_RaiseWindow_proc = procedure(window: PSDL_Window); cdecl;
-Var
+var
   SDL_RaiseWindow : TSDL_RaiseWindow_proc = Nil;
 
 
@@ -1035,9 +1035,9 @@ Var
    *  SDL_RestoreWindow()
    *}
 
-Type
+type
   TSDL_MaximizeWindow_proc = procedure(window: PSDL_Window); cdecl;
-Var
+var
   SDL_MaximizeWindow : TSDL_MaximizeWindow_proc = Nil;
 
 
@@ -1047,9 +1047,9 @@ Var
    *  SDL_RestoreWindow()
    *}
 
-Type
+type
   TSDL_MinimizeWindow_proc = procedure(window: PSDL_Window); cdecl;
-Var
+var
   SDL_MinimizeWindow : TSDL_MinimizeWindow_proc = Nil;
 
 
@@ -1060,9 +1060,9 @@ Var
    *  SDL_MinimizeWindow()
    *}
 
-Type
+type
   TSDL_RestoreWindow_proc = procedure(window: PSDL_Window); cdecl;
-Var
+var
   SDL_RestoreWindow : TSDL_RestoreWindow_proc = Nil;
 
 
@@ -1075,10 +1075,10 @@ Var
    *  SDL_GetWindowDisplayMode()
    *}
 
-Type
-  TSDL_SetWindowFullscreen_fun = function(window: PSDL_Window; flags: TSDL_WindowFlags): cint; cdecl;
-Var
-  SDL_SetWindowFullscreen : TSDL_SetWindowFullscreen_fun = Nil;
+type
+  TSDL_SetWindowFullscreen_func = function(window: PSDL_Window; flags: TSDL_WindowFlags): cint; cdecl;
+var
+  SDL_SetWindowFullscreen : TSDL_SetWindowFullscreen_func = Nil;
 
 
   {**
@@ -1091,10 +1091,10 @@ Var
    *
    * \sa SDL_GetWindowSurface
    *}
-Type
-  TSDL_HasWindowSurface_fun = function(window: PSDL_Window): TSDL_Bool; cdecl;
-Var
-  SDL_HasWindowSurface : TSDL_HasWindowSurface_fun = Nil;
+type
+  TSDL_HasWindowSurface_func = function(window: PSDL_Window): TSDL_Bool; cdecl;
+var
+  SDL_HasWindowSurface : TSDL_HasWindowSurface_func = Nil;
 
 
   {**
@@ -1111,10 +1111,10 @@ Var
    *  SDL_UpdateWindowSurfaceRects()
    *}
 
-Type
-  TSDL_GetWindowSurface_fun = function(window: PSDL_Window): PSDL_Surface; cdecl;
-Var
-  SDL_GetWindowSurface : TSDL_GetWindowSurface_fun = Nil;
+type
+  TSDL_GetWindowSurface_func = function(window: PSDL_Window): PSDL_Surface; cdecl;
+var
+  SDL_GetWindowSurface : TSDL_GetWindowSurface_func = Nil;
 
 
   {**
@@ -1126,10 +1126,10 @@ Var
    *  SDL_UpdateWindowSurfaceRects()
    *}
 
-Type
-  TSDL_UpdateWindowSurface_fun = function(window: PSDL_Window): cint; cdecl;
-Var
-  SDL_UpdateWindowSurface : TSDL_UpdateWindowSurface_fun = Nil;
+type
+  TSDL_UpdateWindowSurface_func = function(window: PSDL_Window): cint; cdecl;
+var
+  SDL_UpdateWindowSurface : TSDL_UpdateWindowSurface_func = Nil;
 
 
   {**
@@ -1141,10 +1141,10 @@ Var
    *  SDL_UpdateWindowSurfaceRect()
    *}
 
-Type
-  TSDL_UpdateWindowSurfaceRects_fun = function(window: PSDL_Window; rects: PSDL_Rect; numrects: cint): cint; cdecl;
-Var
-  SDL_UpdateWindowSurfaceRects : TSDL_UpdateWindowSurfaceRects_fun = Nil;
+type
+  TSDL_UpdateWindowSurfaceRects_func = function(window: PSDL_Window; rects: PSDL_Rect; numrects: cint): cint; cdecl;
+var
+  SDL_UpdateWindowSurfaceRects : TSDL_UpdateWindowSurfaceRects_func = Nil;
 
 
   {**
@@ -1159,10 +1159,10 @@ Var
    * \sa SDL_GetWindowSurface
    * \sa SDL_HasWindowSurface
    *}
-Type
-  TSDL_DestroyWindowSurface_fun = function(window: PSDL_Window): cint; cdecl;
-Var
-  SDL_DestroyWindowSurface : TSDL_DestroyWindowSurface_fun = Nil;
+type
+  TSDL_DestroyWindowSurface_func = function(window: PSDL_Window): cint; cdecl;
+var
+  SDL_DestroyWindowSurface : TSDL_DestroyWindowSurface_func = Nil;
 
 
   {**
@@ -1173,9 +1173,9 @@ Var
    *  SDL_GetWindowGrab()
    *}
 
-Type
+type
   TSDL_SetWindowGrab_proc = procedure(window: PSDL_Window; grabbed: TSDL_Bool); cdecl;
-Var
+var
   SDL_SetWindowGrab : TSDL_SetWindowGrab_proc = Nil;
 
 
@@ -1187,10 +1187,10 @@ Var
    *  SDL_SetWindowGrab()
    *}
 
-Type
-  TSDL_GetWindowGrab_fun = function(window: PSDL_Window): TSDL_Bool; cdecl;
-Var
-  SDL_GetWindowGrab : TSDL_GetWindowGrab_fun = Nil;
+type
+  TSDL_GetWindowGrab_func = function(window: PSDL_Window): TSDL_Bool; cdecl;
+var
+  SDL_GetWindowGrab : TSDL_GetWindowGrab_func = Nil;
 
 
 {**
@@ -1221,9 +1221,9 @@ Var
  * \sa SDL_SetWindowMouseGrab
  * \sa SDL_SetWindowGrab
  *}
-Type
+type
   TSDL_SetWindowKeyboardGrab_proc = procedure(window: PSDL_Window; grabbed: TSDL_Bool); cdecl;
-Var
+var
   SDL_SetWindowKeyboardGrab : TSDL_SetWindowKeyboardGrab_proc = Nil;
 
 
@@ -1235,10 +1235,10 @@ Var
    *  SDL_SetWindowKeyboardGrab()
    *}
 
-Type
-  TSDL_GetWindowKeyboardGrab_fun = function(window: PSDL_Window): TSDL_Bool; cdecl;
-Var
-  SDL_GetWindowKeyboardGrab : TSDL_GetWindowKeyboardGrab_fun = Nil;
+type
+  TSDL_GetWindowKeyboardGrab_func = function(window: PSDL_Window): TSDL_Bool; cdecl;
+var
+  SDL_GetWindowKeyboardGrab : TSDL_GetWindowKeyboardGrab_func = Nil;
 
 
   {**
@@ -1250,9 +1250,9 @@ Var
    *  SDL_GetWindowMouseGrab()
    *}
 
-Type
+type
   TSDL_SetWindowMouseGrab_proc = procedure(window: PSDL_Window; grabbed: TSDL_Bool); cdecl;
-Var
+var
   SDL_SetWindowMouseGrab : TSDL_SetWindowMouseGrab_proc = Nil;
 
 
@@ -1264,10 +1264,10 @@ Var
    *  SDL_SetWindowMouseGrab()
    *}
 
-Type
-  TSDL_GetWindowMouseGrab_fun = function(window: PSDL_Window): TSDL_Bool; cdecl;
-Var
-  SDL_GetWindowMouseGrab : TSDL_GetWindowMouseGrab_fun = Nil;
+type
+  TSDL_GetWindowMouseGrab_func = function(window: PSDL_Window): TSDL_Bool; cdecl;
+var
+  SDL_GetWindowMouseGrab : TSDL_GetWindowMouseGrab_func = Nil;
 
 
   {**
@@ -1279,9 +1279,9 @@ Var
    *  SDL_GetWindowMouseRect()
    *}
 
-Type
+type
   TSDL_SetWindowMouseRect_proc = procedure(window: PSDL_Window; rect: PSDL_Rect); cdecl;
-Var
+var
   SDL_SetWindowMouseRect : TSDL_SetWindowMouseRect_proc = Nil;
 
 
@@ -1293,10 +1293,10 @@ Var
    *  SDL_SetWindowMouseRect()
    *}
 
-Type
-  TSDL_GetWindowMouseRect_fun = function(window: PSDL_Window): PSDL_Rect; cdecl;
-Var
-  SDL_GetWindowMouseRect : TSDL_GetWindowMouseRect_fun = Nil;
+type
+  TSDL_GetWindowMouseRect_func = function(window: PSDL_Window): PSDL_Rect; cdecl;
+var
+  SDL_GetWindowMouseRect : TSDL_GetWindowMouseRect_func = Nil;
 
 
   {**
@@ -1306,10 +1306,10 @@ Var
    *
    *  \sa SDL_SetWindowGrab()
    *}
-Type
-  TSDL_GetGrabbedWindow_fun = function(): PSDL_Window; cdecl;
-Var
-  SDL_GetGrabbedWindow : TSDL_GetGrabbedWindow_fun = Nil;
+type
+  TSDL_GetGrabbedWindow_func = function(): PSDL_Window; cdecl;
+var
+  SDL_GetGrabbedWindow : TSDL_GetGrabbedWindow_func = Nil;
 
 
   {**
@@ -1321,10 +1321,10 @@ Var
    *  SDL_SetWindowGammaRamp()
    *}
 
-Type
-  TSDL_SetWindowBrightness_fun = function(window: PSDL_Window; brightness: cfloat): cint; cdecl;
-Var
-  SDL_SetWindowBrightness : TSDL_SetWindowBrightness_fun = Nil;
+type
+  TSDL_SetWindowBrightness_func = function(window: PSDL_Window; brightness: cfloat): cint; cdecl;
+var
+  SDL_SetWindowBrightness : TSDL_SetWindowBrightness_func = Nil;
 
 
   {**
@@ -1335,10 +1335,10 @@ Var
    *  SDL_SetWindowBrightness()
    *}
 
-Type
-  TSDL_GetWindowBrightness_fun = function(window: PSDL_Window): cfloat; cdecl;
-Var
-  SDL_GetWindowBrightness : TSDL_GetWindowBrightness_fun = Nil;
+type
+  TSDL_GetWindowBrightness_func = function(window: PSDL_Window): cfloat; cdecl;
+var
+  SDL_GetWindowBrightness : TSDL_GetWindowBrightness_func = Nil;
 
 
   {**
@@ -1352,10 +1352,10 @@ Var
    *
    *  \sa SDL_GetWindowOpacity()
    *}
-Type
-  TSDL_SetWindowOpacity_fun = function(window: PSDL_Window; opacity: cfloat): cint; cdecl;
-Var
-  SDL_SetWindowOpacity : TSDL_SetWindowOpacity_fun = Nil;
+type
+  TSDL_SetWindowOpacity_func = function(window: PSDL_Window; opacity: cfloat): cint; cdecl;
+var
+  SDL_SetWindowOpacity : TSDL_SetWindowOpacity_func = Nil;
 
 
   {**
@@ -1371,10 +1371,10 @@ Var
    *
    *  \sa SDL_SetWindowOpacity()
    *}
-Type
-  TSDL_GetWindowOpacity_fun = function(window: PSDL_Window; out_opacity: pcfloat): cint; cdecl;
-Var
-  SDL_GetWindowOpacity : TSDL_GetWindowOpacity_fun = Nil;
+type
+  TSDL_GetWindowOpacity_func = function(window: PSDL_Window; out_opacity: pcfloat): cint; cdecl;
+var
+  SDL_GetWindowOpacity : TSDL_GetWindowOpacity_func = Nil;
 
 
   {** 
@@ -1385,10 +1385,10 @@ Var
    * 
    *  \return 0 on success, or -1 otherwise.
    *}
-Type
-  TSDL_SetWindowModalFor_fun = function(modal_window, parent_window: PSDL_Window): cint; cdecl;
-Var
-  SDL_SetWindowModalFor : TSDL_SetWindowModalFor_fun = Nil;
+type
+  TSDL_SetWindowModalFor_func = function(modal_window, parent_window: PSDL_Window): cint; cdecl;
+var
+  SDL_SetWindowModalFor : TSDL_SetWindowModalFor_func = Nil;
 
 
   {**
@@ -1403,10 +1403,10 @@ Var
    *  \return 0 on success, or -1 otherwise.
    *  \sa SDL_RaiseWindow()
    *}
-Type
-  TSDL_SetWindowInputFocus_fun = function(window: PSDL_Window): cint; cdecl;
-Var
-  SDL_SetWindowInputFocus : TSDL_SetWindowInputFocus_fun = Nil;
+type
+  TSDL_SetWindowInputFocus_func = function(window: PSDL_Window): cint; cdecl;
+var
+  SDL_SetWindowInputFocus : TSDL_SetWindowInputFocus_func = Nil;
 
 
   {**
@@ -1427,10 +1427,10 @@ Var
    *  SDL_GetWindowGammaRamp()
    *}
 
-Type
-  TSDL_SetWindowGammaRamp_fun = function(window: PSDL_Window; const red: pcuint16; const green: pcuint16; const blue: pcuint16): cint; cdecl;
-Var
-  SDL_SetWindowGammaRamp : TSDL_SetWindowGammaRamp_fun = Nil;
+type
+  TSDL_SetWindowGammaRamp_func = function(window: PSDL_Window; const red: pcuint16; const green: pcuint16; const blue: pcuint16): cint; cdecl;
+var
+  SDL_SetWindowGammaRamp : TSDL_SetWindowGammaRamp_func = Nil;
 
 
   {**
@@ -1448,10 +1448,10 @@ Var
    *  SDL_SetWindowGammaRamp()
    *}
 
-Type
-  TSDL_GetWindowGammaRamp_fun = function(window: PSDL_Window; red: pcuint16; green: pcuint16; blue: pcuint16): cint; cdecl;
-Var
-  SDL_GetWindowGammaRamp : TSDL_GetWindowGammaRamp_fun = Nil;
+type
+  TSDL_GetWindowGammaRamp_func = function(window: PSDL_Window; red: pcuint16; green: pcuint16; blue: pcuint16): cint; cdecl;
+var
+  SDL_GetWindowGammaRamp : TSDL_GetWindowGammaRamp_func = Nil;
 
 
 {**
@@ -1523,10 +1523,10 @@ type
    *  \param callback_data An app-defined void pointer passed to the callback.
    *  \return 0 on success, -1 on error (including unsupported).
    *}
-Type
-  TSDL_SetWindowHitTest_fun = function(window: PSDL_Window; callback: TSDL_HitTest; callback_data: Pointer): cint; cdecl;
-Var
-  SDL_SetWindowHitTest : TSDL_SetWindowHitTest_fun = Nil;
+type
+  TSDL_SetWindowHitTest_func = function(window: PSDL_Window; callback: TSDL_HitTest; callback_data: Pointer): cint; cdecl;
+var
+  SDL_SetWindowHitTest : TSDL_SetWindowHitTest_func = Nil;
 
 
   {**
@@ -1539,19 +1539,19 @@ Var
    *
    * \since This function is available since SDL 2.0.16.
    *}
-Type
-  TSDL_FlashWindow_fun = function(window: PSDL_Window; operation: TSDL_FlashOperation): cint; cdecl;
-Var
-  SDL_FlashWindow : TSDL_FlashWindow_fun = Nil;
+type
+  TSDL_FlashWindow_func = function(window: PSDL_Window; operation: TSDL_FlashOperation): cint; cdecl;
+var
+  SDL_FlashWindow : TSDL_FlashWindow_func = Nil;
 
 
   {**
    *  Destroy a window.
    *}
 
-Type
+type
   TSDL_DestroyWindow_proc = procedure(window: PSDL_Window); cdecl;
-Var
+var
   SDL_DestroyWindow : TSDL_DestroyWindow_proc = Nil;
 
 
@@ -1608,20 +1608,20 @@ procedure SDL_DisableScreenSaver; cdecl;
    *  SDL_GL_UnloadLibrary()
    *}
 
-Type
-  TSDL_GL_LoadLibrary_fun = function(const path: PAnsiChar): cint; cdecl;
-Var
-  SDL_GL_LoadLibrary : TSDL_GL_LoadLibrary_fun = Nil;
+type
+  TSDL_GL_LoadLibrary_func = function(const path: PAnsiChar): cint; cdecl;
+var
+  SDL_GL_LoadLibrary : TSDL_GL_LoadLibrary_func = Nil;
 
 
   {**
    *  Get the address of an OpenGL function.
    *}
 
-Type
-  TSDL_GL_GetProcAddress_fun = function(const proc: PAnsiChar): Pointer; cdecl;
-Var
-  SDL_GL_GetProcAddress : TSDL_GL_GetProcAddress_fun = Nil;
+type
+  TSDL_GL_GetProcAddress_func = function(const proc: PAnsiChar): Pointer; cdecl;
+var
+  SDL_GL_GetProcAddress : TSDL_GL_GetProcAddress_func = Nil;
 
 
   {**
@@ -1638,18 +1638,18 @@ procedure SDL_GL_UnloadLibrary; cdecl;
    *  context.
    *}
 
-Type
-  TSDL_GL_ExtensionSupported_fun = function(const extension: PAnsiChar): TSDL_Bool; cdecl;
-Var
-  SDL_GL_ExtensionSupported : TSDL_GL_ExtensionSupported_fun = Nil;
+type
+  TSDL_GL_ExtensionSupported_func = function(const extension: PAnsiChar): TSDL_Bool; cdecl;
+var
+  SDL_GL_ExtensionSupported : TSDL_GL_ExtensionSupported_func = Nil;
 
 
   {**
    *  Reset all previously set OpenGL context attributes to their default values
    *}
-Type
+type
   TSDL_GL_ResetAttributes_proc = procedure(); cdecl;
-Var
+var
   SDL_GL_ResetAttributes : TSDL_GL_ResetAttributes_proc = Nil;
 
 
@@ -1657,20 +1657,20 @@ Var
    *  Set an OpenGL window attribute before window creation.
    *}
 
-Type
-  TSDL_GL_SetAttribute_fun = function(attr: TSDL_GLattr; value: cint): cint; cdecl;
-Var
-  SDL_GL_SetAttribute : TSDL_GL_SetAttribute_fun = Nil;
+type
+  TSDL_GL_SetAttribute_func = function(attr: TSDL_GLattr; value: cint): cint; cdecl;
+var
+  SDL_GL_SetAttribute : TSDL_GL_SetAttribute_func = Nil;
 
 
   {**
    *  Get the actual value for an attribute from the current context.
    *}
 
-Type
-  TSDL_GL_GetAttribute_fun = function(attr: TSDL_GLattr; value: pcint): cint; cdecl;
-Var
-  SDL_GL_GetAttribute : TSDL_GL_GetAttribute_fun = Nil;
+type
+  TSDL_GL_GetAttribute_func = function(attr: TSDL_GLattr; value: pcint): cint; cdecl;
+var
+  SDL_GL_GetAttribute : TSDL_GL_GetAttribute_func = Nil;
 
 
   {**
@@ -1680,10 +1680,10 @@ Var
    *  SDL_GL_DeleteContext()
    *}
 
-Type
-  TSDL_GL_CreateContext_fun = function(window: PSDL_Window): TSDL_GLContext; cdecl;
-Var
-  SDL_GL_CreateContext : TSDL_GL_CreateContext_fun = Nil;
+type
+  TSDL_GL_CreateContext_func = function(window: PSDL_Window): TSDL_GLContext; cdecl;
+var
+  SDL_GL_CreateContext : TSDL_GL_CreateContext_func = Nil;
 
 
   {**
@@ -1692,10 +1692,10 @@ Var
    *  The context must have been created with a compatible window.
    *}
 
-Type
-  TSDL_GL_MakeCurrent_fun = function(window: PSDL_Window; context: TSDL_GLContext): cint; cdecl;
-Var
-  SDL_GL_MakeCurrent : TSDL_GL_MakeCurrent_fun = Nil;
+type
+  TSDL_GL_MakeCurrent_func = function(window: PSDL_Window; context: TSDL_GLContext): cint; cdecl;
+var
+  SDL_GL_MakeCurrent : TSDL_GL_MakeCurrent_func = Nil;
 
 
   {**
@@ -1727,9 +1727,9 @@ function SDL_GL_GetCurrentContext: TSDL_GLContext; cdecl;
    *  SDL_CreateWindow()
    *}
    
-Type
+type
   TSDL_GL_GetDrawableSize_proc = procedure(window: PSDL_Window; w: pcint; h: pcint); cdecl;
-Var
+var
   SDL_GL_GetDrawableSize : TSDL_GL_GetDrawableSize_proc = Nil;
 
 
@@ -1746,10 +1746,10 @@ Var
    *  SDL_GL_GetSwapInterval()
    *}
 
-Type
-  TSDL_GL_SetSwapInterval_fun = function(interval: cint): cint; cdecl;
-Var
-  SDL_GL_SetSwapInterval : TSDL_GL_SetSwapInterval_fun = Nil;
+type
+  TSDL_GL_SetSwapInterval_func = function(interval: cint): cint; cdecl;
+var
+  SDL_GL_SetSwapInterval : TSDL_GL_SetSwapInterval_func = Nil;
 
 
   {**
@@ -1772,9 +1772,9 @@ function SDL_GL_GetSwapInterval: cint; cdecl;
    *  supported.
    *}
 
-Type
+type
   TSDL_GL_SwapWindow_proc = procedure(window: PSDL_Window); cdecl;
-Var
+var
   SDL_GL_SwapWindow : TSDL_GL_SwapWindow_proc = Nil;
 
 
@@ -1784,9 +1784,9 @@ Var
    *  SDL_GL_CreateContext()
    *}
 
-Type
+type
   TSDL_GL_DeleteContext_proc = procedure(context: TSDL_GLContext); cdecl;
-Var
+var
   SDL_GL_DeleteContext : TSDL_GL_DeleteContext_proc = Nil;
 
 

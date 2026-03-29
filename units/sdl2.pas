@@ -269,9 +269,9 @@ uses
 	{$ELSE}
 		AnsiStrings
 	{$ENDIF}
-        {$ifdef SDL_RUNTIME_LOADING}
+        {$IFDEF SDL_RUNTIME_LOADING}
         , dynlibs
-        {$endif}
+        {$ENDIF}
         ;
 
 {$I sdl_runtime_linking.inc}

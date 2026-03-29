@@ -68,28 +68,28 @@ const
 {**
  *  \brief Set the priority of all log categories
  *}
-Type
+type
   TSDL_LogSetAllPriority_proc = procedure(priority: TSDL_LogPriority); cdecl;
-Var
+var
   SDL_LogSetAllPriority : TSDL_LogSetAllPriority_proc = Nil;
 
 
 {**
  *  \brief Set the priority of a particular log category
  *}
-Type
+type
   TSDL_LogSetPriority_proc = procedure(category: TSDL_LogCategory; priority: TSDL_LogPriority); cdecl;
-Var
+var
   SDL_LogSetPriority : TSDL_LogSetPriority_proc = Nil;
 
 
 {**
  *  \brief Get the priority of a particular log category
  *}
-Type
-  TSDL_LogGetPriority_fun = function(category: TSDL_LogCategory): TSDL_LogPriority; cdecl;
-Var
-  SDL_LogGetPriority : TSDL_LogGetPriority_fun = Nil;
+type
+  TSDL_LogGetPriority_func = function(category: TSDL_LogCategory): TSDL_LogPriority; cdecl;
+var
+  SDL_LogGetPriority : TSDL_LogGetPriority_func = Nil;
 
 
 {**
@@ -97,90 +97,90 @@ Var
  *
  *  \note This is called in SDL_Quit().
  *}
-Type
+type
   TSDL_LogResetPriorities_proc = procedure(); cdecl;
-Var
+var
   SDL_LogResetPriorities : TSDL_LogResetPriorities_proc = Nil;
 
 
 {**
  *  \brief Log a message with SDL_LOG_CATEGORY_APPLICATION and SDL_LOG_PRIORITY_INFO
  *}
-Type
+type
   TSDL_Log_proc = procedure(const fmt: PAnsiChar; pars: array of const); cdecl;
-Var
+var
   SDL_Log : TSDL_Log_proc = Nil;
 
 
 {**
  *  \brief Log a message with SDL_LOG_PRIORITY_VERBOSE
  *}
-Type
+type
   TSDL_LogVerbose_proc = procedure(category: TSDL_LogCategory; const fmt: PAnsiChar; pars: array of const); cdecl;
-Var
+var
   SDL_LogVerbose : TSDL_LogVerbose_proc = Nil;
 
 
 {**
  *  \brief Log a message with SDL_LOG_PRIORITY_DEBUG
  *}
-Type
+type
   TSDL_LogDebug_proc = procedure(category: TSDL_LogCategory; const fmt: PAnsiChar; pars: array of const); cdecl;
-Var
+var
   SDL_LogDebug : TSDL_LogDebug_proc = Nil;
 
 
 {**
  *  \brief Log a message with SDL_LOG_PRIORITY_INFO
  *}
-Type
+type
   TSDL_LogInfo_proc = procedure(category: TSDL_LogCategory; const fmt: PAnsiChar; pars: array of const); cdecl;
-Var
+var
   SDL_LogInfo : TSDL_LogInfo_proc = Nil;
 
 
 {**
  *  \brief Log a message with SDL_LOG_PRIORITY_WARN
  *}
-Type
+type
   TSDL_LogWarn_proc = procedure(category: TSDL_LogCategory; const fmt: PAnsiChar; pars: array of const); cdecl;
-Var
+var
   SDL_LogWarn : TSDL_LogWarn_proc = Nil;
 
 
 {**
  *  \brief Log a message with SDL_LOG_PRIORITY_ERROR
  *}
-Type
+type
   TSDL_LogError_proc = procedure(category: TSDL_LogCategory; const fmt: PAnsiChar; pars: array of const); cdecl;
-Var
+var
   SDL_LogError : TSDL_LogError_proc = Nil;
 
 
 {**
  *  \brief Log a message with SDL_LOG_PRIORITY_CRITICAL
  *}
-Type
+type
   TSDL_LogCritical_proc = procedure(category: TSDL_LogCategory; const fmt: PAnsiChar; pars: array of const); cdecl;
-Var
+var
   SDL_LogCritical : TSDL_LogCritical_proc = Nil;
 
 
 {**
  *  \brief Log a message with the specified category and priority.
  *}
-Type
+type
   TSDL_LogMessage_proc = procedure(category: TSDL_LogCategory; priority: TSDL_LogPriority; const fmt: PAnsiChar; pars: array of const); cdecl;
-Var
+var
   SDL_LogMessage : TSDL_LogMessage_proc = Nil;
 
 
 {**
  *  \brief Log a message with the specified category and priority.
  *}
-Type
+type
   TSDL_LogMessageV_proc = procedure(category: TSDL_LogCategory; priority: TSDL_LogPriority; const fmt: PAnsiChar; ap: array of const); cdecl;
-Var
+var
   SDL_LogMessageV : TSDL_LogMessageV_proc = Nil;
 
 

@@ -39,9 +39,9 @@ type
  *
  * \sa SDL_GUIDFromString
  *}
-Type
+type
   TSDL_GUIDToString_proc = procedure(guid: TSDL_GUID; pszGUID: PAnsiChar; cbGUID: cint); cdecl;
-Var
+var
   SDL_GUIDToString : TSDL_GUIDToString_proc = Nil;
 
 
@@ -59,8 +59,8 @@ Var
  *
  * \sa SDL_GUIDToString
  *}
-Type
-  TSDL_GUIDFromString_fun = function(const pchGUID: PAnsiChar): TSDL_GUID; cdecl;
-Var
-  SDL_GUIDFromString : TSDL_GUIDFromString_fun = Nil;
+type
+  TSDL_GUIDFromString_func = function(const pchGUID: PAnsiChar): TSDL_GUID; cdecl;
+var
+  SDL_GUIDFromString : TSDL_GUIDFromString_func = Nil;
 

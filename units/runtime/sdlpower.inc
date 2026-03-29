@@ -31,8 +31,8 @@ type
    *
    *  \return The state of the battery (if any).
    *}
-Type
-  TSDL_GetPowerInfo_fun = function(secs: pcint; pct: pcint): TSDL_PowerState; cdecl;
-Var
-  SDL_GetPowerInfo : TSDL_GetPowerInfo_fun = Nil;
+type
+  TSDL_GetPowerInfo_func = function(secs: pcint; pct: pcint): TSDL_PowerState; cdecl;
+var
+  SDL_GetPowerInfo : TSDL_GetPowerInfo_func = Nil;
 

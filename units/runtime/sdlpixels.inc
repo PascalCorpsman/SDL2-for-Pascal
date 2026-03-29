@@ -536,10 +536,10 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-Type
-  TSDL_GetPixelFormatName_fun = function(format: cuint32): PAnsiChar; cdecl;
-Var
-  SDL_GetPixelFormatName : TSDL_GetPixelFormatName_fun = Nil;
+type
+  TSDL_GetPixelFormatName_func = function(format: cuint32): PAnsiChar; cdecl;
+var
+  SDL_GetPixelFormatName : TSDL_GetPixelFormatName_func = Nil;
 
 
 {**
@@ -558,10 +558,10 @@ Var
  *
  * \sa SDL_MasksToPixelFormatEnum
  *}
-Type
+type
   TSDL_PixelFormatEnumToMasks_func = function(format: cuint32; bpp: pcint;
   Rmask: pcuint32; Gmask: pcuint32; Bmask: pcuint32; Amask: pcuint32): TSDL_Bool; cdecl;
-Var
+var
   SDL_PixelFormatEnumToMasks : TSDL_PixelFormatEnumToMasks_func = Nil;
 
 {**
@@ -581,10 +581,10 @@ Var
  *
  * \sa SDL_PixelFormatEnumToMasks
  *}
-Type
-  TSDL_MasksToPixelFormatEnum_fun = function(bpp: cint; Rmask: cuint32; Gmask: cuint32; Bmask: cuint32; Amask: cuint32): cuint32; cdecl;
-Var
-  SDL_MasksToPixelFormatEnum : TSDL_MasksToPixelFormatEnum_fun = Nil;
+type
+  TSDL_MasksToPixelFormatEnum_func = function(bpp: cint; Rmask: cuint32; Gmask: cuint32; Bmask: cuint32; Amask: cuint32): cuint32; cdecl;
+var
+  SDL_MasksToPixelFormatEnum : TSDL_MasksToPixelFormatEnum_func = Nil;
 
 
 {**
@@ -602,10 +602,10 @@ Var
  *
  * \sa SDL_FreeFormat
  *}
-Type
-  TSDL_AllocFormat_fun = function(pixel_format: cuint32): PSDL_PixelFormat; cdecl;
-Var
-  SDL_AllocFormat : TSDL_AllocFormat_fun = Nil;
+type
+  TSDL_AllocFormat_func = function(pixel_format: cuint32): PSDL_PixelFormat; cdecl;
+var
+  SDL_AllocFormat : TSDL_AllocFormat_func = Nil;
 
 
 {**
@@ -617,9 +617,9 @@ Var
  *
  * \sa SDL_AllocFormat
  *}
-Type
+type
   TSDL_FreeFormat_proc = procedure(format: PSDL_PixelFormat); cdecl;
-Var
+var
   SDL_FreeFormat : TSDL_FreeFormat_proc = Nil;
 
 
@@ -637,10 +637,10 @@ Var
  *
  * \sa SDL_FreePalette
  *}
-Type
-  TSDL_AllocPalette_fun = function(ncolors: cint): PSDL_Palette; cdecl;
-Var
-  SDL_AllocPalette : TSDL_AllocPalette_fun = Nil;
+type
+  TSDL_AllocPalette_func = function(ncolors: cint): PSDL_Palette; cdecl;
+var
+  SDL_AllocPalette : TSDL_AllocPalette_func = Nil;
 
 
 {**
@@ -656,10 +656,10 @@ Var
  * \sa SDL_AllocPalette
  * \sa SDL_FreePalette
  *}
-Type
-  TSDL_SetPixelFormatPalette_fun = function(format: PSDL_PixelFormat; palette: PSDL_Palette): cint; cdecl;
-Var
-  SDL_SetPixelFormatPalette : TSDL_SetPixelFormatPalette_fun = Nil;
+type
+  TSDL_SetPixelFormatPalette_func = function(format: PSDL_PixelFormat; palette: PSDL_Palette): cint; cdecl;
+var
+  SDL_SetPixelFormatPalette : TSDL_SetPixelFormatPalette_func = Nil;
 
 
 {**
@@ -677,10 +677,10 @@ Var
  * \sa SDL_AllocPalette
  * \sa SDL_CreateRGBSurface
  *}
-Type
-  TSDL_SetPaletteColors_fun = function(palette: PSDL_Palette; const colors: PSDL_Color; firstcolor: cint; ncolors: cint): cint; cdecl;
-Var
-  SDL_SetPaletteColors : TSDL_SetPaletteColors_fun = Nil;
+type
+  TSDL_SetPaletteColors_func = function(palette: PSDL_Palette; const colors: PSDL_Color; firstcolor: cint; ncolors: cint): cint; cdecl;
+var
+  SDL_SetPaletteColors : TSDL_SetPaletteColors_func = Nil;
 
 
 {**
@@ -692,9 +692,9 @@ Var
  *
  * \sa SDL_AllocPalette
  *}
-Type
+type
   TSDL_FreePalette_proc = procedure(palette: PSDL_Palette); cdecl;
-Var
+var
   SDL_FreePalette : TSDL_FreePalette_proc = Nil;
 
 
@@ -728,10 +728,10 @@ Var
  * \sa SDL_GetRGBA
  * \sa SDL_MapRGBA
  *}
-Type
-  TSDL_MapRGB_fun = function(const format: PSDL_PixelFormat; r: cuint8; g: cuint8; b: cuint8): cuint32; cdecl;
-Var
-  SDL_MapRGB : TSDL_MapRGB_fun = Nil;
+type
+  TSDL_MapRGB_func = function(const format: PSDL_PixelFormat; r: cuint8; g: cuint8; b: cuint8): cuint32; cdecl;
+var
+  SDL_MapRGB : TSDL_MapRGB_func = Nil;
 
 
 {**
@@ -766,10 +766,10 @@ Var
  * \sa SDL_GetRGBA
  * \sa SDL_MapRGB
  *}
-Type
-  TSDL_MapRGBA_fun = function(const format: PSDL_PixelFormat; r: cuint8; g: cuint8; b: cuint8; a: cuint8): cuint32; cdecl;
-Var
-  SDL_MapRGBA : TSDL_MapRGBA_fun = Nil;
+type
+  TSDL_MapRGBA_func = function(const format: PSDL_PixelFormat; r: cuint8; g: cuint8; b: cuint8; a: cuint8): cuint32; cdecl;
+var
+  SDL_MapRGBA : TSDL_MapRGBA_func = Nil;
 
 
 {**
@@ -793,9 +793,9 @@ Var
  * \sa SDL_MapRGB
  * \sa SDL_MapRGBA
  *}
-Type
+type
   TSDL_GetRGB_proc = procedure(pixel: cuint32; const format: PSDL_PixelFormat; r: pcuint8; g: pcuint8; b: pcuint8); cdecl;
-Var
+var
   SDL_GetRGB : TSDL_GetRGB_proc = Nil;
 
 
@@ -824,9 +824,9 @@ Var
  * \sa SDL_MapRGB
  * \sa SDL_MapRGBA
  *}
-Type
+type
   TSDL_GetRGBA_proc = procedure(pixel: cuint32; const format: PSDL_PixelFormat; r: pcuint8; g: pcuint8; b: pcuint8; a: pcuint8); cdecl;
-Var
+var
   SDL_GetRGBA : TSDL_GetRGBA_proc = Nil;
 
 
@@ -840,8 +840,8 @@ Var
  *
  * \sa SDL_SetWindowGammaRamp
  *}
-Type
+type
   TSDL_CalculateGammaRamp_proc = procedure(gamma: cfloat; ramp: pcuint16); cdecl;
-Var
+var
   SDL_CalculateGammaRamp : TSDL_CalculateGammaRamp_proc = Nil;
 

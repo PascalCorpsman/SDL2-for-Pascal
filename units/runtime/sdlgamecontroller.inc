@@ -107,18 +107,18 @@ function SDL_GameControllerAddMapping( mappingString: PAnsiChar ): cint cdecl; e
    * 
    *  Returns number of mappings added, -1 on error
    *}
-Type
+type
   TSDL_GameControllerAddMappingsFromRW_func = function(rw: PSDL_RWops; freerw: cint32):cint32;
    cdecl;
-Var
+var
   SDL_GameControllerAddMappingsFromRW : TSDL_GameControllerAddMappingsFromRW_func = Nil;
 
 {**
  * Get the number of mappings installed.
   *}
-Type
+type
   TSDL_GameControllerNumMappings_func = function():cint; cdecl;
-Var
+var
   SDL_GameControllerNumMappings : TSDL_GameControllerNumMappings_func = Nil;
 
 
@@ -135,9 +135,9 @@ function SDL_GameControllerMappingForGUID( guid: TSDL_JoystickGUID ): PAnsiChar 
  * Returns the mapping string. Must be freed with SDL_free().
  * Returns NIL if the index is out of range.
  *}
-Type
+type
   TSDL_GameControllerMappingForIndex_func = function(mapping_index: cint): PAnsiChar; cdecl;
-Var
+var
   SDL_GameControllerMappingForIndex : TSDL_GameControllerMappingForIndex_func = Nil;
 
 
@@ -151,9 +151,9 @@ function SDL_GameControllerMapping( gamecontroller: PSDL_GameController ): PAnsi
   {**
    *  Is the joystick on this index supported by the game controller interface?
    *}
-Type
+type
   TSDL_IsGameController_func = function(joystick_index: cint): TSDL_Bool; cdecl;
-Var
+var
   SDL_IsGameController : TSDL_IsGameController_func = Nil;
 
   {**
@@ -161,9 +161,9 @@ Var
    *  This can be called before any controllers are opened.
    *  If no name can be found, this function returns NULL.
    *}
-Type
+type
   TSDL_GameControllerNameForIndex_func = function(joystick_index: cint): PAnsiChar cdecl;
-Var
+var
   SDL_GameControllerNameForIndex : TSDL_GameControllerNameForIndex_func = Nil;
 
 {**
@@ -183,9 +183,9 @@ Var
  *
  * \sa SDL_GameControllerPath
  *}
-Type
+type
   TSDL_GameControllerPathForIndex_func = function(joystick_index: cint): PAnsiChar; cdecl;
-Var
+var
   SDL_GameControllerPathForIndex : TSDL_GameControllerPathForIndex_func = Nil;
 
 
@@ -193,9 +193,9 @@ Var
  * Get the type of a game controller.
  * This can be called before any controllers are opened.
  *}
-Type
+type
   TSDL_GameControllerTypeForIndex_func = function(joystick_index: cint): TSDL_GameControllerType; cdecl;
-Var
+var
   SDL_GameControllerTypeForIndex : TSDL_GameControllerTypeForIndex_func = Nil;
 
 
@@ -206,9 +206,9 @@ Var
  * Returns the mapping string. Must be freed with SDL_free().
  * Returns NIL if no mapping is available.
  *}
-Type
+type
   TSDL_GameControllerMappingForDeviceIndex_func = function(joystick_index: cint): PAnsiChar; cdecl;
-Var
+var
   SDL_GameControllerMappingForDeviceIndex : TSDL_GameControllerMappingForDeviceIndex_func = Nil;
 
 
@@ -228,9 +228,9 @@ var
   {**
    * Return the SDL_GameController associated with an instance id.
    *}
-Type
+type
   TSDL_GameControllerFromInstanceID_func = function(joyid: TSDL_JoystickID): PSDL_GameController; cdecl;
-Var
+var
   SDL_GameControllerFromInstanceID : TSDL_GameControllerFromInstanceID_func = Nil;
 
 
@@ -241,9 +241,9 @@ Var
  * instance id!
  *
  *}
-Type
+type
   TSDL_GameControllerFromPlayerIndex_func = function(player_index: cint): PSDL_GameController; cdecl;
-Var
+var
   SDL_GameControllerFromPlayerIndex : TSDL_GameControllerFromPlayerIndex_func = Nil;
 
 
@@ -267,9 +267,9 @@ function SDL_GameControllerName(gamecontroller: PSDL_GameController): PAnsiChar 
  *
  * \sa SDL_GameControllerPathForIndex
  *}
-Type
+type
   TSDL_GameControllerPath_func = function(gamecontroller: PSDL_GameController): PAnsiChar; cdecl;
-Var
+var
   SDL_GameControllerPath : TSDL_GameControllerPath_func = Nil;
 
 
@@ -279,9 +279,9 @@ Var
  * This is the same name as returned by SDL_GameControllerTypeForIndex(), but
  * it takes a controller identifier instead of the (unstable) device index.
  *}
-Type
+type
   TSDL_GameControllerGetType_func = function(gamecontroller: PSDL_GameController): TSDL_GameControllerType; cdecl;
-Var
+var
   SDL_GameControllerGetType : TSDL_GameControllerGetType_func = Nil;
 
 
@@ -291,18 +291,18 @@ Var
  *
  * Returns the player index for controller, or -1 if it's not available.
  *}
-Type
+type
   TSDL_GameControllerGetPlayerIndex_func = function(gamecontroller: PSDL_GameController): cint; cdecl;
-Var
+var
   SDL_GameControllerGetPlayerIndex : TSDL_GameControllerGetPlayerIndex_func = Nil;
 
 
 {**
  * Set the player index of an opened game controller.
  *}
-Type
+type
   TSDL_GameControllerSetPlayerIndex_proc = procedure(gamecontroller: PSDL_GameController; player_index: cint); cdecl;
-Var
+var
   SDL_GameControllerSetPlayerIndex : TSDL_GameControllerSetPlayerIndex_proc = Nil;
 
 
@@ -316,9 +316,9 @@ Var
  *
  * \since This function is available since SDL 2.0.6.
  *}
-Type
+type
   TSDL_GameControllerGetVendor_func = function(gamecontroller: PSDL_GameController): cuint16; cdecl;
-Var
+var
   SDL_GameControllerGetVendor : TSDL_GameControllerGetVendor_func = Nil;
 
 
@@ -326,9 +326,9 @@ Var
  * Get the USB product ID of an opened controller, if available.
  * If the product ID isn't available, this function returns 0.
  *}
-Type
+type
   TSDL_GameControllerGetProduct_func = function(gamecontroller: PSDL_GameController): cuint16; cdecl;
-Var
+var
   SDL_GameControllerGetProduct : TSDL_GameControllerGetProduct_func = Nil;
 
 
@@ -336,9 +336,9 @@ Var
  * Get the product version of an opened controller, if available.
  * If the product version isn't available, this function returns 0.
  *}
-Type
+type
   TSDL_GameControllerGetProductVersion_func = function(gamecontroller: PSDL_GameController): cuint16; cdecl;
-Var
+var
   SDL_GameControllerGetProductVersion : TSDL_GameControllerGetProductVersion_func = Nil;
 
 
@@ -352,9 +352,9 @@ Var
  *
  * \since This function is available since SDL 2.24.0.
  *}
-Type
+type
   TSDL_GameControllerGetFirmwareVersion_func = function(gamecontroller: PSDL_GameController): cuint16; cdecl;
-Var
+var
   SDL_GameControllerGetFirmwareVersion : TSDL_GameControllerGetFirmwareVersion_func = Nil;
 
 
@@ -364,9 +364,9 @@ Var
  * Returns a string containing the serial number of the controller,
  * or NIL if it is not available. Do _not_ free the string with SDL_free().
  *}
-Type
+type
   TSDL_GameControllerGetSerial_func = function(gamecontroller: PSDL_GameController): PAnsiChar; cdecl;
-Var
+var
   SDL_GameControllerGetSerial : TSDL_GameControllerGetSerial_func = Nil;
 
 
@@ -381,9 +381,9 @@ Var
  *
  * \since This function is available since SDL 2.30.0.
  *}
-Type
+type
   TSDL_GameControllerGetSteamHandle_func = function(gamecontroller: PSDL_GameController): cuint64; cdecl;
-Var
+var
   SDL_GameControllerGetSteamHandle : TSDL_GameControllerGetSteamHandle_func = Nil;
 
 
@@ -409,7 +409,7 @@ function SDL_GameControllerGetJoystick(gamecontroller: PSDL_GameController): PSD
    *}
 type
    TSDL_GameControllerEventState_func = function(state: cint): cint cdecl;
-Var
+var
   SDL_GameControllerEventState: TSDL_GameControllerEventState_func = Nil;
 
   {**
@@ -459,9 +459,9 @@ function SDL_GameControllerGetBindForAxis(gamecontroller: PSDL_GameController; a
  * This merely reports whether the controller's mapping defined this axis,
  * as that is all the information SDL has about the physical device.
  *}
-Type
+type
   TSDL_GameControllerHasAxis_func = function(gamecontroller: PSDL_GameController; axis: TSDL_GameControllerAxis): TSDL_Bool; cdecl;
-Var
+var
   SDL_GameControllerHasAxis : TSDL_GameControllerHasAxis_func = Nil;
 
 
@@ -474,7 +474,7 @@ Var
    *}
 type
   TSDL_GameControllerGetAxis_func = function (gamecontroller: PSDL_GameController; axis: TSDL_GameControllerAxis): cint16 cdecl;
-Var
+var
   SDL_GameControllerGetAxis : TSDL_GameControllerGetAxis_func = Nil;
 
   {**
@@ -530,9 +530,9 @@ function SDL_GameControllerGetBindForButton(gamecontroller: PSDL_GameController;
  * This merely reports whether the controller's mapping defined this button,
  * as that is all the information SDL has about the physical device.
  *}
-Type
+type
   TSDL_GameControllerHasButton_func = function(gamecontroller: PSDL_GameController; button: TSDL_GameControllerButton): TSDL_Bool; cdecl;
-Var
+var
   SDL_GameControllerHasButton : TSDL_GameControllerHasButton_func = Nil;
 
 
@@ -541,26 +541,26 @@ Var
  *
  *  The button indices start at index 0.
  *}
-Type
+type
   TSDL_GameControllerGetButton_func = function(gamecontroller: PSDL_GameController; button: TSDL_GameControllerButton): cuint8 cdecl;
-Var
+var
   SDL_GameControllerGetButton : TSDL_GameControllerGetButton_func = Nil;
 
 {**
  * Get the number of touchpads on a game controller.
  *}
-Type
+type
   TSDL_GameControllerGetNumTouchpads_func = function(gamecontroller: PSDL_GameController): cint; cdecl;
-Var
+var
   SDL_GameControllerGetNumTouchpads : TSDL_GameControllerGetNumTouchpads_func = Nil;
 
 
 {**
  * Get the number of supported simultaneous fingers on a touchpad on a game controller.
  *}
-Type
+type
   TSDL_GameControllerGetNumTouchpadFingers_func = function(gamecontroller: PSDL_GameController; touchpad: cint): cint; cdecl;
-Var
+var
   SDL_GameControllerGetNumTouchpadFingers : TSDL_GameControllerGetNumTouchpadFingers_func = Nil;
 
 
@@ -574,33 +574,33 @@ Type
       state: pcuint8;
       x, y, pressure: pcfloat
     ): cint; cdecl;
-Var
+var
   SDL_GameControllerGetTouchpadFinger : TSDL_GameControllerGetTouchpadFinger_func = Nil;
 
 {**
  * Return whether a game controller has a particular sensor.
  *}
-Type
+type
   TSDL_GameControllerHasSensor_func = function(gamecontroller: PSDL_GameController; senstype: TSDL_SensorType): TSDL_Bool; cdecl;
-Var
+var
   SDL_GameControllerHasSensor : TSDL_GameControllerHasSensor_func = Nil;
 
 
 {**
  * Set whether data reporting for a game controller sensor is enabled.
  *}
-Type
+type
   TSDL_GameControllerSetSensorEnabled_func = function(gamecontroller: PSDL_GameController; senstype: TSDL_SensorType; enabled: TSDL_bool): cint; cdecl;
-Var
+var
   SDL_GameControllerSetSensorEnabled : TSDL_GameControllerSetSensorEnabled_func = Nil;
 
 
 {**
  * Query whether sensor data reporting is enabled for a game controller.
  *}
-Type
+type
   TSDL_GameControllerIsSensorEnabled_func = function(gamecontroller: PSDL_GameController; senstype: TSDL_SensorType): TSDL_Bool; cdecl;
-Var
+var
   SDL_GameControllerIsSensorEnabled : TSDL_GameControllerIsSensorEnabled_func = Nil;
 
 
@@ -610,9 +610,9 @@ Var
  *
  * Returns the data rate, or 0.0 if the data rate is not available.
  *}
-Type
+type
   TSDL_GameControllerGetSensorDataRate_func = function(gamecontroller: PSDL_GameController; senstype: TSDL_SensorType): cfloat; cdecl;
-Var
+var
   SDL_GameControllerGetSensorDataRate : TSDL_GameControllerGetSensorDataRate_func = Nil;
 
 
@@ -622,9 +622,9 @@ Var
  * The number of values and interpretation of the data is sensor dependent.
  * See sdlsensor.inc for the details for each type of sensor.
  *}
-Type
+type
   TSDL_GameControllerGetSensorData_func = function(gamecontroller: PSDL_GameController; senstype: TSDL_SensorType; data: pcfloat; num_values: cint): cint; cdecl;
-Var
+var
   SDL_GameControllerGetSensorData : TSDL_GameControllerGetSensorData_func = Nil;
 
 
@@ -653,15 +653,15 @@ Type
     data: pcfloat;
     num_values: cint
   ): cint; cdecl;
-Var
+var
   SDL_GameControllerGetSensorDataWithTimestamp : TSDL_GameControllerGetSensorDataWithTimestamp_func = Nil;
 
 {**
  * Query whether a game controller has rumble support.
  *}
-Type
+type
   TSDL_GameControllerHasRumble_func = function(gamecontroller: PSDL_GameController): TSDL_Bool; cdecl;
-Var
+var
   SDL_GameControllerHasRumble : TSDL_GameControllerHasRumble_func = Nil;
 
 
@@ -673,22 +673,22 @@ Var
  *
  * Returns 0, or -1 if rumble isn't supported on this controller.
  *}
-Type
+type
   TSDL_GameControllerRumble_func = function(
     gamecontroller: PSDL_GameController;
     low_frequency_rumble, high_frequency_rumble: cuint16;
     duration_ms: cuint32
   ): cint; cdecl;
 
-Var
+var
   SDL_GameControllerRumble : TSDL_GameControllerRumble_func = Nil;
 
 {**
  * Query whether a game controller has rumble support on triggers.
  *}
-Type
+type
   TSDL_GameControllerHasRumbleTriggers_func = function(gamecontroller: PSDL_GameController): TSDL_Bool; cdecl;
-Var
+var
   SDL_GameControllerHasRumbleTriggers : TSDL_GameControllerHasRumbleTriggers_func = Nil;
 
 
@@ -705,22 +705,22 @@ Var
  *
  * Returns 0, or -1 if trigger rumble isn't supported on this controller
  *}
-Type
+type
   TSDL_GameControllerRumbleTriggers_func = function(
     gamecontroller: PSDL_GameController;
     left_rumble, right_rumble: cuint16;
     duration_ms: cuint32
   ): cint; cdecl;
 
-Var
+var
   SDL_GameControllerRumbleTriggers : TSDL_GameControllerRumbleTriggers_func = Nil;
 
 {**
  * Query whether a game controller has an LED.
  *}
-Type
+type
   TSDL_GameControllerHasLED_func = function(gamecontroller: PSDL_GameController): TSDL_Bool; cdecl;
-Var
+var
   SDL_GameControllerHasLED : TSDL_GameControllerHasLED_func = Nil;
 
 
@@ -729,9 +729,9 @@ Var
  *
  * Returns 0, or -1 if this controller does not have a modifiable LED.
  *}
-Type
+type
   TSDL_GameControllerSetLED_func = function(gamecontroller: PSDL_GameController; red, green, blue: cuint8): cint; cdecl;
-Var
+var
   SDL_GameControllerSetLED : TSDL_GameControllerSetLED_func = Nil;
 
 
@@ -741,16 +741,16 @@ Var
  * Returns 0, or -1 if this controller or driver does not
  * support effect packets.
  *}
-Type
+type
   TSDL_GameControllerSendEffect_func = function(gamecontroller: PSDL_GameController; data: Pointer; size: cint): cint; cdecl;
-Var
+var
   SDL_GameControllerSendEffect : TSDL_GameControllerSendEffect_func = Nil;
 
 
 {**
  *  Close a controller previously opened with SDL_GameControllerOpen().
  *}
-Type
+type
   TSDL_GameControllerClose_proc = Procedure(gamecontroller: PSDL_GameController) cdecl;
 var
   SDL_GameControllerClose : TSDL_GameControllerClose_proc = Nil;
@@ -762,9 +762,9 @@ var
  * Returns the sfSymbolsName, or NIL if the name can't be found.
  * Do _not_ pass this string to SDL_free().
  *}
-Type
+type
   TSDL_GameControllerGetAppleSFSymbolsNameForAxis_func = function(gamecontroller: PSDL_GameController; axis: TSDL_GameControllerAxis): PAnsiChar; cdecl;
-Var
+var
   SDL_GameControllerGetAppleSFSymbolsNameForAxis : TSDL_GameControllerGetAppleSFSymbolsNameForAxis_func = Nil;
 
 
@@ -775,9 +775,9 @@ Var
  * Returns the sfSymbolsName, or NIL if the name can't be found.
  * Do _not_ pass this string to SDL_free().
  *}
-Type
+type
   TSDL_GameControllerGetAppleSFSymbolsNameForButton_func = function(gamecontroller: PSDL_GameController; button: TSDL_GameControllerButton): PAnsiChar; cdecl;
-Var
+var
   SDL_GameControllerGetAppleSFSymbolsNameForButton : TSDL_GameControllerGetAppleSFSymbolsNameForButton_func = Nil;
 
 

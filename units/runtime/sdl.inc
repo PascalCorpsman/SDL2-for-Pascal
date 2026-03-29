@@ -41,27 +41,27 @@ const
  *  Unless the SDL_INIT_NOPARACHUTE flag is set, it will install cleanup
  *  signal handlers for some commonly ignored fatal signals (like SIGSEGV).
  *}
-Type
+type
   TSDL_Init_func = function(flags: TSDL_Init): cint; cdecl;
-Var
+var
   SDL_Init : TSDL_Init_func = Nil;
 
 
 {**
  *  This function initializes specific SDL subsystems
  *}
-Type
+type
   TSDL_InitSubSystem_func = function(flags: TSDL_Init): cint; cdecl;
-Var
+var
   SDL_InitSubSystem : TSDL_InitSubSystem_func = Nil;
 
 
 {**
  *  This function cleans up specific SDL subsystems
  *}
-Type
+type
   TSDL_QuitSubSystem_proc = procedure(flags: TSDL_Init); cdecl;
-Var
+var
   SDL_QuitSubSystem : TSDL_QuitSubSystem_proc = Nil;
 
 
@@ -71,9 +71,9 @@ Var
  *  
  *  If flags is 0, it returns a mask of all initialized subsystems.
  *}
-Type
+type
   TSDL_WasInit_func = function(flags: TSDL_Init): cuint32; cdecl;
-Var
+var
   SDL_WasInit : TSDL_WasInit_func = Nil;
 
 
@@ -81,9 +81,9 @@ Var
  *  This function cleans up all initialized subsystems. You should
  *  call it upon all exit conditions.
  *}
-Type
+type
   TSDL_Quit_proc = procedure(); cdecl;
-Var
+var
   SDL_Quit : TSDL_Quit_proc = Nil;
 
 

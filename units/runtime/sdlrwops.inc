@@ -131,40 +131,40 @@ type
  *
  *  Functions to create SDL_RWops structures from various data streams.
  *}
-Type
-  TSDL_RWFromFile_fun = function(const _file: PAnsiChar; const mode: PAnsiChar): PSDL_RWops; cdecl;
-Var
-  SDL_RWFromFile : TSDL_RWFromFile_fun = Nil;
+type
+  TSDL_RWFromFile_func = function(const _file: PAnsiChar; const mode: PAnsiChar): PSDL_RWops; cdecl;
+var
+  SDL_RWFromFile : TSDL_RWFromFile_func = Nil;
 
 
 {function SDL_RWFromFP(fp: file; autoclose: TSDL_Bool): PSDL_RWops; cdecl;
    external SDL_LibName;} //don't know if this works
 
-Type
-  TSDL_RWFromFP_fun = function(fp: Pointer; autoclose: TSDL_Bool): PSDL_RWops; cdecl;
-Var
-  SDL_RWFromFP : TSDL_RWFromFP_fun = Nil;
+type
+  TSDL_RWFromFP_func = function(fp: Pointer; autoclose: TSDL_Bool): PSDL_RWops; cdecl;
+var
+  SDL_RWFromFP : TSDL_RWFromFP_func = Nil;
 
 
-Type
-  TSDL_RWFromMem_fun = function(mem: Pointer; size: cint): PSDL_RWops; cdecl;
-Var
-  SDL_RWFromMem : TSDL_RWFromMem_fun = Nil;
+type
+  TSDL_RWFromMem_func = function(mem: Pointer; size: cint): PSDL_RWops; cdecl;
+var
+  SDL_RWFromMem : TSDL_RWFromMem_func = Nil;
 
 
-Type
-  TSDL_RWFromConstMem_fun = function(const mem: Pointer; size: cint): PSDL_RWops; cdecl;
-Var
-  SDL_RWFromConstMem : TSDL_RWFromConstMem_fun = Nil;
+type
+  TSDL_RWFromConstMem_func = function(const mem: Pointer; size: cint): PSDL_RWops; cdecl;
+var
+  SDL_RWFromConstMem : TSDL_RWFromConstMem_func = Nil;
 
 
 {*RWFrom functions*}
 function SDL_AllocRW: PSDL_RWops; cdecl;
   external SDL_LibName {$IFDEF DELPHI} {$IFDEF MACOS} name '_SDL_AllocRW' {$ENDIF} {$ENDIF};
 
-Type
+type
   TSDL_FreeRW_proc = procedure(area: PSDL_RWops); cdecl;
-Var
+var
   SDL_FreeRW : TSDL_FreeRW_proc = Nil;
 
 
@@ -176,10 +176,10 @@ const
 {**
  *  Return the size of the file in this rwops, or -1 if unknown
  *}
-Type
-  TSDL_RWsize_fun = function(context: PSDL_RWops): cint64; cdecl;
-Var
-  SDL_RWsize : TSDL_RWsize_fun = Nil;
+type
+  TSDL_RWsize_func = function(context: PSDL_RWops): cint64; cdecl;
+var
+  SDL_RWsize : TSDL_RWsize_func = Nil;
 
 
 {**
@@ -188,19 +188,19 @@ Var
  *
  *  \return the final offset in the data stream, or -1 on error.
  *}
-Type
-  TSDL_RWseek_fun = function(context: PSDL_RWops; offset: cint64; whence: cint): cint64; cdecl;
-Var
-  SDL_RWseek : TSDL_RWseek_fun = Nil;
+type
+  TSDL_RWseek_func = function(context: PSDL_RWops; offset: cint64; whence: cint): cint64; cdecl;
+var
+  SDL_RWseek : TSDL_RWseek_func = Nil;
 
 
 {**
  *  Return the current offset in the data stream, or -1 on error.
  *}
-Type
-  TSDL_RWtell_fun = function(context: PSDL_RWops): cint64; cdecl;
-Var
-  SDL_RWtell : TSDL_RWtell_fun = Nil;
+type
+  TSDL_RWtell_func = function(context: PSDL_RWops): cint64; cdecl;
+var
+  SDL_RWtell : TSDL_RWtell_func = Nil;
 
 
 {**
@@ -209,10 +209,10 @@ Var
  *
  *  \return the number of objects read, or 0 at error or end of file.
  *}
-Type
-  TSDL_RWread_fun = function(context: PSDL_RWops; ptr: Pointer; size: csize_t; n: csize_t): csize_t; cdecl;
-Var
-  SDL_RWread : TSDL_RWread_fun = Nil;
+type
+  TSDL_RWread_func = function(context: PSDL_RWops; ptr: Pointer; size: csize_t; n: csize_t): csize_t; cdecl;
+var
+  SDL_RWread : TSDL_RWread_func = Nil;
 
 
 {**
@@ -221,10 +221,10 @@ Var
  *
  *  \return the number of objects written, or 0 at error or end of file.
  *}
-Type
-  TSDL_RWwrite_fun = function(context: PSDL_RWops; ptr: Pointer; size: csize_t; n: csize_t): csize_t; cdecl;
-Var
-  SDL_RWwrite : TSDL_RWwrite_fun = Nil;
+type
+  TSDL_RWwrite_func = function(context: PSDL_RWops; ptr: Pointer; size: csize_t; n: csize_t): csize_t; cdecl;
+var
+  SDL_RWwrite : TSDL_RWwrite_func = Nil;
 
 
 {**
@@ -232,10 +232,10 @@ Var
  *
  *  \return 0 if successful or -1 on write error when flushing data.
  *}
-Type
-  TSDL_RWclose_fun = function(context: PSDL_RWops): cint; cdecl;
-Var
-  SDL_RWclose : TSDL_RWclose_fun = Nil;
+type
+  TSDL_RWclose_func = function(context: PSDL_RWops): cint; cdecl;
+var
+  SDL_RWclose : TSDL_RWclose_func = Nil;
 
 
 {**
@@ -251,10 +251,10 @@ Var
  *
  *  \return the data, or NULL if there was an error.
  *}
-Type
-  TSDL_LoadFile_RW_fun = function(src: PSDL_RWops; datasize: pcsize_t; freesrc: cint): Pointer; cdecl;
-Var
-  SDL_LoadFile_RW : TSDL_LoadFile_RW_fun = Nil;
+type
+  TSDL_LoadFile_RW_func = function(src: PSDL_RWops; datasize: pcsize_t; freesrc: cint): Pointer; cdecl;
+var
+  SDL_LoadFile_RW : TSDL_LoadFile_RW_func = Nil;
 
 
 {**
@@ -270,10 +270,10 @@ Var
  *
  *  \return the data, or NULL if there was an error.
  *}
-Type
-  TSDL_LoadFile_fun = function(file_: PAnsiChar; datasize: pcsize_t): Pointer; cdecl;
-Var
-  SDL_LoadFile : TSDL_LoadFile_fun = Nil;
+type
+  TSDL_LoadFile_func = function(file_: PAnsiChar; datasize: pcsize_t): Pointer; cdecl;
+var
+  SDL_LoadFile : TSDL_LoadFile_func = Nil;
 
 
 {**
@@ -281,40 +281,40 @@ Var
  *
  *  Read an item of the specified endianness and return in native format.
  *}
-Type
-  TSDL_ReadU8_fun = function(src: PSDL_RWops): cuint8; cdecl;
-Var
-  SDL_ReadU8 : TSDL_ReadU8_fun = Nil;
+type
+  TSDL_ReadU8_func = function(src: PSDL_RWops): cuint8; cdecl;
+var
+  SDL_ReadU8 : TSDL_ReadU8_func = Nil;
 
-Type
-  TSDL_ReadLE16_fun = function(src: PSDL_RWops): cuint16; cdecl;
-Var
-  SDL_ReadLE16 : TSDL_ReadLE16_fun = Nil;
+type
+  TSDL_ReadLE16_func = function(src: PSDL_RWops): cuint16; cdecl;
+var
+  SDL_ReadLE16 : TSDL_ReadLE16_func = Nil;
 
-Type
-  TSDL_ReadBE16_fun = function(src: PSDL_RWops): cuint16; cdecl;
-Var
-  SDL_ReadBE16 : TSDL_ReadBE16_fun = Nil;
+type
+  TSDL_ReadBE16_func = function(src: PSDL_RWops): cuint16; cdecl;
+var
+  SDL_ReadBE16 : TSDL_ReadBE16_func = Nil;
 
-Type
-  TSDL_ReadLE32_fun = function(src: PSDL_RWops): cuint32; cdecl;
-Var
-  SDL_ReadLE32 : TSDL_ReadLE32_fun = Nil;
+type
+  TSDL_ReadLE32_func = function(src: PSDL_RWops): cuint32; cdecl;
+var
+  SDL_ReadLE32 : TSDL_ReadLE32_func = Nil;
 
-Type
-  TSDL_ReadBE32_fun = function(src: PSDL_RWops): cuint32; cdecl;
-Var
-  SDL_ReadBE32 : TSDL_ReadBE32_fun = Nil;
+type
+  TSDL_ReadBE32_func = function(src: PSDL_RWops): cuint32; cdecl;
+var
+  SDL_ReadBE32 : TSDL_ReadBE32_func = Nil;
 
-Type
-  TSDL_ReadLE64_fun = function(src: PSDL_RWops): cuint64; cdecl;
-Var
-  SDL_ReadLE64 : TSDL_ReadLE64_fun = Nil;
+type
+  TSDL_ReadLE64_func = function(src: PSDL_RWops): cuint64; cdecl;
+var
+  SDL_ReadLE64 : TSDL_ReadLE64_func = Nil;
 
-Type
-  TSDL_ReadBE64_fun = function(src: PSDL_RWops): cuint64; cdecl;
-Var
-  SDL_ReadBE64 : TSDL_ReadBE64_fun = Nil;
+type
+  TSDL_ReadBE64_func = function(src: PSDL_RWops): cuint64; cdecl;
+var
+  SDL_ReadBE64 : TSDL_ReadBE64_func = Nil;
 
 { Read endian functions }
 
@@ -323,39 +323,39 @@ Var
  *
  *  Write an item of native format to the specified endianness.
  *}
-Type
-  TSDL_WriteU8_fun = function(dst: PSDL_RWops; value: cuint8): csize_t; cdecl;
-Var
-  SDL_WriteU8 : TSDL_WriteU8_fun = Nil;
+type
+  TSDL_WriteU8_func = function(dst: PSDL_RWops; value: cuint8): csize_t; cdecl;
+var
+  SDL_WriteU8 : TSDL_WriteU8_func = Nil;
 
-Type
-  TSDL_WriteLE16_fun = function(dst: PSDL_RWops; value: cuint16): csize_t; cdecl;
-Var
-  SDL_WriteLE16 : TSDL_WriteLE16_fun = Nil;
+type
+  TSDL_WriteLE16_func = function(dst: PSDL_RWops; value: cuint16): csize_t; cdecl;
+var
+  SDL_WriteLE16 : TSDL_WriteLE16_func = Nil;
 
-Type
-  TSDL_WriteBE16_fun = function(dst: PSDL_RWops; value: cuint16): csize_t; cdecl;
-Var
-  SDL_WriteBE16 : TSDL_WriteBE16_fun = Nil;
+type
+  TSDL_WriteBE16_func = function(dst: PSDL_RWops; value: cuint16): csize_t; cdecl;
+var
+  SDL_WriteBE16 : TSDL_WriteBE16_func = Nil;
 
-Type
-  TSDL_WriteLE32_fun = function(dst: PSDL_RWops; value: cuint32): csize_t; cdecl;
-Var
-  SDL_WriteLE32 : TSDL_WriteLE32_fun = Nil;
+type
+  TSDL_WriteLE32_func = function(dst: PSDL_RWops; value: cuint32): csize_t; cdecl;
+var
+  SDL_WriteLE32 : TSDL_WriteLE32_func = Nil;
 
-Type
-  TSDL_WriteBE32_fun = function(dst: PSDL_RWops; value: cuint32): csize_t; cdecl;
-Var
-  SDL_WriteBE32 : TSDL_WriteBE32_fun = Nil;
+type
+  TSDL_WriteBE32_func = function(dst: PSDL_RWops; value: cuint32): csize_t; cdecl;
+var
+  SDL_WriteBE32 : TSDL_WriteBE32_func = Nil;
 
-Type
-  TSDL_WriteLE64_fun = function(dst: PSDL_RWops; value: cuint64): csize_t; cdecl;
-Var
-  SDL_WriteLE64 : TSDL_WriteLE64_fun = Nil;
+type
+  TSDL_WriteLE64_func = function(dst: PSDL_RWops; value: cuint64): csize_t; cdecl;
+var
+  SDL_WriteLE64 : TSDL_WriteLE64_func = Nil;
 
-Type
-  TSDL_WriteBE64_fun = function(dst: PSDL_RWops; value: cuint64): csize_t; cdecl;
-Var
-  SDL_WriteBE64 : TSDL_WriteBE64_fun = Nil;
+type
+  TSDL_WriteBE64_func = function(dst: PSDL_RWops; value: cuint64): csize_t; cdecl;
+var
+  SDL_WriteBE64 : TSDL_WriteBE64_func = Nil;
 
 { Write endian functions }

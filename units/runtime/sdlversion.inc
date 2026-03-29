@@ -102,9 +102,9 @@ function SDL_VERSION_ATLEAST(X,Y,Z: cuint8): Boolean;
  *
  *  SDL_VERSION
  *}
-Type
+type
   TSDL_GetVersion_proc = procedure(ver: PSDL_Version); cdecl;
-Var
+var
   SDL_GetVersion : TSDL_GetVersion_proc = Nil;
 
 

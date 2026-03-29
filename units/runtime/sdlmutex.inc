@@ -52,10 +52,10 @@ function SDL_CreateMutex: PSDL_Mutex; cdecl;
  *
  * \since This function is available since SDL 2.0.0.
  *}
-Type
-  TSDL_LockMutex_fun = function(mutex: PSDL_Mutex): cint; cdecl;
-Var
-  SDL_LockMutex : TSDL_LockMutex_fun = Nil;
+type
+  TSDL_LockMutex_func = function(mutex: PSDL_Mutex): cint; cdecl;
+var
+  SDL_LockMutex : TSDL_LockMutex_func = Nil;
 
 
 { SDL2-for-Pascal: SDL_mutexP macro ignored; no benefit for the Pascal units }
@@ -76,10 +76,10 @@ Var
  *
  * \since This function is available since SDL 2.0.0.
  *}
-Type
-  TSDL_TryLockMutex_fun = function(mutex: PSDL_Mutex): cint; cdecl;
-Var
-  SDL_TryLockMutex : TSDL_TryLockMutex_fun = Nil;
+type
+  TSDL_TryLockMutex_func = function(mutex: PSDL_Mutex): cint; cdecl;
+var
+  SDL_TryLockMutex : TSDL_TryLockMutex_func = Nil;
 
 
 {**
@@ -99,10 +99,10 @@ Var
  *
  * \since This function is available since SDL 2.0.0.
  *}
-Type
-  TSDL_UnlockMutex_fun = function(mutex: PSDL_Mutex): cint; cdecl;
-Var
-  SDL_UnlockMutex : TSDL_UnlockMutex_fun = Nil;
+type
+  TSDL_UnlockMutex_func = function(mutex: PSDL_Mutex): cint; cdecl;
+var
+  SDL_UnlockMutex : TSDL_UnlockMutex_func = Nil;
 
 
 { SDL2-for-Pascal: SDL_mutexV macro ignored; no benefit for the Pascal units }
@@ -121,9 +121,9 @@ Var
  *
  * \since This function is available since SDL 2.0.0.
  *}
-Type
+type
   TSDL_DestroyMutex_proc = procedure(mutex: PSDL_Mutex); cdecl;
-Var
+var
   SDL_DestroyMutex : TSDL_DestroyMutex_proc = Nil;
 
 
@@ -148,10 +148,10 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-Type
-  TSDL_CreateSemaphore_fun = function(initial_value: cuint32): PSDL_sem; cdecl;
-Var
-  SDL_CreateSemaphore : TSDL_CreateSemaphore_fun = Nil;
+type
+  TSDL_CreateSemaphore_func = function(initial_value: cuint32): PSDL_sem; cdecl;
+var
+  SDL_CreateSemaphore : TSDL_CreateSemaphore_func = Nil;
 
 
 {**
@@ -164,9 +164,9 @@ Var
  *
  * \since This function is available since SDL 2.0.0.
  *}
-Type
+type
   TSDL_DestroySemaphore_proc = procedure(sem: PSDL_Sem); cdecl;
-Var
+var
   SDL_DestroySemaphore : TSDL_DestroySemaphore_proc = Nil;
 
 
@@ -187,10 +187,10 @@ Var
  *
  * \since This function is available since SDL 2.0.0.
  *}
-Type
-  TSDL_SemWait_fun = function(sem: PSDL_Sem): cint; cdecl;
-Var
-  SDL_SemWait : TSDL_SemWait_fun = Nil;
+type
+  TSDL_SemWait_func = function(sem: PSDL_Sem): cint; cdecl;
+var
+  SDL_SemWait : TSDL_SemWait_func = Nil;
 
 
 {**
@@ -208,10 +208,10 @@ Var
  *
  * \since This function is available since SDL 2.0.0.
  *}
-Type
-  TSDL_SemTryWait_fun = function(sem: PSDL_Sem): cint; cdecl;
-Var
-  SDL_SemTryWait : TSDL_SemTryWait_fun = Nil;
+type
+  TSDL_SemTryWait_func = function(sem: PSDL_Sem): cint; cdecl;
+var
+  SDL_SemTryWait : TSDL_SemTryWait_func = Nil;
 
 
 {**
@@ -230,10 +230,10 @@ Var
  *
  * \since This function is available since SDL 2.0.0.
  *}
-Type
-  TSDL_SemWaitTimeout_fun = function(sem: PSDL_Sem; ms: cuint32): cint; cdecl;
-Var
-  SDL_SemWaitTimeout : TSDL_SemWaitTimeout_fun = Nil;
+type
+  TSDL_SemWaitTimeout_func = function(sem: PSDL_Sem; ms: cuint32): cint; cdecl;
+var
+  SDL_SemWaitTimeout : TSDL_SemWaitTimeout_func = Nil;
 
 
 {**
@@ -245,10 +245,10 @@ Var
  *
  * \since This function is available since SDL 2.0.0.
  *}
-Type
-  TSDL_SemPost_fun = function(sem: PSDL_Sem): cint; cdecl;
-Var
-  SDL_SemPost : TSDL_SemPost_fun = Nil;
+type
+  TSDL_SemPost_func = function(sem: PSDL_Sem): cint; cdecl;
+var
+  SDL_SemPost : TSDL_SemPost_func = Nil;
 
 
 {**
@@ -259,10 +259,10 @@ Var
  *
  * \since This function is available since SDL 2.0.0.
  *}
-Type
-  TSDL_SemValue_fun = function(sem: PSDL_Sem): cuint32; cdecl;
-Var
-  SDL_SemValue : TSDL_SemValue_fun = Nil;
+type
+  TSDL_SemValue_func = function(sem: PSDL_Sem): cuint32; cdecl;
+var
+  SDL_SemValue : TSDL_SemValue_func = Nil;
 
 
   { -- Condition variable functions -- }
@@ -319,9 +319,9 @@ function SDL_CreateCond: PSDL_Cond; cdecl;
  *
  * \since This function is available since SDL 2.0.0.
  *}
-Type
+type
   TSDL_DestroyCond_proc = procedure(cond: PSDL_Cond); cdecl;
-Var
+var
   SDL_DestroyCond : TSDL_DestroyCond_proc = Nil;
 
 
@@ -334,10 +334,10 @@ Var
  *
  * \since This function is available since SDL 2.0.0.
  *}
-Type
-  TSDL_CondSignal_fun = function(cond: PSDL_Cond): cint; cdecl;
-Var
-  SDL_CondSignal : TSDL_CondSignal_fun = Nil;
+type
+  TSDL_CondSignal_func = function(cond: PSDL_Cond): cint; cdecl;
+var
+  SDL_CondSignal : TSDL_CondSignal_func = Nil;
 
 
 {**
@@ -349,10 +349,10 @@ Var
  *
  * \since This function is available since SDL 2.0.0.
  *}
-Type
-  TSDL_CondBroadcast_fun = function(cond: PSDL_Cond): cint; cdecl;
-Var
-  SDL_CondBroadcast : TSDL_CondBroadcast_fun = Nil;
+type
+  TSDL_CondBroadcast_func = function(cond: PSDL_Cond): cint; cdecl;
+var
+  SDL_CondBroadcast : TSDL_CondBroadcast_func = Nil;
 
 
 {**
@@ -375,10 +375,10 @@ Var
  *
  * \since This function is available since SDL 2.0.0.
  *}
-Type
-  TSDL_CondWait_fun = function(cond: PSDL_Cond; mutex: PSDL_Mutex): cint; cdecl;
-Var
-  SDL_CondWait : TSDL_CondWait_fun = Nil;
+type
+  TSDL_CondWait_func = function(cond: PSDL_Cond; mutex: PSDL_Mutex): cint; cdecl;
+var
+  SDL_CondWait : TSDL_CondWait_func = Nil;
 
 
 {**
@@ -402,8 +402,8 @@ Var
  *
  * \since This function is available since SDL 2.0.0.
  *}
-Type
-  TSDL_CondWaitTimeout_fun = function(cond: PSDL_Cond; mutex: PSDL_Mutex; ms: cuint32): cint; cdecl;
-Var
-  SDL_CondWaitTimeout : TSDL_CondWaitTimeout_fun = Nil;
+type
+  TSDL_CondWaitTimeout_func = function(cond: PSDL_Cond; mutex: PSDL_Mutex; ms: cuint32): cint; cdecl;
+var
+  SDL_CondWaitTimeout : TSDL_CondWaitTimeout_func = Nil;
 

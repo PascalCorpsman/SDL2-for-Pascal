@@ -13,9 +13,9 @@
  *
  *  \return -1, there is no error handling for this function
  *}
-Type
+type
   TSDL_SetError_func = function(const fmt: PAnsiChar; args: array of const): cint; cdecl;
-Var
+var
   SDL_SetError : TSDL_SetError_func = Nil;
 
 
@@ -45,9 +45,9 @@ function SDL_GetError: PAnsiChar; cdecl;
  *
  *  \return errstr
  *}
-Type
+type
   TSDL_GetErrorMsg_func = function(const errstr: PAnsiChar; maxlen: cint): PAnsiChar; cdecl;
-Var
+var
   SDL_GetErrorMsg : TSDL_GetErrorMsg_func = Nil;
 
 
@@ -80,8 +80,8 @@ type
                     SDL_LASTERROR);
 
 {* SDL_Error() unconditionally returns -1. *}
-Type
+type
   TSDL_Error_func = function(code: TSDL_ErrorCode): cint; cdecl;
-Var
+var
   SDL_Error : TSDL_Error_func = Nil;
 

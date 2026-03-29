@@ -31,10 +31,10 @@
  * \sa SDL_LoadFunction
  * \sa SDL_UnloadObject
   }
-Type
-  TSDL_LoadObject_fun = function(sofile: PAnsiChar): Pointer; cdecl;
-Var
-  SDL_LoadObject : TSDL_LoadObject_fun = Nil;
+type
+  TSDL_LoadObject_func = function(sofile: PAnsiChar): Pointer; cdecl;
+var
+  SDL_LoadObject : TSDL_LoadObject_func = Nil;
 
 
 {*
@@ -75,8 +75,8 @@ function SDL_LoadFunction(handle: Pointer; name: PAnsiChar): Pointer; cdecl;
  * \sa SDL_LoadFunction
  * \sa SDL_LoadObject
   }
-Type
+type
   TSDL_UnloadObject_proc = procedure(handle: Pointer); cdecl;
-Var
+var
   SDL_UnloadObject : TSDL_UnloadObject_proc = Nil;
 

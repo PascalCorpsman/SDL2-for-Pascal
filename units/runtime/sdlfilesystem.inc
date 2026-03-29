@@ -42,9 +42,9 @@
  *
  * \sa SDL_GetPrefPath
   }
-Type
+type
   TSDL_GetBasePath_func = function(): PAnsiChar; cdecl;
-Var
+var
   SDL_GetBasePath : TSDL_GetBasePath_func = Nil;
 
 
@@ -103,9 +103,9 @@ Var
  *
  * \sa SDL_GetBasePath
   }
-Type
+type
   TSDL_GetPrefPath_func = function(org: PAnsiChar; app: PAnsiChar): PAnsiChar; cdecl;
-Var
+var
   SDL_GetPrefPath : TSDL_GetPrefPath_func = Nil;
 
 

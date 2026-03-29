@@ -11,9 +11,9 @@ const
 {**
  * This function returns the number of CPU cores available.
  *}
-Type
+type
   TSDL_GetCPUCount_func = function(): cint; cdecl;
-Var
+var
   SDL_GetCPUCount : TSDL_GetCPUCount_func = Nil;
 
 

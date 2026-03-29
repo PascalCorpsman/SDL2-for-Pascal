@@ -19,9 +19,9 @@
  * \sa SDL_GetClipboardText
  * \sa SDL_HasClipboardText
   }
-Type
+type
   TSDL_SetClipboardText_func = function(text: PAnsiChar): cint; cdecl;
-Var
+var
   SDL_SetClipboardText : TSDL_SetClipboardText_func = Nil;
 
 
@@ -41,9 +41,9 @@ Var
  * \sa SDL_HasClipboardText
  * \sa SDL_SetClipboardText
   }
-Type
+type
   TSDL_GetClipboardText_func = function(): PAnsiChar; cdecl;
-Var
+var
   SDL_GetClipboardText : TSDL_GetClipboardText_func = Nil;
 
 
@@ -57,9 +57,9 @@ Var
  * \sa SDL_GetClipboardText
  * \sa SDL_SetClipboardText
   }
-Type
+type
   TSDL_HasClipboardText_func = function(): TSDL_bool; cdecl;
-Var
+var
   SDL_HasClipboardText : TSDL_HasClipboardText_func = Nil;
 
 
@@ -75,9 +75,9 @@ Var
  * \sa SDL_GetPrimarySelectionText
  * \sa SDL_HasPrimarySelectionText
   }
-Type
+type
   TSDL_SetPrimarySelectionText_func = function(text: PAnsiChar): cint; cdecl;
-Var
+var
   SDL_SetPrimarySelectionText : TSDL_SetPrimarySelectionText_func = Nil;
 
 
@@ -98,9 +98,9 @@ Var
  * \sa SDL_HasPrimarySelectionText
  * \sa SDL_SetPrimarySelectionText
   }
-Type
+type
   TSDL_GetPrimarySelectionText_func = function(): PAnsiChar; cdecl;
-Var
+var
   SDL_GetPrimarySelectionText : TSDL_GetPrimarySelectionText_func = Nil;
 
 
@@ -116,8 +116,8 @@ Var
  * \sa SDL_GetPrimarySelectionText
  * \sa SDL_SetPrimarySelectionText
   }
-Type
+type
   TSDL_HasPrimarySelectionText_func = function(): TSDL_bool; cdecl;
-Var
+var
   SDL_HasPrimarySelectionText : TSDL_HasPrimarySelectionText_func = Nil;
 

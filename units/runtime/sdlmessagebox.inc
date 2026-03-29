@@ -104,10 +104,10 @@ type
  *   block execution of that thread until the user clicks a button or
  *   closes the messagebox.
  *}
-Type
-  TSDL_ShowMessageBox_fun = function(messageboxdata: PSDL_MessageBoxData; buttonid: pcint): cint; cdecl;
-Var
-  SDL_ShowMessageBox : TSDL_ShowMessageBox_fun = Nil;
+type
+  TSDL_ShowMessageBox_func = function(messageboxdata: PSDL_MessageBoxData; buttonid: pcint): cint; cdecl;
+var
+  SDL_ShowMessageBox : TSDL_ShowMessageBox_func = Nil;
 
 
 {**
@@ -122,9 +122,9 @@ Var
  *
  *   SDL_ShowMessageBox
  *}
-Type
-  TSDL_ShowSimpleMessageBox_fun = function(flags: TSDL_MessageBoxFlags; title: PAnsiChar; _message: PAnsiChar; window: PSDL_Window): cint; cdecl;
-Var
-  SDL_ShowSimpleMessageBox : TSDL_ShowSimpleMessageBox_fun = Nil;
+type
+  TSDL_ShowSimpleMessageBox_func = function(flags: TSDL_MessageBoxFlags; title: PAnsiChar; _message: PAnsiChar; window: PSDL_Window): cint; cdecl;
+var
+  SDL_ShowSimpleMessageBox : TSDL_ShowSimpleMessageBox_func = Nil;
 
 

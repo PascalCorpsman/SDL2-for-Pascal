@@ -40,18 +40,18 @@ const
   {**
    *  Get the number of registered touch devices.
    *}
-Type
+type
   TSDL_GetNumTouchDevices_func = function(): cint; cdecl;
-Var
+var
   SDL_GetNumTouchDevices : TSDL_GetNumTouchDevices_func = Nil;
 
 
   {**
    *  Get the touch ID with the given index, or 0 if the index is invalid.
    *}
-Type
+type
   TSDL_GetTouchDevice_func = function(index: cint): TSDL_TouchID; cdecl;
-Var
+var
   SDL_GetTouchDevice : TSDL_GetTouchDevice_func = Nil;
 
 
@@ -61,9 +61,9 @@ Var
  *
  * \since This function is available since SDL 2.0.22.
  *}
-Type
+type
   TSDL_GetTouchName_func = function(index: cint): PAnsiChar; cdecl;
-Var
+var
   SDL_GetTouchName : TSDL_GetTouchName_func = Nil;
 
 
@@ -72,27 +72,27 @@ Var
  *
  * \since This function is available since SDL 2.0.10.
  *}
-Type
+type
   TSDL_GetTouchDeviceType_func = function(touchID: TSDL_TouchID): TSDL_TouchDeviceType; cdecl;
-Var
+var
   SDL_GetTouchDeviceType : TSDL_GetTouchDeviceType_func = Nil;
 
 
   {**
    *  Get the number of active fingers for a given touch device.
    *}
-Type
+type
   TSDL_GetNumTouchFingers_func = function(touchID: TSDL_TouchID): cint; cdecl;
-Var
+var
   SDL_GetNumTouchFingers : TSDL_GetNumTouchFingers_func = Nil;
 
 
   {**
    *  Get the finger object of the given touch, with the given index.
    *}
-Type
+type
   TSDL_GetTouchFinger_func = function(touchID: TSDL_TouchID; index: cint): PSDL_Finger; cdecl;
-Var
+var
   SDL_GetTouchFinger : TSDL_GetTouchFinger_func = Nil;
 
 

@@ -80,10 +80,10 @@ function SDL_RectEquals(const a, b: PSDL_Rect): Boolean; inline;
  *
  *  SDL_TRUE if there is an intersection, SDL_FALSE otherwise.
  *}
-Type
-  TSDL_HasIntersection_fun = function(const a, b: PSDL_Rect): TSDL_Bool; cdecl;
-Var
-  SDL_HasIntersection : TSDL_HasIntersection_fun = Nil;
+type
+  TSDL_HasIntersection_func = function(const a, b: PSDL_Rect): TSDL_Bool; cdecl;
+var
+  SDL_HasIntersection : TSDL_HasIntersection_func = Nil;
 
 
 {**
@@ -91,18 +91,18 @@ Var
  *
  *  SDL_TRUE if there is an intersection, SDL_FALSE otherwise.
  *}
-Type
-  TSDL_IntersectRect_fun = function(const A, B: PSDL_Rect; result: PSDL_Rect): TSDL_Bool; cdecl;
-Var
-  SDL_IntersectRect : TSDL_IntersectRect_fun = Nil;
+type
+  TSDL_IntersectRect_func = function(const A, B: PSDL_Rect; result: PSDL_Rect): TSDL_Bool; cdecl;
+var
+  SDL_IntersectRect : TSDL_IntersectRect_func = Nil;
 
 
 {**
  *  Calculate the union of two rectangles.
  *}
-Type
+type
   TSDL_UnionRect_proc = procedure(const A, B: PSDL_Rect; result: PSDL_Rect); cdecl;
-Var
+var
   SDL_UnionRect : TSDL_UnionRect_proc = Nil;
 
 
@@ -111,10 +111,10 @@ Var
  *
  *  SDL_TRUE if any points were within the clipping rect
  *}
-Type
-  TSDL_EnclosePoints_fun = function(const points: PSDL_Point; count: cint; const clip: PSDL_Rect; result: PSDL_Rect): TSDL_Bool; cdecl;
-Var
-  SDL_EnclosePoints : TSDL_EnclosePoints_fun = Nil;
+type
+  TSDL_EnclosePoints_func = function(const points: PSDL_Point; count: cint; const clip: PSDL_Rect; result: PSDL_Rect): TSDL_Bool; cdecl;
+var
+  SDL_EnclosePoints : TSDL_EnclosePoints_func = Nil;
 
 
 {**
@@ -122,10 +122,10 @@ Var
  *
  *  SDL_TRUE if there is an intersection, SDL_FALSE otherwise.
  *}
-Type
-  TSDL_IntersectRectAndLine_fun = function(const rect: PSDL_Rect; X1, Y1, X2, Y2: pcint): TSDL_Bool; cdecl;
-Var
-  SDL_IntersectRectAndLine : TSDL_IntersectRectAndLine_fun = Nil;
+type
+  TSDL_IntersectRectAndLine_func = function(const rect: PSDL_Rect; X1, Y1, X2, Y2: pcint): TSDL_Bool; cdecl;
+var
+  SDL_IntersectRectAndLine : TSDL_IntersectRectAndLine_func = Nil;
 
 
 {**
@@ -165,10 +165,10 @@ function SDL_FRectEquals(const a, b: PSDL_FRect): Boolean; Inline;
  *
  * \sa SDL_IntersectRect
  *}
-Type
-  TSDL_HasIntersectionF_fun = function(const a, b: PSDL_FRect): TSDL_Bool; cdecl;
-Var
-  SDL_HasIntersectionF : TSDL_HasIntersectionF_fun = Nil;
+type
+  TSDL_HasIntersectionF_func = function(const a, b: PSDL_FRect): TSDL_Bool; cdecl;
+var
+  SDL_HasIntersectionF : TSDL_HasIntersectionF_func = Nil;
 
 
 {**
@@ -186,10 +186,10 @@ Var
  *
  * \sa SDL_HasIntersectionF
  *}
-Type
-  TSDL_IntersectFRect_fun = function(const a, b: PSDL_FRect; result: PSDL_FRect): TSDL_Bool; cdecl;
-Var
-  SDL_IntersectFRect : TSDL_IntersectFRect_fun = Nil;
+type
+  TSDL_IntersectFRect_func = function(const a, b: PSDL_FRect; result: PSDL_FRect): TSDL_Bool; cdecl;
+var
+  SDL_IntersectFRect : TSDL_IntersectFRect_func = Nil;
 
 
 {**
@@ -202,10 +202,10 @@ Var
  *
  * \since This function is available since SDL 2.0.22.
  *}
-Type
-  TSDL_UnionFRect_fun = function(const a, b: PSDL_FRect; result: PSDL_FRect): TSDL_Bool; cdecl;
-Var
-  SDL_UnionFRect : TSDL_UnionFRect_fun = Nil;
+type
+  TSDL_UnionFRect_func = function(const a, b: PSDL_FRect; result: PSDL_FRect): TSDL_Bool; cdecl;
+var
+  SDL_UnionFRect : TSDL_UnionFRect_func = Nil;
 
 
 {**
@@ -226,10 +226,10 @@ Var
  *
  * \since This function is available since SDL 2.0.22.
  *}
-Type
-  TSDL_EncloseFPoints_fun = function(const points: PSDL_FPoint; count: cint; const clip: PSDL_FRect; result: PSDL_FRect): TSDL_Bool; cdecl;
-Var
-  SDL_EncloseFPoints : TSDL_EncloseFPoints_fun = Nil;
+type
+  TSDL_EncloseFPoints_func = function(const points: PSDL_FPoint; count: cint; const clip: PSDL_FRect; result: PSDL_FRect): TSDL_Bool; cdecl;
+var
+  SDL_EncloseFPoints : TSDL_EncloseFPoints_func = Nil;
 
 
 {**
@@ -251,8 +251,8 @@ Var
  *
  * \since This function is available since SDL 2.0.22.
  *}
-Type
-  TSDL_IntersectFRectAndLine_fun = function(const rect: PSDL_FRect; X1, Y1, X2, Y2: pcfloat): TSDL_Bool; cdecl;
-Var
-  SDL_IntersectFRectAndLine : TSDL_IntersectFRectAndLine_fun = Nil;
+type
+  TSDL_IntersectFRectAndLine_func = function(const rect: PSDL_FRect; X1, Y1, X2, Y2: pcfloat): TSDL_Bool; cdecl;
+var
+  SDL_IntersectFRectAndLine : TSDL_IntersectFRectAndLine_func = Nil;
 

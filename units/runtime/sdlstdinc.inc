@@ -110,29 +110,29 @@ function SDL_SetMemoryFunctions(
  *
  * \since This function is available since SDL 2.0.7.
  *)
-Type
-  TSDL_GetNumAllocations_fun = function(): cint; cdecl;
-Var
-  SDL_GetNumAllocations : TSDL_GetNumAllocations_fun = Nil;
+type
+  TSDL_GetNumAllocations_func = function(): cint; cdecl;
+var
+  SDL_GetNumAllocations : TSDL_GetNumAllocations_func = Nil;
 
 
 (**
  * Allocate a block of memory. The memory is *not* initialized.
  *)
-Type
-  TSDL_malloc_fun = function(size: csize_t): Pointer; cdecl;
-Var
-  SDL_malloc : TSDL_malloc_fun = Nil;
+type
+  TSDL_malloc_func = function(size: csize_t): Pointer; cdecl;
+var
+  SDL_malloc : TSDL_malloc_func = Nil;
 
 
 (**
  * Allocate a block of memory that can fit an array of nmemb elements, each of given size.
  * The memory is initialized by setting every byte to 0.
  *)
-Type
-  TSDL_calloc_fun = function(nmemb, size: csize_t): Pointer; cdecl;
-Var
-  SDL_calloc : TSDL_calloc_fun = Nil;
+type
+  TSDL_calloc_func = function(nmemb, size: csize_t): Pointer; cdecl;
+var
+  SDL_calloc : TSDL_calloc_func = Nil;
 
 
 (**
@@ -141,10 +141,10 @@ Var
  * The returned pointer may or may not be the same as the original pointer.
  * If the new size is larger than the old size, any new memory will *not* be initialized.
  *)
-Type
-  TSDL_realloc_fun = function(mem: Pointer; size: csize_t): Pointer; cdecl;
-Var
-  SDL_realloc : TSDL_realloc_fun = Nil;
+type
+  TSDL_realloc_func = function(mem: Pointer; size: csize_t): Pointer; cdecl;
+var
+  SDL_realloc : TSDL_realloc_func = Nil;
 
 
 (**
@@ -153,9 +153,9 @@ Var
  * Calling SDL_free() on the same pointer twice is undefined behaviour and may cause
  * your program to crash or behave in unexpected ways.
  *)
-Type
+type
   TSDL_free_proc = procedure(mem: Pointer); cdecl;
-Var
+var
   SDL_free : TSDL_free_proc = Nil;
 
 
@@ -173,10 +173,10 @@ SDL2-for-Pascal: All comments are added by us and not found in the include file.
  *
  * \since This function is available since SDL 2.0.16.
  *)
-Type
-  TSDL_isalpha_fun = function(x: cint):cint; cdecl;
-Var
-  SDL_isalpha : TSDL_isalpha_fun = Nil;
+type
+  TSDL_isalpha_func = function(x: cint):cint; cdecl;
+var
+  SDL_isalpha : TSDL_isalpha_func = Nil;
 
 
 (**
@@ -186,10 +186,10 @@ Var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-Type
-  TSDL_isalnum_fun = function(x: cint):cint; cdecl;
-Var
-  SDL_isalnum : TSDL_isalnum_fun = Nil;
+type
+  TSDL_isalnum_func = function(x: cint):cint; cdecl;
+var
+  SDL_isalnum : TSDL_isalnum_func = Nil;
 
 
 (**
@@ -199,10 +199,10 @@ Var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-Type
-  TSDL_isblank_fun = function(x: cint):cint; cdecl;
-Var
-  SDL_isblank : TSDL_isblank_fun = Nil;
+type
+  TSDL_isblank_func = function(x: cint):cint; cdecl;
+var
+  SDL_isblank : TSDL_isblank_func = Nil;
 
 
 (**
@@ -212,10 +212,10 @@ Var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-Type
-  TSDL_iscntrl_fun = function(x: cint):cint; cdecl;
-Var
-  SDL_iscntrl : TSDL_iscntrl_fun = Nil;
+type
+  TSDL_iscntrl_func = function(x: cint):cint; cdecl;
+var
+  SDL_iscntrl : TSDL_iscntrl_func = Nil;
 
 
 (**
@@ -225,10 +225,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_isdigit_fun = function(x: cint):cint; cdecl;
-Var
-  SDL_isdigit : TSDL_isdigit_fun = Nil;
+type
+  TSDL_isdigit_func = function(x: cint):cint; cdecl;
+var
+  SDL_isdigit : TSDL_isdigit_func = Nil;
 
 
 (**
@@ -238,10 +238,10 @@ Var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-Type
-  TSDL_isxdigit_fun = function(x: cint):cint; cdecl;
-Var
-  SDL_isxdigit : TSDL_isxdigit_fun = Nil;
+type
+  TSDL_isxdigit_func = function(x: cint):cint; cdecl;
+var
+  SDL_isxdigit : TSDL_isxdigit_func = Nil;
 
 
 (**
@@ -252,10 +252,10 @@ Var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-Type
-  TSDL_ispunct_fun = function(x: cint):cint; cdecl;
-Var
-  SDL_ispunct : TSDL_ispunct_fun = Nil;
+type
+  TSDL_ispunct_func = function(x: cint):cint; cdecl;
+var
+  SDL_ispunct : TSDL_ispunct_func = Nil;
 
 
 (**
@@ -268,10 +268,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_isspace_fun = function(x: cint):cint; cdecl;
-Var
-  SDL_isspace : TSDL_isspace_fun = Nil;
+type
+  TSDL_isspace_func = function(x: cint):cint; cdecl;
+var
+  SDL_isspace : TSDL_isspace_func = Nil;
 
 
 (**
@@ -281,10 +281,10 @@ Var
  *
  * \since This function is available since SDL 2.0.12.
  *)
-Type
-  TSDL_isupper_fun = function(x: cint):cint; cdecl;
-Var
-  SDL_isupper : TSDL_isupper_fun = Nil;
+type
+  TSDL_isupper_func = function(x: cint):cint; cdecl;
+var
+  SDL_isupper : TSDL_isupper_func = Nil;
 
 
 (**
@@ -294,10 +294,10 @@ Var
  *
  * \since This function is available since SDL 2.0.12.
  *)
-Type
-  TSDL_islower_fun = function(x: cint):cint; cdecl;
-Var
-  SDL_islower : TSDL_islower_fun = Nil;
+type
+  TSDL_islower_func = function(x: cint):cint; cdecl;
+var
+  SDL_islower : TSDL_islower_func = Nil;
 
 
 (**
@@ -307,10 +307,10 @@ Var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-Type
-  TSDL_isprint_fun = function(x: cint):cint; cdecl;
-Var
-  SDL_isprint : TSDL_isprint_fun = Nil;
+type
+  TSDL_isprint_func = function(x: cint):cint; cdecl;
+var
+  SDL_isprint : TSDL_isprint_func = Nil;
 
 
 (**
@@ -320,10 +320,10 @@ Var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-Type
-  TSDL_isgraph_fun = function(x: cint):cint; cdecl;
-Var
-  SDL_isgraph : TSDL_isgraph_fun = Nil;
+type
+  TSDL_isgraph_func = function(x: cint):cint; cdecl;
+var
+  SDL_isgraph : TSDL_isgraph_func = Nil;
 
 
 (**
@@ -332,10 +332,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_toupper_fun = function(x: cint):cint; cdecl;
-Var
-  SDL_toupper : TSDL_toupper_fun = Nil;
+type
+  TSDL_toupper_func = function(x: cint):cint; cdecl;
+var
+  SDL_toupper : TSDL_toupper_func = Nil;
 
 
 (**
@@ -344,10 +344,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_tolower_fun = function(x: cint):cint; cdecl;
-Var
-  SDL_tolower : TSDL_tolower_fun = Nil;
+type
+  TSDL_tolower_func = function(x: cint):cint; cdecl;
+var
+  SDL_tolower : TSDL_tolower_func = Nil;
 
 
 
@@ -361,10 +361,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_acos_fun = function(x: cdouble): cdouble; cdecl;
-Var
-  SDL_acos : TSDL_acos_fun = Nil;
+type
+  TSDL_acos_func = function(x: cdouble): cdouble; cdecl;
+var
+  SDL_acos : TSDL_acos_func = Nil;
 
 
 (**
@@ -373,10 +373,10 @@ Var
  *
  * \since This function is available since SDL 2.0.8.
  *)
-Type
-  TSDL_acosf_fun = function(x: cfloat): cfloat; cdecl;
-Var
-  SDL_acosf : TSDL_acosf_fun = Nil;
+type
+  TSDL_acosf_func = function(x: cfloat): cfloat; cdecl;
+var
+  SDL_acosf : TSDL_acosf_func = Nil;
 
 
 (**
@@ -385,10 +385,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_asin_fun = function(x: cdouble): cdouble; cdecl;
-Var
-  SDL_asin : TSDL_asin_fun = Nil;
+type
+  TSDL_asin_func = function(x: cdouble): cdouble; cdecl;
+var
+  SDL_asin : TSDL_asin_func = Nil;
 
 
 (**
@@ -397,10 +397,10 @@ Var
  *
  * \since This function is available since SDL 2.0.8.
  *)
-Type
-  TSDL_asinf_fun = function(x: cfloat): cfloat; cdecl;
-Var
-  SDL_asinf : TSDL_asinf_fun = Nil;
+type
+  TSDL_asinf_func = function(x: cfloat): cfloat; cdecl;
+var
+  SDL_asinf : TSDL_asinf_func = Nil;
 
 
 (**
@@ -409,10 +409,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_atan_fun = function(x: cdouble): cdouble; cdecl;
-Var
-  SDL_atan : TSDL_atan_fun = Nil;
+type
+  TSDL_atan_func = function(x: cdouble): cdouble; cdecl;
+var
+  SDL_atan : TSDL_atan_func = Nil;
 
 
 (**
@@ -421,10 +421,10 @@ Var
  *
  * \since This function is available since SDL 2.0.8.
  *)
-Type
-  TSDL_atanf_fun = function(x: cfloat): cfloat; cdecl;
-Var
-  SDL_atanf : TSDL_atanf_fun = Nil;
+type
+  TSDL_atanf_func = function(x: cfloat): cfloat; cdecl;
+var
+  SDL_atanf : TSDL_atanf_func = Nil;
 
 
 (**
@@ -433,10 +433,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_atan2_fun = function(y, x: cdouble): cdouble; cdecl;
-Var
-  SDL_atan2 : TSDL_atan2_fun = Nil;
+type
+  TSDL_atan2_func = function(y, x: cdouble): cdouble; cdecl;
+var
+  SDL_atan2 : TSDL_atan2_func = Nil;
 
 
 (**
@@ -445,10 +445,10 @@ Var
  *
  * \since This function is available since SDL 2.0.8.
  *)
-Type
-  TSDL_atan2f_fun = function(y, x: cfloat): cfloat; cdecl;
-Var
-  SDL_atan2f : TSDL_atan2f_fun = Nil;
+type
+  TSDL_atan2f_func = function(y, x: cfloat): cfloat; cdecl;
+var
+  SDL_atan2f : TSDL_atan2f_func = Nil;
 
 
 (**
@@ -456,10 +456,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_ceil_fun = function(x: cdouble): cdouble; cdecl;
-Var
-  SDL_ceil : TSDL_ceil_fun = Nil;
+type
+  TSDL_ceil_func = function(x: cdouble): cdouble; cdecl;
+var
+  SDL_ceil : TSDL_ceil_func = Nil;
 
 
 (**
@@ -467,10 +467,10 @@ Var
  *
  * \since This function is available since SDL 2.0.8.
  *)
-Type
-  TSDL_ceilf_fun = function(x: cfloat): cfloat; cdecl;
-Var
-  SDL_ceilf : TSDL_ceilf_fun = Nil;
+type
+  TSDL_ceilf_func = function(x: cfloat): cfloat; cdecl;
+var
+  SDL_ceilf : TSDL_ceilf_func = Nil;
 
 
 (**
@@ -479,10 +479,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_copysign_fun = function(x, y: cdouble): cdouble; cdecl;
-Var
-  SDL_copysign : TSDL_copysign_fun = Nil;
+type
+  TSDL_copysign_func = function(x, y: cdouble): cdouble; cdecl;
+var
+  SDL_copysign : TSDL_copysign_func = Nil;
 
 
 (**
@@ -491,10 +491,10 @@ Var
  *
  * \since This function is available since SDL 2.0.8.
  *)
-Type
-  TSDL_copysignf_fun = function(x, y: cfloat): cfloat; cdecl;
-Var
-  SDL_copysignf : TSDL_copysignf_fun = Nil;
+type
+  TSDL_copysignf_func = function(x, y: cfloat): cfloat; cdecl;
+var
+  SDL_copysignf : TSDL_copysignf_func = Nil;
 
 
 (**
@@ -502,10 +502,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_cos_fun = function(x: cdouble): cdouble; cdecl;
-Var
-  SDL_cos : TSDL_cos_fun = Nil;
+type
+  TSDL_cos_func = function(x: cdouble): cdouble; cdecl;
+var
+  SDL_cos : TSDL_cos_func = Nil;
 
 
 (**
@@ -513,10 +513,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_cosf_fun = function(x: cfloat): cfloat; cdecl;
-Var
-  SDL_cosf : TSDL_cosf_fun = Nil;
+type
+  TSDL_cosf_func = function(x: cfloat): cfloat; cdecl;
+var
+  SDL_cosf : TSDL_cosf_func = Nil;
 
 
 (**
@@ -525,10 +525,10 @@ Var
  *
  * \since This function is available since SDL 2.0.9.
  *)
-Type
-  TSDL_exp_fun = function(x: cdouble): cdouble; cdecl;
-Var
-  SDL_exp : TSDL_exp_fun = Nil;
+type
+  TSDL_exp_func = function(x: cdouble): cdouble; cdecl;
+var
+  SDL_exp : TSDL_exp_func = Nil;
 
 
 (**
@@ -537,10 +537,10 @@ Var
  *
  * \since This function is available since SDL 2.0.9.
  *)
-Type
-  TSDL_expf_fun = function(x: cfloat): cfloat; cdecl;
-Var
-  SDL_expf : TSDL_expf_fun = Nil;
+type
+  TSDL_expf_func = function(x: cfloat): cfloat; cdecl;
+var
+  SDL_expf : TSDL_expf_func = Nil;
 
 
 (**
@@ -548,10 +548,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_fabs_fun = function(x: cdouble): cdouble; cdecl;
-Var
-  SDL_fabs : TSDL_fabs_fun = Nil;
+type
+  TSDL_fabs_func = function(x: cdouble): cdouble; cdecl;
+var
+  SDL_fabs : TSDL_fabs_func = Nil;
 
 
 (**
@@ -559,10 +559,10 @@ Var
  *
  * \since This function is available since SDL 2.0.8.
  *)
-Type
-  TSDL_fabsf_fun = function(x: cfloat): cfloat; cdecl;
-Var
-  SDL_fabsf : TSDL_fabsf_fun = Nil;
+type
+  TSDL_fabsf_func = function(x: cfloat): cfloat; cdecl;
+var
+  SDL_fabsf : TSDL_fabsf_func = Nil;
 
 
 (**
@@ -570,10 +570,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_floor_fun = function(x: cdouble): cdouble; cdecl;
-Var
-  SDL_floor : TSDL_floor_fun = Nil;
+type
+  TSDL_floor_func = function(x: cdouble): cdouble; cdecl;
+var
+  SDL_floor : TSDL_floor_func = Nil;
 
 
 (**
@@ -581,10 +581,10 @@ Var
  *
  * \since This function is available since SDL 2.0.8.
  *)
-Type
-  TSDL_floorf_fun = function(x: cfloat): cfloat; cdecl;
-Var
-  SDL_floorf : TSDL_floorf_fun = Nil;
+type
+  TSDL_floorf_func = function(x: cfloat): cfloat; cdecl;
+var
+  SDL_floorf : TSDL_floorf_func = Nil;
 
 
 (**
@@ -592,10 +592,10 @@ Var
  *
  * \since This function is available since SDL 2.0.8.
  *)
-Type
-  TSDL_fmod_fun = function(x, y: cdouble): cdouble; cdecl;
-Var
-  SDL_fmod : TSDL_fmod_fun = Nil;
+type
+  TSDL_fmod_func = function(x, y: cdouble): cdouble; cdecl;
+var
+  SDL_fmod : TSDL_fmod_func = Nil;
 
 
 (**
@@ -603,10 +603,10 @@ Var
  *
  * \since This function is available since SDL 2.0.8.
  *)
-Type
-  TSDL_fmodf_fun = function(x, y: cfloat): cfloat; cdecl;
-Var
-  SDL_fmodf : TSDL_fmodf_fun = Nil;
+type
+  TSDL_fmodf_func = function(x, y: cfloat): cfloat; cdecl;
+var
+  SDL_fmodf : TSDL_fmodf_func = Nil;
 
 
 (**
@@ -618,10 +618,10 @@ Var
  but since Pascal names are case-insensitive, it is in conflict with SDL_Log (logging function). 
  Hence we decided to rename it.
  *)
-Type
-  TSDL_nlog_fun = function(x: cdouble): cdouble; cdecl;
-Var
-  SDL_nlog : TSDL_nlog_fun = Nil;
+type
+  TSDL_nlog_func = function(x: cdouble): cdouble; cdecl;
+var
+  SDL_nlog : TSDL_nlog_func = Nil;
 
 
 (**
@@ -633,10 +633,10 @@ Var
  but to be consistent with the renamed SDL_log function (see comment of SDL_nlog
  for details), we decided to rename it.
  *)
-Type
-  TSDL_nlogf_fun = function(x: cfloat): cfloat; cdecl;
-Var
-  SDL_nlogf : TSDL_nlogf_fun = Nil;
+type
+  TSDL_nlogf_func = function(x: cfloat): cfloat; cdecl;
+var
+  SDL_nlogf : TSDL_nlogf_func = Nil;
 
 
 (**
@@ -644,10 +644,10 @@ Var
  *
  * \since This function is available since SDL 2.0.8.
  *)
-Type
-  TSDL_log10_fun = function(x: cdouble): cdouble; cdecl;
-Var
-  SDL_log10 : TSDL_log10_fun = Nil;
+type
+  TSDL_log10_func = function(x: cdouble): cdouble; cdecl;
+var
+  SDL_log10 : TSDL_log10_func = Nil;
 
 
 (**
@@ -655,10 +655,10 @@ Var
  *
  * \since This function is available since SDL 2.0.8.
  *)
-Type
-  TSDL_log10f_fun = function(x: cfloat): cfloat; cdecl;
-Var
-  SDL_log10f : TSDL_log10f_fun = Nil;
+type
+  TSDL_log10f_func = function(x: cfloat): cfloat; cdecl;
+var
+  SDL_log10f : TSDL_log10f_func = Nil;
 
 
 (**
@@ -666,10 +666,10 @@ Var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-Type
-  TSDL_lround_fun = function(x: cdouble): clong; cdecl;
-Var
-  SDL_lround : TSDL_lround_fun = Nil;
+type
+  TSDL_lround_func = function(x: cdouble): clong; cdecl;
+var
+  SDL_lround : TSDL_lround_func = Nil;
 
 
 (**
@@ -677,10 +677,10 @@ Var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-Type
-  TSDL_lroundf_fun = function(x: cfloat): clong; cdecl;
-Var
-  SDL_lroundf : TSDL_lroundf_fun = Nil;
+type
+  TSDL_lroundf_func = function(x: cfloat): clong; cdecl;
+var
+  SDL_lroundf : TSDL_lroundf_func = Nil;
 
 
 (**
@@ -688,10 +688,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_pow_fun = function(x, y: cdouble): cdouble; cdecl;
-Var
-  SDL_pow : TSDL_pow_fun = Nil;
+type
+  TSDL_pow_func = function(x, y: cdouble): cdouble; cdecl;
+var
+  SDL_pow : TSDL_pow_func = Nil;
 
 
 (**
@@ -699,10 +699,10 @@ Var
  *
  * \since This function is available since SDL 2.0.8.
  *)
-Type
-  TSDL_powf_fun = function(x, y: cfloat): cfloat; cdecl;
-Var
-  SDL_powf : TSDL_powf_fun = Nil;
+type
+  TSDL_powf_func = function(x, y: cfloat): cfloat; cdecl;
+var
+  SDL_powf : TSDL_powf_func = Nil;
 
 
 (**
@@ -710,10 +710,10 @@ Var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-Type
-  TSDL_round_fun = function(x: cdouble): cdouble; cdecl;
-Var
-  SDL_round : TSDL_round_fun = Nil;
+type
+  TSDL_round_func = function(x: cdouble): cdouble; cdecl;
+var
+  SDL_round : TSDL_round_func = Nil;
 
 
 (**
@@ -721,10 +721,10 @@ Var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-Type
-  TSDL_roundf_fun = function(x: cfloat): cfloat; cdecl;
-Var
-  SDL_roundf : TSDL_roundf_fun = Nil;
+type
+  TSDL_roundf_func = function(x: cfloat): cfloat; cdecl;
+var
+  SDL_roundf : TSDL_roundf_func = Nil;
 
 
 (**
@@ -733,10 +733,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_scalbn_fun = function(x: cdouble; n: cint): cdouble; cdecl;
-Var
-  SDL_scalbn : TSDL_scalbn_fun = Nil;
+type
+  TSDL_scalbn_func = function(x: cdouble; n: cint): cdouble; cdecl;
+var
+  SDL_scalbn : TSDL_scalbn_func = Nil;
 
 
 (**
@@ -745,10 +745,10 @@ Var
  *
  * \since This function is available since SDL 2.0.8.
  *)
-Type
-  TSDL_scalbnf_fun = function(x: cfloat; n: cint): cfloat; cdecl;
-Var
-  SDL_scalbnf : TSDL_scalbnf_fun = Nil;
+type
+  TSDL_scalbnf_func = function(x: cfloat; n: cint): cfloat; cdecl;
+var
+  SDL_scalbnf : TSDL_scalbnf_func = Nil;
 
 
 (**
@@ -756,10 +756,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_sin_fun = function(x: cdouble): cdouble; cdecl;
-Var
-  SDL_sin : TSDL_sin_fun = Nil;
+type
+  TSDL_sin_func = function(x: cdouble): cdouble; cdecl;
+var
+  SDL_sin : TSDL_sin_func = Nil;
 
 
 (**
@@ -767,10 +767,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_sinf_fun = function(x: cfloat): cfloat; cdecl;
-Var
-  SDL_sinf : TSDL_sinf_fun = Nil;
+type
+  TSDL_sinf_func = function(x: cfloat): cfloat; cdecl;
+var
+  SDL_sinf : TSDL_sinf_func = Nil;
 
 
 (**
@@ -778,10 +778,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_sqrt_fun = function(x: cdouble): cdouble; cdecl;
-Var
-  SDL_sqrt : TSDL_sqrt_fun = Nil;
+type
+  TSDL_sqrt_func = function(x: cdouble): cdouble; cdecl;
+var
+  SDL_sqrt : TSDL_sqrt_func = Nil;
 
 
 (**
@@ -789,10 +789,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_sqrtf_fun = function(x: cfloat): cfloat; cdecl;
-Var
-  SDL_sqrtf : TSDL_sqrtf_fun = Nil;
+type
+  TSDL_sqrtf_func = function(x: cfloat): cfloat; cdecl;
+var
+  SDL_sqrtf : TSDL_sqrtf_func = Nil;
 
 
 (**
@@ -800,10 +800,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_tan_fun = function(x: cdouble): cdouble; cdecl;
-Var
-  SDL_tan : TSDL_tan_fun = Nil;
+type
+  TSDL_tan_func = function(x: cdouble): cdouble; cdecl;
+var
+  SDL_tan : TSDL_tan_func = Nil;
 
 
 (**
@@ -811,10 +811,10 @@ Var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-Type
-  TSDL_tanf_fun = function(x: cfloat): cfloat; cdecl;
-Var
-  SDL_tanf : TSDL_tanf_fun = Nil;
+type
+  TSDL_tanf_func = function(x: cfloat): cfloat; cdecl;
+var
+  SDL_tanf : TSDL_tanf_func = Nil;
 
 
 (**
@@ -822,10 +822,10 @@ Var
  *
  * \since This function is available since SDL 2.0.14.
  *)
-Type
-  TSDL_trunc_fun = function(x: cdouble): cdouble; cdecl;
-Var
-  SDL_trunc : TSDL_trunc_fun = Nil;
+type
+  TSDL_trunc_func = function(x: cdouble): cdouble; cdecl;
+var
+  SDL_trunc : TSDL_trunc_func = Nil;
 
 
 (**
@@ -833,10 +833,10 @@ Var
  *
  * \since This function is available since SDL 2.0.14.
  *)
-Type
-  TSDL_truncf_fun = function(x: cfloat): cfloat; cdecl;
-Var
-  SDL_truncf : TSDL_truncf_fun = Nil;
+type
+  TSDL_truncf_func = function(x: cfloat): cfloat; cdecl;
+var
+  SDL_truncf : TSDL_truncf_func = Nil;
 
 
 
@@ -850,10 +850,10 @@ Var
  *
  * \since This function is available since SDL 2.0.0.
  *)
-Type
-  TSDL_iconv_string_fun = function(Const tocode, fromcode, inbuf: PAnsiChar; inbytesleft: csize_t): PAnsiChar; cdecl;
-Var
-  SDL_iconv_string : TSDL_iconv_string_fun = Nil;
+type
+  TSDL_iconv_string_func = function(Const tocode, fromcode, inbuf: PAnsiChar; inbytesleft: csize_t): PAnsiChar; cdecl;
+var
+  SDL_iconv_string : TSDL_iconv_string_func = Nil;
 
 
 // These are macros in the original C headers, we will reimplement them as simple Pascal functions.
@@ -871,20 +871,20 @@ const
 type
   PSDL_iconv = type Pointer;
 
-Type
-  TSDL_iconv_open_fun = function(Const tocode, fromcode: PAnsiChar): PSDL_iconv; cdecl;
-Var
-  SDL_iconv_open : TSDL_iconv_open_fun = Nil;
+type
+  TSDL_iconv_open_func = function(Const tocode, fromcode: PAnsiChar): PSDL_iconv; cdecl;
+var
+  SDL_iconv_open : TSDL_iconv_open_func = Nil;
 
 
-Type
-  TSDL_iconv_close_fun = function(cd: PSDL_iconv): cint; cdecl;
-Var
-  SDL_iconv_close : TSDL_iconv_close_fun = Nil;
+type
+  TSDL_iconv_close_func = function(cd: PSDL_iconv): cint; cdecl;
+var
+  SDL_iconv_close : TSDL_iconv_close_func = Nil;
 
 
-Type
-  TSDL_iconv_fun = function(cd: PSDL_iconv; Const inbuf: PPAnsiChar; inbytesleft: pcsize_t; outbuf: PPAnsiChar; outbytesleft: pcsize_t): csize_t; cdecl;
-Var
-  SDL_iconv : TSDL_iconv_fun = Nil;
+type
+  TSDL_iconv_func = function(cd: PSDL_iconv; Const inbuf: PPAnsiChar; inbytesleft: pcsize_t; outbuf: PPAnsiChar; outbytesleft: pcsize_t): csize_t; cdecl;
+var
+  SDL_iconv : TSDL_iconv_func = Nil;
 

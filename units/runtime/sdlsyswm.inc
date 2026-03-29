@@ -357,8 +357,8 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *)
-Type
+type
   TSDL_GetWindowWMInfo_func = function(window: PSDL_Window; info: PSDL_SysWMinfo): TSDL_bool; cdecl;
-Var
+var
   SDL_GetWindowWMInfo : TSDL_GetWindowWMInfo_func = Nil;
 

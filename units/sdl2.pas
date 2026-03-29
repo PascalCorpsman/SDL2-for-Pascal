@@ -61,29 +61,15 @@ unit sdl2;
 
 {$I jedi.inc}
 
-(*
- * If you get a compiler error with missing file
- * just create a file namend "sdl2_cfg.inc" in your project folder and
- * insert the following content:
- *
- * ---------- Content of file ----------
+{
+ Enable the following line, or set SDL_RUNTIME_LOADING in your project define
+ settings. If set the SDL2 library can be loaded at runtime instead of being
+ statically linked into the project. After that you need to call the
+ SDL_LoadLib function by your application before using any SDL2 library calls.
 
- {*
-  * set this define if you want to use runtime loading instead of static linking
-  * ! Attention !
-  * Not all functions are "ported" yet, so use is on own risk
-  * port missing functions.
-  *}
- {.$DEFINE SDL_RUNTIME_LOADING}
+}
+//{$DEFINE SDL_RUNTIME_LOADING}
 
- * ---------- End content of file ----------
- *
- * ! Attention !
- * If you use the runtime loading feature, don't forget to call the SDL_LoadLib
- * function.
- *)
-
-{$I sdl2_cfg.inc}
 
 interface
 
@@ -149,7 +135,7 @@ const
 {$I ctypes.inc}                  // C data types
 
                                  {SDL2 version of the represented header file}
-{$ifndef SDL_RUNTIME_LOADING}
+{$IFNDEF SDL_RUNTIME_LOADING}
 
 {$I sdlstdinc.inc}
 {$I sdlversion.inc}              // 2.0.14
@@ -195,7 +181,7 @@ const
 {$I sdlsystem.inc}               // 2.24.0
 {$I sdl.inc}                     // 2.0.14
 
-{$else}
+{$ELSE}
 
 {$I runtime/sdlstdinc.inc}
 {$I runtime/sdlversion.inc}              // 2.0.14
@@ -241,10 +227,6 @@ const
 {$I runtime/sdlsystem.inc}               // 2.24.0
 {$I runtime/sdl.inc}                     // 2.0.14
 
-{$endif}
-
-{$ifdef SDL_RUNTIME_LOADING}
-
 // Loads the SDL library dynamically at runtime.
 //
 // Note:
@@ -271,7 +253,7 @@ function SDL_LoadLib(LibFilename: string): Boolean;
 // pointers become invalid.
 procedure SDL_UnLoadLib();
 
-{$endif}
+{$ENDIF}
 
 implementation
 

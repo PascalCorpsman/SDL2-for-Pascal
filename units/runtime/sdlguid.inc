@@ -28,6 +28,7 @@ type
  * GUIDs may be platform-dependent (i.e., the same device may report
  *   different GUIDs on different operating systems).
  *}
+var
   {**
  * Get an ASCII string representation for a given ::SDL_GUID.
  *
@@ -41,12 +42,12 @@ type
  *
  * \sa SDL_GUIDFromString
  *}
-var
   SDL_GUIDToString : TSDL_GUIDToString_proc = Nil;
 
 
 type
   TSDL_GUIDFromString_func = function(const pchGUID: PAnsiChar): TSDL_GUID; cdecl;
+var
 {**
  * Convert a GUID string into a ::SDL_GUID structure.
  *
@@ -61,6 +62,5 @@ type
  *
  * \sa SDL_GUIDToString
  *}
-var
   SDL_GUIDFromString : TSDL_GUIDFromString_func = Nil;
 

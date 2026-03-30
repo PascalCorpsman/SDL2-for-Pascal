@@ -38,6 +38,7 @@ function SDL_CreateMutex: PSDL_Mutex; cdecl;
 
 type
   TSDL_LockMutex_func = function(mutex: PSDL_Mutex): cint; cdecl;
+var
 {**
  * Lock the mutex.
  *
@@ -54,7 +55,6 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_LockMutex : TSDL_LockMutex_func = Nil;
 
 
@@ -63,6 +63,7 @@ var
 
 type
   TSDL_TryLockMutex_func = function(mutex: PSDL_Mutex): cint; cdecl;
+var
 {**
  * Try to lock a mutex without blocking.
  *
@@ -78,12 +79,12 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_TryLockMutex : TSDL_TryLockMutex_func = Nil;
 
 
 type
   TSDL_UnlockMutex_func = function(mutex: PSDL_Mutex): cint; cdecl;
+var
 {**
  * Unlock the mutex.
  *
@@ -101,7 +102,6 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_UnlockMutex : TSDL_UnlockMutex_func = Nil;
 
 
@@ -110,6 +110,7 @@ var
 
 type
   TSDL_DestroyMutex_proc = procedure(mutex: PSDL_Mutex); cdecl;
+var
 {**
  * Destroy a mutex created with SDL_CreateMutex().
  *
@@ -123,7 +124,6 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_DestroyMutex : TSDL_DestroyMutex_proc = Nil;
 
 
@@ -135,6 +135,7 @@ type
 
 type
   TSDL_CreateSemaphore_func = function(initial_value: cuint32): PSDL_sem; cdecl;
+var
 {**
  * Create a semaphore.
  *
@@ -150,12 +151,12 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_CreateSemaphore : TSDL_CreateSemaphore_func = Nil;
 
 
 type
   TSDL_DestroySemaphore_proc = procedure(sem: PSDL_Sem); cdecl;
+var
 {**
  * Destroy a semaphore.
  *
@@ -166,12 +167,12 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_DestroySemaphore : TSDL_DestroySemaphore_proc = Nil;
 
 
 type
   TSDL_SemWait_func = function(sem: PSDL_Sem): cint; cdecl;
+var
 {**
  * Wait until a semaphore has a positive value and then decrements it.
  *
@@ -189,12 +190,12 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_SemWait : TSDL_SemWait_func = Nil;
 
 
 type
   TSDL_SemTryWait_func = function(sem: PSDL_Sem): cint; cdecl;
+var
 {**
  * See if a semaphore has a positive value and decrement it if it does.
  *
@@ -210,12 +211,12 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_SemTryWait : TSDL_SemTryWait_func = Nil;
 
 
 type
   TSDL_SemWaitTimeout_func = function(sem: PSDL_Sem; ms: cuint32): cint; cdecl;
+var
 {**
  * Wait until a semaphore has a positive value and then decrements it.
  *
@@ -232,12 +233,12 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_SemWaitTimeout : TSDL_SemWaitTimeout_func = Nil;
 
 
 type
   TSDL_SemPost_func = function(sem: PSDL_Sem): cint; cdecl;
+var
 {**
  * Atomically increment a semaphore's value and wake waiting threads.
  *
@@ -247,12 +248,12 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_SemPost : TSDL_SemPost_func = Nil;
 
 
 type
   TSDL_SemValue_func = function(sem: PSDL_Sem): cuint32; cdecl;
+var
 {**
  * Get the current value of a semaphore.
  *
@@ -261,7 +262,6 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_SemValue : TSDL_SemValue_func = Nil;
 
 
@@ -314,6 +314,7 @@ function SDL_CreateCond: PSDL_Cond; cdecl;
 
 type
   TSDL_DestroyCond_proc = procedure(cond: PSDL_Cond); cdecl;
+var
 {**
  * Destroy a condition variable.
  *
@@ -321,12 +322,12 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_DestroyCond : TSDL_DestroyCond_proc = Nil;
 
 
 type
   TSDL_CondSignal_func = function(cond: PSDL_Cond): cint; cdecl;
+var
 {**
  * Restart one of the threads that are waiting on the condition variable.
  *
@@ -336,12 +337,12 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_CondSignal : TSDL_CondSignal_func = Nil;
 
 
 type
   TSDL_CondBroadcast_func = function(cond: PSDL_Cond): cint; cdecl;
+var
 {**
  * Restart all threads that are waiting on the condition variable.
  *
@@ -351,12 +352,12 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_CondBroadcast : TSDL_CondBroadcast_func = Nil;
 
 
 type
   TSDL_CondWait_func = function(cond: PSDL_Cond; mutex: PSDL_Mutex): cint; cdecl;
+var
 {**
  * Wait until a condition variable is signaled.
  *
@@ -377,12 +378,12 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_CondWait : TSDL_CondWait_func = Nil;
 
 
 type
   TSDL_CondWaitTimeout_func = function(cond: PSDL_Cond; mutex: PSDL_Mutex; ms: cuint32): cint; cdecl;
+var
 {**
  * Wait until a condition variable is signaled or a certain time has passed.
  *
@@ -404,6 +405,5 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_CondWaitTimeout : TSDL_CondWaitTimeout_func = Nil;
 

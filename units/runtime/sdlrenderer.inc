@@ -368,6 +368,7 @@ function SDL_UpdateTexture(texture: PSDL_Texture; rect: PSDL_Rect; pixels: Point
 
 type
   TSDL_LockTexture_func = function(texture: PSDL_Texture; const rect: PSDL_Rect; pixels: PPointer; pitch: pcint): cint; cdecl;
+var
   {**
    *  Lock a portion of the texture for write-only pixel access.
    *
@@ -383,12 +384,12 @@ type
    *
    *   SDL_UnlockTexture()
    *}
-var
   SDL_LockTexture : TSDL_LockTexture_func = Nil;
 
 
 type
   TSDL_LockTextureToSurface_func = function(texture: PSDL_Texture; const rect: PSDL_Rect; surface: PPSDL_Surface): cint; cdecl;
+var
 {**
  *  \brief Lock a portion of the texture for write-only pixel access.
  *         Expose it as a SDL surface.
@@ -404,7 +405,6 @@ type
  *
  *  \sa SDL_UnlockTexture()
  *}
-var
   SDL_LockTextureToSurface : TSDL_LockTextureToSurface_func = Nil;
 
 
@@ -554,6 +554,7 @@ procedure SDL_RenderGetClipRect(renderer: PSDL_Renderer; rect: PSDL_Rect) cdecl;
 
 type
   TSDL_RenderIsClipEnabled_func = function(renderer: PSDL_Renderer): TSDL_Bool; cdecl;
+var
   {**
    *  \brief Get whether clipping is enabled on the given renderer.
    *
@@ -561,7 +562,6 @@ type
    *
    *  \sa SDL_RenderGetClipRect()
    *}
-var
   SDL_RenderIsClipEnabled : TSDL_RenderIsClipEnabled_func = Nil;
 
 
@@ -689,6 +689,7 @@ function SDL_RenderDrawPoint(renderer: PSDL_Renderer; x: cint32; y: cint32): cin
 
 type
   TSDL_RenderDrawPointF_func = function(renderer: PSDL_Renderer; x, y: single): cint32 cdecl;
+var
   {**
    *  Draw a point on the current rendering target.
    *
@@ -698,7 +699,6 @@ type
    *
    *    0 on success, or -1 on error
    *}
-var
   SDL_RenderDrawPointF : TSDL_RenderDrawPointF_func = Nil;
 
 
@@ -715,6 +715,7 @@ function SDL_RenderDrawPoints(renderer: PSDL_Renderer; points: PSDL_Point; count
 
 type
   TSDL_RenderDrawPointsF_func = function(renderer: PSDL_Renderer; points: PSDL_FPoint; count: cint32): cint32 cdecl;
+var
   {**
    *  Draw multiple points on the current rendering target.
    *
@@ -724,7 +725,6 @@ type
    *
    *    0 on success, or -1 on error
    *}
-var
   SDL_RenderDrawPointsF : TSDL_RenderDrawPointsF_func = Nil;
 
 
@@ -743,6 +743,7 @@ function SDL_RenderDrawLine(renderer: PSDL_Renderer; x1: cint32; y1: cint32; x2:
 
 type
   TSDL_RenderDrawLineF_func = function(renderer: PSDL_Renderer; x1, y1, x2, y2: single): cint32 cdecl;
+var
   {**
    *  Draw a line on the current rendering target.
    *
@@ -754,7 +755,6 @@ type
    *
    *  0 on success, or -1 on error
    *}
-var
   SDL_RenderDrawLineF : TSDL_RenderDrawLineF_func = Nil;
 
 
@@ -771,6 +771,7 @@ function SDL_RenderDrawLines(renderer: PSDL_Renderer; points: PSDL_Point; count:
 
 type
   TSDL_RenderDrawLinesF_func = function(renderer: PSDL_Renderer; points: PSDL_FPoint; count: cint32): cint32 cdecl;
+var
   {**
    *  Draw a series of connected lines on the current rendering target.
    *
@@ -780,7 +781,6 @@ type
    *
    *    0 on success, or -1 on error
    *}
-var
   SDL_RenderDrawLinesF : TSDL_RenderDrawLinesF_func = Nil;
 
 
@@ -796,6 +796,7 @@ function SDL_RenderDrawRect(renderer: PSDL_Renderer; rect: PSDL_Rect): cint32 cd
 
 type
   TSDL_RenderDrawRectF_func = function(renderer: PSDL_Renderer; rect: PSDL_FRect): cint32 cdecl;
+var
   {**
    *  Draw a rectangle on the current rendering target.
    *
@@ -804,7 +805,6 @@ type
    *
    *    0 on success, or -1 on error
    *}
-var
   SDL_RenderDrawRectF : TSDL_RenderDrawRectF_func = Nil;
 
 
@@ -821,6 +821,7 @@ function SDL_RenderDrawRects(renderer: PSDL_Renderer; rects: PSDL_Rect; count: c
 
 type
   TSDL_RenderDrawRectsF_func = function(renderer: PSDL_Renderer; rects: PSDL_FRect; count: cint32): cint32 cdecl;
+var
   {**
    *  Draw some number of rectangles on the current rendering target.
    *
@@ -830,7 +831,6 @@ type
    *
    *    0 on success, or -1 on error
    *}
-var
   SDL_RenderDrawRectsF : TSDL_RenderDrawRectsF_func = Nil;
 
 
@@ -847,6 +847,7 @@ function SDL_RenderFillRect(renderer: PSDL_Renderer; rect: PSDL_Rect): cint32 cd
 
 type
   TSDL_RenderFillRectF_func = function(renderer: PSDL_Renderer; rect: PSDL_FRect): cint32 cdecl;
+var
   {**
    *  Fill a rectangle on the current rendering target with the drawing color.
    *
@@ -855,7 +856,6 @@ type
    *
    *    0 on success, or -1 on error
    *}
-var
   SDL_RenderFillRectF : TSDL_RenderFillRectF_func = Nil;
 
 
@@ -872,6 +872,7 @@ function SDL_RenderFillRects(renderer: PSDL_Renderer; rects: PSDL_Rect; count: c
 
 type
   TSDL_RenderFillRectsF_func = function(renderer: PSDL_Renderer; rects: PSDL_FRect; count: cint32): cint32 cdecl;
+var
   {**
    *  Fill some number of rectangles on the current rendering target with the drawing color.
    *
@@ -881,7 +882,6 @@ type
    *
    *    0 on success, or -1 on error
    *}
-var
   SDL_RenderFillRectsF : TSDL_RenderFillRectsF_func = Nil;
 
 
@@ -901,6 +901,7 @@ function SDL_RenderCopy(renderer: PSDL_Renderer; texture: PSDL_Texture; srcrect:
 
 type
   TSDL_RenderCopyF_func = function(renderer: PSDL_Renderer; texture: PSDL_Texture; srcrect: PSDL_Rect; dstrect: PSDL_FRect): cint32 cdecl;
+var
   {**
    *  Copy a portion of the texture to the current rendering target.
    *
@@ -911,7 +912,6 @@ type
    *
    *    0 on success, or -1 on error
    *}
-var
   SDL_RenderCopyF : TSDL_RenderCopyF_func = Nil;
 
 
@@ -934,6 +934,7 @@ function SDL_RenderCopyEx(renderer: PSDL_Renderer; texture: PSDL_Texture; const 
 
 type
   TSDL_RenderCopyExF_func = function(renderer: PSDL_Renderer; texture: PSDL_Texture; const srcrect: PSDL_Rect; dstrect: PSDL_FRect; angle: cdouble; center: PSDL_FPoint; flip: TSDL_RenderFlip): cint32 cdecl;
+var
   {**
    *  Copy a portion of the source texture to the current rendering target, rotating it by angle around the given center
    *
@@ -947,7 +948,6 @@ type
    *
    *    0 on success, or -1 on error
    *}
-var
   SDL_RenderCopyExF : TSDL_RenderCopyExF_func = Nil;
 
 
@@ -1067,6 +1067,7 @@ function SDL_GL_UnbindTexture(texture: PSDL_Texture): cint32 cdecl; external SDL
 
 type
   TSDL_RenderGetMetalLayer_func = function(renderer: PSDL_Renderer): Pointer; cdecl;
+var
 {**
  * Get the CAMetalLayer associated with the given Metal renderer.
  *
@@ -1074,12 +1075,12 @@ type
  * but it can be safely cast to a pointer to `CAMetalLayer`.
  *
  *}
-var
   SDL_RenderGetMetalLayer : TSDL_RenderGetMetalLayer_func = Nil;
 
 
 type
   TSDL_RenderGetMetalCommandEncoder_func = function(renderer: PSDL_Renderer): Pointer; cdecl;
+var
 {**
  * Get the Metal command encoder for the current frame
  *
@@ -1091,7 +1092,6 @@ type
  * hidden/minimized/offscreen. This doesn't apply to command encoders for
  * render targets, just the window's backbacker. Check your return values!
  *}
-var
   SDL_RenderGetMetalCommandEncoder : TSDL_RenderGetMetalCommandEncoder_func = Nil;
 
 
@@ -1104,6 +1104,7 @@ function SDL_RenderSetVSync(renderer: PSDL_Renderer; vsync: cint): cint; cdecl;
 type
   TSDL_UpdateYUVTexture_func = function(texture: PSDL_Texture; rect: PSDL_Rect; Yplane: pcuint8; Ypitch: cint32; Uplane: pcuint8; UPitch: cint32; Vplane: pcuint8; VPitch: cint32):cint32;
    cdecl;
+var
   {**
    *  Update a rectangle within a planar YV12 or IYUV texture with new pixel data.
    *
@@ -1122,7 +1123,6 @@ type
    *  a contiguous block of Y and U/V planes in the proper order, but
    *  this function is available if your pixel data is not contiguous.
    *}
-var
   SDL_UpdateYUVTexture : TSDL_UpdateYUVTexture_func = Nil;
 
 {**

@@ -89,6 +89,7 @@ const
 
 type
   TSDL_LockJoysticks_proc = procedure(); cdecl;
+var
 {**
  * Locking for multi-threaded access to the joystick API
  *
@@ -106,12 +107,12 @@ type
  *
  * \since This function is available since SDL 2.0.7.
  *}
-var
   SDL_LockJoysticks : TSDL_LockJoysticks_proc = Nil;
 
 
 type
   TSDL_UnlockJoysticks_proc = procedure(); cdecl;
+var
 {**
  * Unlocking for multi-threaded access to the joystick API
  *
@@ -124,12 +125,12 @@ type
  *
  * \since This function is available since SDL 2.0.7.
  *}
-var
   SDL_UnlockJoysticks : TSDL_UnlockJoysticks_proc = Nil;
 
 
 type
   TSDL_NumJoysticks_func = function(): cint; cdecl;
+var
 {**
  * Count the number of joysticks attached to the system.
  *
@@ -142,12 +143,12 @@ type
  * \sa SDL_JoystickPath
  * \sa SDL_JoystickOpen
  *}
-var
   SDL_NumJoysticks : TSDL_NumJoysticks_func = Nil;
 
 
 type
   TSDL_JoystickNameForIndex_func = function(device_index: cint): PAnsiChar; cdecl;
+var
 {**
  * Get the implementation dependent name of a joystick.
  *
@@ -163,12 +164,12 @@ type
  * \sa SDL_JoystickName
  * \sa SDL_JoystickOpen
  *}
-var
   SDL_JoystickNameForIndex : TSDL_JoystickNameForIndex_func = Nil;
 
 
 type
   TSDL_JoystickPathForIndex_func = function(device_index: cint): PAnsiChar; cdecl;
+var
 {**
  * Get the implementation dependent path of a joystick.
  *
@@ -184,34 +185,34 @@ type
  * \sa SDL_JoystickPath
  * \sa SDL_JoystickOpen
  *}
-var
   SDL_JoystickPathForIndex : TSDL_JoystickPathForIndex_func = Nil;
 
 
 type
   TSDL_JoystickGetDevicePlayerIndex_func = function(device_index: cint): cint; cdecl;
+var
 {**
  * Get the player index of a joystick, or -1 if it's not available This can be
  * called before any joysticks are opened.
  *
  * \since This function is available since SDL 2.0.9.
  *}
-var
   SDL_JoystickGetDevicePlayerIndex : TSDL_JoystickGetDevicePlayerIndex_func = Nil;
 
 
 type
   TSDL_JoystickGetDeviceGUID_func = function(device_index: cint): TSDL_JoystickGUID; cdecl;
+var
 {**
  *  Return the GUID for the joystick at this index
  *  This can be called before any joysticks are opened.
  *}
-var
   SDL_JoystickGetDeviceGUID : TSDL_JoystickGetDeviceGUID_func = Nil;
 
 
 type
   TSDL_JoystickGetDeviceVendor_func = function(device_index: cint): cuint16; cdecl;
+var
 {**
  * Get the USB vendor ID of a joystick, if available.
  *
@@ -225,12 +226,12 @@ type
  *
  * \since This function is available since SDL 2.0.6.
  *}
-var
   SDL_JoystickGetDeviceVendor : TSDL_JoystickGetDeviceVendor_func = Nil;
 
 
 type
   TSDL_JoystickGetDeviceProduct_func = function(device_index: cint): cuint16; cdecl;
+var
 {**
  * Get the USB product ID of a joystick, if available.
  *
@@ -244,12 +245,12 @@ type
  *
  * \since This function is available since SDL 2.0.6.
  *}
-var
   SDL_JoystickGetDeviceProduct : TSDL_JoystickGetDeviceProduct_func = Nil;
 
 
 type
   TSDL_JoystickGetDeviceProductVersion_func = function(device_index: cint): cuint16; cdecl;
+var
 {**
  * Get the product version of a joystick, if available.
  *
@@ -263,12 +264,12 @@ type
  *
  * \since This function is available since SDL 2.0.6.
  *}
-var
   SDL_JoystickGetDeviceProductVersion : TSDL_JoystickGetDeviceProductVersion_func = Nil;
 
 
 type
   TSDL_JoystickGetDeviceType_func = function(device_index: cint): TSDL_JoystickType; cdecl;
+var
 {**
  * Get the type of a joystick, if available.
  *
@@ -281,12 +282,12 @@ type
  *
  * \since This function is available since SDL 2.0.6.
  *}
-var
   SDL_JoystickGetDeviceType : TSDL_JoystickGetDeviceType_func = Nil;
 
 
 type
   TSDL_JoystickGetDeviceInstanceID_func = function(device_index: cint): TSDL_JoystickID; cdecl;
+var
 {**
  * Get the instance ID of a joystick.
  *
@@ -300,12 +301,12 @@ type
  *
  * \since This function is available since SDL 2.0.6.
  *}
-var
   SDL_JoystickGetDeviceInstanceID : TSDL_JoystickGetDeviceInstanceID_func = Nil;
 
 
 type
   TSDL_JoystickOpen_func = function(device_index: cint): PSDL_Joystick; cdecl;
+var
 {**
  * Open a joystick for use.
  *
@@ -326,12 +327,12 @@ type
  * \sa SDL_JoystickClose
  * \sa SDL_JoystickInstanceID
  *}
-var
   SDL_JoystickOpen : TSDL_JoystickOpen_func = Nil;
 
 
 type
   TSDL_JoystickFromInstanceID_func = function(instance_id: TSDL_JoystickID): PSDL_Joystick; cdecl;
+var
 {**
  * Get the SDL_Joystick associated with an instance id.
  *
@@ -341,12 +342,12 @@ type
  *
  * \since This function is available since SDL 2.0.4.
  *}
-var
   SDL_JoystickFromInstanceID : TSDL_JoystickFromInstanceID_func = Nil;
 
 
 type
   TSDL_JoystickFromPlayerIndex_func = function(player_index: cint): PSDL_Joystick; cdecl;
+var
 {**
  * Get the SDL_Joystick associated with a player index.
  *
@@ -356,12 +357,12 @@ type
  *
  * \since This function is available since SDL 2.0.12.
  *}
-var
   SDL_JoystickFromPlayerIndex : TSDL_JoystickFromPlayerIndex_func = Nil;
 
 
 type
   TSDL_JoystickAttachVirtual_func = function(type_: TSDL_JoystickType; naxes: cint; nbuttons: cint; nhats: cint): cint; cdecl;
+var
 {**
  * Attach a new virtual joystick.
  *
@@ -369,7 +370,6 @@ type
  *
  * \since This function is available since SDL 2.0.14.
  *}
-var
   SDL_JoystickAttachVirtual : TSDL_JoystickAttachVirtual_func = Nil;
 
 
@@ -436,6 +436,7 @@ var
 
 type
   TSDL_JoystickDetachVirtual_func = function(device_index: cint): cint; cdecl;
+var
 {**
  * Detach a virtual joystick.
  *
@@ -445,12 +446,12 @@ type
  *
  * \since This function is available since SDL 2.0.14.
  *}
-var
   SDL_JoystickDetachVirtual : TSDL_JoystickDetachVirtual_func = Nil;
 
 
 type
   TSDL_JoystickIsVirtual_func = function(device_index: cint): TSDL_Bool; cdecl;
+var
 {**
  * Query whether or not the joystick at a given device index is virtual.
  *
@@ -459,12 +460,12 @@ type
  *
  * \since This function is available since SDL 2.0.14.
  *}
-var
   SDL_JoystickIsVirtual : TSDL_JoystickIsVirtual_func = Nil;
 
 
 type
   TSDL_JoystickSetVirtualAxis_func = function(joystick: PSDL_Joystick; axis: cint; value: cint16): cint; cdecl;
+var
 {**
  * Set values on an opened, virtual-joystick's axis.
  *
@@ -485,12 +486,12 @@ type
  *
  * \since This function is available since SDL 2.0.14.
  *}
-var
   SDL_JoystickSetVirtualAxis : TSDL_JoystickSetVirtualAxis_func = Nil;
 
 
 type
   TSDL_JoystickSetVirtualButton_func = function(joystick: PSDL_Joystick; button: cint; value: cuint8): cint; cdecl;
+var
 {**
  * Set values on an opened, virtual-joystick's button.
  *
@@ -507,12 +508,12 @@ type
  *
  * \since This function is available since SDL 2.0.14.
  *}
-var
   SDL_JoystickSetVirtualButton : TSDL_JoystickSetVirtualButton_func = Nil;
 
 
 type
   TSDL_JoystickSetVirtualHat_func = function(joystick: PSDL_Joystick; hat: cint; value: cuint8): cint; cdecl;
+var
 {**
  * Set values on an opened, virtual-joystick's hat.
  *
@@ -529,12 +530,12 @@ type
  *
  * \since This function is available since SDL 2.0.14.
  *}
-var
   SDL_JoystickSetVirtualHat : TSDL_JoystickSetVirtualHat_func = Nil;
 
 
 type
   TSDL_JoystickName_func = function(joystick: PSDL_Joystick): PAnsiChar; cdecl;
+var
 {**
  * Get the implementation dependent name of a joystick.
  *
@@ -547,12 +548,12 @@ type
  * \sa SDL_JoystickNameForIndex
  * \sa SDL_JoystickOpen
  *}
-var
   SDL_JoystickName : TSDL_JoystickName_func = Nil;
 
 
 type
   TSDL_JoystickPath_func = function(joystick: PSDL_Joystick): PAnsiChar; cdecl;
+var
 {**
  * Get the implementation dependent path of a joystick.
  *
@@ -564,12 +565,12 @@ type
  *
  * \sa SDL_JoystickPathForIndex
  *}
-var
   SDL_JoystickPath : TSDL_JoystickPath_func = Nil;
 
 
 type
   TSDL_JoystickGetPlayerIndex_func = function(joystick: PSDL_Joystick): cint; cdecl;
+var
 {**
  * Get the player index of an opened joystick.
  *
@@ -581,12 +582,12 @@ type
  *
  * \since This function is available since SDL 2.0.9.
  *}
-var
   SDL_JoystickGetPlayerIndex : TSDL_JoystickGetPlayerIndex_func = Nil;
 
 
 type
   TSDL_JoystickSetPlayerIndex_proc = procedure(joystick: PSDL_Joystick; player_index: cint); cdecl;
+var
 {**
  * Set the player index of an opened joystick.
  *
@@ -596,12 +597,12 @@ type
  *
  * \since This function is available since SDL 2.0.12.
  *}
-var
   SDL_JoystickSetPlayerIndex : TSDL_JoystickSetPlayerIndex_proc = Nil;
 
 
 type
   TSDL_JoystickGetGUID_func = function(joystick: PSDL_Joystick): TSDL_JoystickGUID; cdecl;
+var
 {**
  * Get the implementation-dependent GUID for the joystick.
  *
@@ -617,12 +618,12 @@ type
  * \sa SDL_JoystickGetDeviceGUID
  * \sa SDL_JoystickGetGUIDString
  *}
-var
   SDL_JoystickGetGUID : TSDL_JoystickGetGUID_func = Nil;
 
 
 type
   TSDL_JoystickGetVendor_func = function(joystick: PSDL_Joystick): cuint16; cdecl;
+var
 {**
  * Get the USB vendor ID of an opened joystick, if available.
  *
@@ -633,12 +634,12 @@ type
  *
  * \since This function is available since SDL 2.0.6.
  *}
-var
   SDL_JoystickGetVendor : TSDL_JoystickGetVendor_func = Nil;
 
 
 type
   TSDL_JoystickGetProduct_func = function(joystick: PSDL_Joystick): cuint16; cdecl;
+var
 {**
  * Get the USB product ID of an opened joystick, if available.
  *
@@ -649,12 +650,12 @@ type
  *
  * \since This function is available since SDL 2.0.6.
  *}
-var
   SDL_JoystickGetProduct : TSDL_JoystickGetProduct_func = Nil;
 
 
 type
   TSDL_JoystickGetProductVersion_func = function(joystick: PSDL_Joystick): cuint16; cdecl;
+var
 {**
  * Get the product version of an opened joystick, if available.
  *
@@ -665,12 +666,12 @@ type
  *
  * \since This function is available since SDL 2.0.6.
  *}
-var
   SDL_JoystickGetProductVersion : TSDL_JoystickGetProductVersion_func = Nil;
 
 
 type
   TSDL_JoystickGetFirmwareVersion_func = function(joystick: PSDL_Joystick): cuint16; cdecl;
+var
 {**
  * Get the firmware version of an opened joystick, if available.
  *
@@ -682,12 +683,12 @@ type
  *
  * \since This function is available since SDL 2.24.0.
  *}
-var
   SDL_JoystickGetFirmwareVersion : TSDL_JoystickGetFirmwareVersion_func = Nil;
 
 
 type
   TSDL_JoystickGetSerial_func = function(joystick: PSDL_Joystick): PAnsiChar; cdecl;
+var
 {**
  * Get the serial number of an opened joystick, if available.
  *
@@ -699,12 +700,12 @@ type
  *
  * \since This function is available since SDL 2.0.14.
  *}
-var
   SDL_JoystickGetSerial : TSDL_JoystickGetSerial_func = Nil;
 
 
 type
   TSDL_JoystickGetType_func = function(joystick: PSDL_Joystick): TSDL_JoystickType; cdecl;
+var
 {**
  * Get the type of an opened joystick.
  *
@@ -713,12 +714,12 @@ type
  *
  * \since This function is available since SDL 2.0.6.
  *}
-var
   SDL_JoystickGetType : TSDL_JoystickGetType_func = Nil;
 
 
 type
   TSDL_JoystickGetGUIDString_proc = procedure(guid: TSDL_JoystickGUID; pszGUID: PAnsiChar; cbGUID: cint); cdecl;
+var
 {**
  * Get an ASCII string representation for a given SDL_JoystickGUID.
  *
@@ -734,12 +735,12 @@ type
  * \sa SDL_JoystickGetGUID
  * \sa SDL_JoystickGetGUIDFromString
  *}
-var
   SDL_JoystickGetGUIDString : TSDL_JoystickGetGUIDString_proc = Nil;
 
 
 type
   TSDL_JoystickGetGUIDFromString_func = function(const pchGUID: PAnsiChar): TSDL_JoystickGUID; cdecl;
+var
 {**
  * Convert a GUID string into a SDL_JoystickGUID structure.
  *
@@ -754,12 +755,12 @@ type
  *
  * \sa SDL_JoystickGetGUIDString
  *}
-var
   SDL_JoystickGetGUIDFromString : TSDL_JoystickGetGUIDFromString_func = Nil;
 
 
 type
   TSDL_GetJoystickGUIDInfo_proc = procedure(guid: TSDL_JoystickGUID; vendor: pcuint16; product: pcuint16; version: pcuint16; crc16: pcuint16); cdecl;
+var
 {**
  * Get the device information encoded in a SDL_JoystickGUID structure
  *
@@ -777,12 +778,12 @@ type
  *
  * \sa SDL_JoystickGetDeviceGUID
  *}
-var
   SDL_GetJoystickGUIDInfo : TSDL_GetJoystickGUIDInfo_proc = Nil;
 
 
 type
   TSDL_JoystickGetAttached_func = function(joystick: PSDL_Joystick): TSDL_Bool; cdecl;
+var
 {**
  * Get the status of a specified joystick.
  *
@@ -795,12 +796,12 @@ type
  * \sa SDL_JoystickClose
  * \sa SDL_JoystickOpen
  *}
-var
   SDL_JoystickGetAttached : TSDL_JoystickGetAttached_func = Nil;
 
 
 type
   TSDL_JoystickInstanceID_func = function(joystick: PSDL_Joystick): TSDL_JoystickID; cdecl;
+var
 {**
  * Get the instance ID of an opened joystick.
  *
@@ -812,12 +813,12 @@ type
  *
  * \sa SDL_JoystickOpen
  *}
-var
   SDL_JoystickInstanceID : TSDL_JoystickInstanceID_func = Nil;
 
 
 type
   TSDL_JoystickNumAxes_func = function(joystick: PSDL_Joystick): cint; cdecl;
+var
 {**
  * Get the number of general axis controls on a joystick.
  *
@@ -835,12 +836,12 @@ type
  * \sa SDL_JoystickGetAxis
  * \sa SDL_JoystickOpen
  *}
-var
   SDL_JoystickNumAxes : TSDL_JoystickNumAxes_func = Nil;
 
 
 type
   TSDL_JoystickNumBalls_func = function(joystick: PSDL_Joystick): cint; cdecl;
+var
 {**
  * Get the number of trackballs on a joystick.
  *
@@ -857,12 +858,12 @@ type
  *
  * \sa SDL_JoystickGetBall
  *}
-var
   SDL_JoystickNumBalls : TSDL_JoystickNumBalls_func = Nil;
 
 
 type
   TSDL_JoystickNumHats_func = function(joystick: PSDL_Joystick): cint; cdecl;
+var
 {**
  * Get the number of POV hats on a joystick.
  *
@@ -875,12 +876,12 @@ type
  * \sa SDL_JoystickGetHat
  * \sa SDL_JoystickOpen
  *}
-var
   SDL_JoystickNumHats : TSDL_JoystickNumHats_func = Nil;
 
 
 type
   TSDL_JoystickNumButtons_func = function(joystick: PSDL_Joystick): cint; cdecl;
+var
 {**
  * Get the number of buttons on a joystick.
  *
@@ -893,12 +894,12 @@ type
  * \sa SDL_JoystickGetButton
  * \sa SDL_JoystickOpen
  *}
-var
   SDL_JoystickNumButtons : TSDL_JoystickNumButtons_func = Nil;
 
 
 type
   TSDL_JoystickUpdate_proc = procedure(); cdecl;
+var
 {**
  * Update the current state of the open joysticks.
  *
@@ -909,12 +910,12 @@ type
  *
  * \sa SDL_JoystickEventState
  *}
-var
   SDL_JoystickUpdate : TSDL_JoystickUpdate_proc = Nil;
 
 
 type
   TSDL_JoystickEventState_func = function(state: cint): cint; cdecl;
+var
 {**
  * Enable/disable joystick event polling.
  *
@@ -938,7 +939,6 @@ type
  *
  * \sa SDL_GameControllerEventState
  *}
-var
   SDL_JoystickEventState : TSDL_JoystickEventState_func = Nil;
 
 
@@ -948,6 +948,7 @@ const
 
 type
   TSDL_JoystickGetAxis_func = function(joystick: PSDL_Joystick; axis: cint): cint16; cdecl;
+var
 {**
  * Get the current state of an axis control on a joystick.
  *
@@ -970,12 +971,12 @@ type
  *
  * \sa SDL_JoystickNumAxes
  *}
-var
   SDL_JoystickGetAxis : TSDL_JoystickGetAxis_func = Nil;
 
 
 type
   TSDL_JoystickGetAxisInitialState_func = function(joystick: PSDL_Joystick; axis: cint; state: pcint16): TSDL_Bool; cdecl;
+var
 {**
  * Get the initial state of an axis control on a joystick.
  *
@@ -990,7 +991,6 @@ type
  *
  * \since This function is available since SDL 2.0.6.
  *}
-var
   SDL_JoystickGetAxisInitialState : TSDL_JoystickGetAxisInitialState_func = Nil;
 
 
@@ -1010,6 +1010,7 @@ const
 
 type
   TSDL_JoystickGetHat_func = function(joystick: PSDL_Joystick; hat: cint): cuint8; cdecl;
+var
 {**
  * Get the current state of a POV hat on a joystick.
  *
@@ -1033,12 +1034,12 @@ type
  *
  * \sa SDL_JoystickNumHats
  *}
-var
   SDL_JoystickGetHat : TSDL_JoystickGetHat_func = Nil;
 
 
 type
   TSDL_JoystickGetBall_func = function(joystick: PSDL_Joystick; ball: cint; dx: pcint; dy: pcint): cint; cdecl;
+var
 {**
  * Get the ball axis change since the last poll.
  *
@@ -1058,12 +1059,12 @@ type
  *
  * \sa SDL_JoystickNumBalls
  *}
-var
   SDL_JoystickGetBall : TSDL_JoystickGetBall_func = Nil;
 
 
 type
   TSDL_JoystickGetButton_func = function(joystick: PSDL_Joystick; button: cint): cuint8; cdecl;
+var
 {**
  * Get the current state of a button on a joystick.
  *
@@ -1076,12 +1077,12 @@ type
  *
  * \sa SDL_JoystickNumButtons
  *}
-var
   SDL_JoystickGetButton : TSDL_JoystickGetButton_func = Nil;
 
 
 type
   TSDL_JoystickRumble_func = function(joystick: PSDL_Joystick; low_frequency_rumble: cuint16; high_frequency_rumble: cuint16; duration_ms: cuint32): cint; cdecl;
+var
 {**
  * Start a rumble effect.
  *
@@ -1100,12 +1101,12 @@ type
  *
  * \sa SDL_JoystickHasRumble
  *}
-var
   SDL_JoystickRumble : TSDL_JoystickRumble_func = Nil;
 
 
 type
   TSDL_JoystickRumbleTriggers_func = function(joystick: PSDL_Joystick; left_rumble: cuint16; right_rumble: cuint16; duration_ms: cuint32): cint; cdecl;
+var
 {**
  * Start a rumble effect in the joystick's triggers
  *
@@ -1129,12 +1130,12 @@ type
  *
  * \sa SDL_JoystickHasRumbleTriggers
  *}
-var
   SDL_JoystickRumbleTriggers : TSDL_JoystickRumbleTriggers_func = Nil;
 
 
 type
   TSDL_JoystickHasLED_func = function(joystick: PSDL_Joystick): TSDL_Bool; cdecl;
+var
 {**
  * Query whether a joystick has an LED.
  *
@@ -1146,12 +1147,12 @@ type
  *
  * \since This function is available since SDL 2.0.14.
  *}
-var
   SDL_JoystickHasLED : TSDL_JoystickHasLED_func = Nil;
 
 
 type
   TSDL_JoystickHasRumble_func = function(joystick: PSDL_Joystick): TSDL_Bool; cdecl;
+var
 {**
  * Query whether a joystick has rumble support.
  *
@@ -1162,12 +1163,12 @@ type
  *
  * \sa SDL_JoystickRumble
  *}
-var
   SDL_JoystickHasRumble : TSDL_JoystickHasRumble_func = Nil;
 
 
 type
   TSDL_JoystickHasRumbleTriggers_func = function(joystick: PSDL_Joystick): TSDL_Bool; cdecl;
+var
 {**
  * Query whether a joystick has rumble support on triggers.
  *
@@ -1178,13 +1179,13 @@ type
  *
  * \sa SDL_JoystickRumbleTriggers
  *}
-var
   SDL_JoystickHasRumbleTriggers : TSDL_JoystickHasRumbleTriggers_func = Nil;
 
 
 
 type
   TSDL_JoystickSetLED_func = function(joystick: PSDL_Joystick; red: cuint8; green: cuint8; blue: cuint8): cint; cdecl;
+var
 {**
  * Update a joystick's LED color.
  *
@@ -1199,12 +1200,12 @@ type
  *
  * \since This function is available since SDL 2.0.14.
  *}
-var
   SDL_JoystickSetLED : TSDL_JoystickSetLED_func = Nil;
 
 
 type
   TSDL_JoystickSendEffect_func = function(joystick: PSDL_Joystick; const data: Pointer; size: cint): cint; cdecl;
+var
 {**
  * Send a joystick specific effect packet
  *
@@ -1215,12 +1216,12 @@ type
  *
  * \since This function is available since SDL 2.0.16.
  *}
-var
   SDL_JoystickSendEffect : TSDL_JoystickSendEffect_func = Nil;
 
 
 type
   TSDL_JoystickClose_proc = procedure(joystick: PSDL_Joystick); cdecl;
+var
 {**
  * Close a joystick previously opened with SDL_JoystickOpen().
  *
@@ -1230,12 +1231,12 @@ type
  *
  * \sa SDL_JoystickOpen
  *}
-var
   SDL_JoystickClose : TSDL_JoystickClose_proc = Nil;
 
 
 type
   TSDL_JoystickCurrentPowerLevel_func = function(joystick: PSDL_Joystick): TSDL_JoystickPowerLevel; cdecl;
+var
 {**
  * Get the battery level of a joystick as SDL_JoystickPowerLevel.
  *
@@ -1245,6 +1246,5 @@ type
  *
  * \since This function is available since SDL 2.0.4.
  *}
-var
   SDL_JoystickCurrentPowerLevel : TSDL_JoystickCurrentPowerLevel_func = Nil;
 

@@ -77,54 +77,54 @@ function SDL_RectEquals(const a, b: PSDL_Rect): Boolean; inline;
 
 type
   TSDL_HasIntersection_func = function(const a, b: PSDL_Rect): TSDL_Bool; cdecl;
+var
 {**
  *  Determine whether two rectangles intersect.
  *
  *  SDL_TRUE if there is an intersection, SDL_FALSE otherwise.
  *}
-var
   SDL_HasIntersection : TSDL_HasIntersection_func = Nil;
 
 
 type
   TSDL_IntersectRect_func = function(const A, B: PSDL_Rect; result: PSDL_Rect): TSDL_Bool; cdecl;
+var
 {**
  *  Calculate the intersection of two rectangles.
  *
  *  SDL_TRUE if there is an intersection, SDL_FALSE otherwise.
  *}
-var
   SDL_IntersectRect : TSDL_IntersectRect_func = Nil;
 
 
 type
   TSDL_UnionRect_proc = procedure(const A, B: PSDL_Rect; result: PSDL_Rect); cdecl;
+var
 {**
  *  Calculate the union of two rectangles.
  *}
-var
   SDL_UnionRect : TSDL_UnionRect_proc = Nil;
 
 
 type
   TSDL_EnclosePoints_func = function(const points: PSDL_Point; count: cint; const clip: PSDL_Rect; result: PSDL_Rect): TSDL_Bool; cdecl;
+var
 {**
  *  Calculate a minimal rectangle enclosing a set of points
  *
  *  SDL_TRUE if any points were within the clipping rect
  *}
-var
   SDL_EnclosePoints : TSDL_EnclosePoints_func = Nil;
 
 
 type
   TSDL_IntersectRectAndLine_func = function(const rect: PSDL_Rect; X1, Y1, X2, Y2: pcint): TSDL_Bool; cdecl;
+var
 {**
  *  Calculate the intersection of a rectangle and line segment.
  *
  *  SDL_TRUE if there is an intersection, SDL_FALSE otherwise.
  *}
-var
   SDL_IntersectRectAndLine : TSDL_IntersectRectAndLine_func = Nil;
 
 
@@ -154,6 +154,7 @@ function SDL_FRectEquals(const a, b: PSDL_FRect): Boolean; Inline;
 
 type
   TSDL_HasIntersectionF_func = function(const a, b: PSDL_FRect): TSDL_Bool; cdecl;
+var
 {**
  * Determine whether two rectangles intersect with float precision.
  *
@@ -167,12 +168,12 @@ type
  *
  * \sa SDL_IntersectRect
  *}
-var
   SDL_HasIntersectionF : TSDL_HasIntersectionF_func = Nil;
 
 
 type
   TSDL_IntersectFRect_func = function(const a, b: PSDL_FRect; result: PSDL_FRect): TSDL_Bool; cdecl;
+var
 {**
  * Calculate the intersection of two rectangles with float precision.
  *
@@ -188,12 +189,12 @@ type
  *
  * \sa SDL_HasIntersectionF
  *}
-var
   SDL_IntersectFRect : TSDL_IntersectFRect_func = Nil;
 
 
 type
   TSDL_UnionFRect_func = function(const a, b: PSDL_FRect; result: PSDL_FRect): TSDL_Bool; cdecl;
+var
 {**
  * Calculate the union of two rectangles with float precision.
  *
@@ -204,12 +205,12 @@ type
  *
  * \since This function is available since SDL 2.0.22.
  *}
-var
   SDL_UnionFRect : TSDL_UnionFRect_func = Nil;
 
 
 type
   TSDL_EncloseFPoints_func = function(const points: PSDL_FPoint; count: cint; const clip: PSDL_FRect; result: PSDL_FRect): TSDL_Bool; cdecl;
+var
 {**
  * Calculate a minimal rectangle enclosing a set of points with float
  * precision.
@@ -228,12 +229,12 @@ type
  *
  * \since This function is available since SDL 2.0.22.
  *}
-var
   SDL_EncloseFPoints : TSDL_EncloseFPoints_func = Nil;
 
 
 type
   TSDL_IntersectFRectAndLine_func = function(const rect: PSDL_FRect; X1, Y1, X2, Y2: pcfloat): TSDL_Bool; cdecl;
+var
 {**
  * Calculate the intersection of a rectangle and line segment with float
  * precision.
@@ -253,6 +254,5 @@ type
  *
  * \since This function is available since SDL 2.0.22.
  *}
-var
   SDL_IntersectFRectAndLine : TSDL_IntersectFRectAndLine_func = Nil;
 

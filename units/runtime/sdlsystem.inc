@@ -9,6 +9,7 @@ type
 
 type
   TSDL_SetWindowsMessageHook_proc = procedure(callback: TSDL_WindowsMessageHook; userdata: Pointer); cdecl;
+var
 {**
  * Set a callback for every Windows message, run before TranslateMessage().
  *
@@ -17,12 +18,12 @@ type
  *
  * \since This function is available since SDL 2.0.4.
  *}
-var
   SDL_SetWindowsMessageHook : TSDL_SetWindowsMessageHook_proc = Nil;
 
 
 type
   TSDL_Direct3D9GetAdapterIndex_func = function(displayIndex:cint):cint; cdecl;
+var
 {**
  * Get the D3D9 adapter index that matches the specified display index.
  *
@@ -36,7 +37,6 @@ type
  *
  * \since This function is available since SDL 2.0.1.
  *}
-var
   SDL_Direct3D9GetAdapterIndex : TSDL_Direct3D9GetAdapterIndex_func = Nil;
 
 
@@ -47,6 +47,7 @@ type
 
 type
   TSDL_RenderGetD3D9Device_func = function(renderer:PSDL_Renderer):PIDirect3DDevice9; cdecl;
+var
 {**
  * Get the D3D9 device associated with a renderer.
  *
@@ -59,12 +60,12 @@ type
  *
  * \since This function is available since SDL 2.0.1.
  *}
-var
   SDL_RenderGetD3D9Device : TSDL_RenderGetD3D9Device_func = Nil;
 
 
 type
   TSDL_RenderGetD3D11Device_func = function(renderer:PSDL_Renderer):PID3D11Device; cdecl;
+var
 {**
  * Get the D3D11 device associated with a renderer.
  *
@@ -77,12 +78,12 @@ type
  *
  * \since This function is available since SDL 2.0.16.
  *}
-var
   SDL_RenderGetD3D11Device : TSDL_RenderGetD3D11Device_func = Nil;
 
 
 type
   TSDL_RenderGetD3D12Device_func = function(renderer:PSDL_Renderer):PID3D12Device; cdecl;
+var
 {**
  * Get the D3D12 device associated with a renderer.
  *
@@ -95,13 +96,13 @@ type
  *
  * \since This function is available since SDL 2.24.0.
  *}
-var
   SDL_RenderGetD3D12Device : TSDL_RenderGetD3D12Device_func = Nil;
 
 
 type
   TSDL_DXGIGetOutputInfo_func = function(displayIndex: cint; adapterIndex, outputIndex: pcint): TSDL_Bool;
   cdecl;
+var
 {**
  * Get the DXGI Adapter and Output indices for the specified display index.
  *
@@ -120,7 +121,6 @@ type
  *
  * \since This function is available since SDL 2.0.2.
  *}
-var
   SDL_DXGIGetOutputInfo : TSDL_DXGIGetOutputInfo_func = Nil;
 
 {$ENDIF WIN32 OR WIN64}
@@ -130,6 +130,7 @@ var
 {$IFDEF LINUX}
 type
   TSDL_LinuxSetThreadPriority_func = function(threadID: cint64; priority: cint): cint; cdecl;
+var
 {**
  * Sets the UNIX nice value for a thread.
  *
@@ -141,12 +142,12 @@ type
  *
  * \since This function is available since SDL 2.0.9.
  *}
-var
   SDL_LinuxSetThreadPriority : TSDL_LinuxSetThreadPriority_func = Nil;
 
 
 type
   TSDL_LinuxSetThreadPriorityAndPolicy_func = function(threadID: cint64; sdlPriority, schedPolicy: cint): cint; cdecl;
+var
 {**
  * Sets the priority (not nice level) and scheduling policy for a thread.
  *
@@ -160,7 +161,6 @@ type
  *
  * \since This function is available since SDL 2.0.18.
  *}
-var
   SDL_LinuxSetThreadPriorityAndPolicy : TSDL_LinuxSetThreadPriorityAndPolicy_func = Nil;
 
 {$ENDIF LINUX}
@@ -175,6 +175,7 @@ type
 
 type
   TSDL_iPhoneSetAnimationCallback_func = function(window: PSDL_Window; interval: cint; callback: TSDL_iPhoneAnimationCallback; callbackParam: Pointer); cdecl;
+var
 {**
  * Use this function to set the animation callback on Apple iOS.
  *
@@ -195,12 +196,12 @@ type
  *
  * \sa SDL_iPhoneSetEventPump
  *}
-var
   SDL_iPhoneSetAnimationCallback : TSDL_iPhoneSetAnimationCallback_func = Nil;
 
 
 type
   TSDL_iPhoneSetEventPump_proc = procedure(enabled: TSDL_Bool); cdecl;
+var
 {**
  * Use this function to enable or disable the SDL event pump on Apple iOS.
  *
@@ -212,7 +213,6 @@ type
  *
  * \sa SDL_iPhoneSetAnimationCallback
  *}
-var
   SDL_iPhoneSetEventPump : TSDL_iPhoneSetEventPump_proc = Nil;
 
 {$ENDIF __IPHONEOS__}
@@ -223,6 +223,7 @@ var
 
 type
   TSDL_AndroidGetJNIEnv_func = function(): Pointer; cdecl;
+var
 {**
  * Get the Android Java Native Interface Environment of the current thread.
  *
@@ -240,7 +241,6 @@ type
  *
  * \sa SDL_AndroidGetActivity
  *}
-var
   SDL_AndroidGetJNIEnv : TSDL_AndroidGetJNIEnv_func = Nil;
 
 
@@ -272,6 +272,7 @@ var
 
 type
   TSDL_GetAndroidSDKVersion_func = function(): cint; cdecl;
+var
 {**
  * Query Android API level of the current device.
  *
@@ -305,12 +306,12 @@ type
  *
  * \since This function is available since SDL 2.0.12.
  *}
-var
   SDL_GetAndroidSDKVersion : TSDL_GetAndroidSDKVersion_func = Nil;
 
 
 type
   TSDL_IsAndroidTV_func = function(): TSDL_Bool; cdecl;
+var
 {**
  * Query if the application is running on Android TV.
  *
@@ -318,12 +319,12 @@ type
  *
  * \since This function is available since SDL 2.0.8.
  *}
-var
   SDL_IsAndroidTV : TSDL_IsAndroidTV_func = Nil;
 
 
 type
   TSDL_IsChromebook_func = function(): TSDL_Bool; cdecl;
+var
 {**
  * Query if the application is running on a Chromebook.
  *
@@ -331,12 +332,12 @@ type
  *
  * \since This function is available since SDL 2.0.9.
  *}
-var
   SDL_IsChromebook : TSDL_IsChromebook_func = Nil;
 
 
 type
   TSDL_IsDeXMode_func = function(): TSDL_Bool; cdecl;
+var
 {**
  * Query if the application is running on a Samsung DeX docking station.
  *
@@ -344,18 +345,17 @@ type
  *
  * \since This function is available since SDL 2.0.9.
  *}
-var
   SDL_IsDeXMode : TSDL_IsDeXMode_func = Nil;
 
 
 type
   TSDL_AndroidBackButton_proc = procedure(); cdecl;
+var
 {**
  * Trigger the Android system back button behavior.
  *
  * \since This function is available since SDL 2.0.9.
  *}
-var
   SDL_AndroidBackButton : TSDL_AndroidBackButton_proc = Nil;
 
 
@@ -369,6 +369,7 @@ const
 
 type
   TSDL_AndroidGetInternalStoragePath_func = function(): PAnsiChar; cdecl;
+var
 {**
  * Get the path used for internal storage for this application.
  *
@@ -385,12 +386,12 @@ type
  *
  * \sa SDL_AndroidGetExternalStorageState
  *}
-var
   SDL_AndroidGetInternalStoragePath : TSDL_AndroidGetInternalStoragePath_func = Nil;
 
 
 type
   TSDL_AndroidGetExternalStorageState_func = function(): cint; cdecl;
+var
 {**
  * Get the current state of external storage.
  *
@@ -406,12 +407,12 @@ type
  *
  * \sa SDL_AndroidGetExternalStoragePath
  *}
-var
   SDL_AndroidGetExternalStorageState : TSDL_AndroidGetExternalStorageState_func = Nil;
 
 
 type
   TSDL_AndroidGetExternalStoragePath_func = function(): PAnsiChar; cdecl;
+var
 {**
  * Get the path used for external storage for this application.
  *
@@ -428,12 +429,12 @@ type
  *
  * \sa SDL_AndroidGetExternalStorageState
  *}
-var
   SDL_AndroidGetExternalStoragePath : TSDL_AndroidGetExternalStoragePath_func = Nil;
 
 
 type
   TSDL_AndroidRequestPermission_func = function(const permission: PAnsiChar): TSDL_Bool; cdecl;
+var
 {**
  * Request permissions at runtime.
  *
@@ -447,12 +448,12 @@ type
  *
  * \since This function is available since SDL 2.0.14.
  *}
-var
   SDL_AndroidRequestPermission : TSDL_AndroidRequestPermission_func = Nil;
 
 
 type
   TSDL_AndroidShowToast_func = function(const message: PAnsiChar; duration, gravity, xoffset, yoffset: cint): cint; cdecl;
+var
 {**
  * Shows an Android toast notification.
  *
@@ -476,12 +477,12 @@ type
  *
  * \since This function is available since SDL 2.0.16.
  *}
-var
   SDL_AndroidShowToast : TSDL_AndroidShowToast_func = Nil;
 
 
 type
   TSDL_AndroidSendMessage_func = function(command: cUint32; param: cint): cint; cdecl;
+var
 {**
  * Send a user command to SDLActivity.
  *
@@ -492,7 +493,6 @@ type
  *
  * \since This function is available since SDL 2.0.22.
  *}
-var
   SDL_AndroidSendMessage : TSDL_AndroidSendMessage_func = Nil;
 
 {$ENDIF ANDROID}
@@ -534,6 +534,7 @@ Type
 
 type
   TSDL_WinRTGetFSPathUNICODE_func = function(pathT
+var
   {**
    *  \brief Retrieves a WinRT defined path on the local file system
    *
@@ -549,13 +550,13 @@ type
    *      SDL_WinRT_Path for more information on which path types are
    *      supported where.
    *}
-var
   SDL_WinRTGetFSPathUNICODE : TSDL_WinRTGetFSPathUNICODE_func = Nil;
 
 
 
 type
   TSDL_WinRTGetFSPathUTF8_func = function(pathT
+var
   {**
    *  \brief Retrieves a WinRT defined path on the local file system
    *
@@ -571,13 +572,13 @@ type
    *      SDL_WinRT_Path for more information on which path types are
    *      supported where.
    *}
-var
   SDL_WinRTGetFSPathUTF8 : TSDL_WinRTGetFSPathUTF8_func = Nil;
 
 
 
 type
   TSDL_WinRTGetDeviceFamily_func = function(): TS
+var
 {**
  * Detects the device family of WinRT platform at runtime.
  *
@@ -585,7 +586,6 @@ type
  *
  * \since This function is available since SDL 2.0.8.
  *}
-var
   SDL_WinRTGetDeviceFamily : TSDL_WinRTGetDeviceFamily_func = Nil;
 
 {$ENDIF __WINRT__}
@@ -593,6 +593,7 @@ var
 
 type
   TSDL_IsTablet_func = function(): TSDL_Bool; cdecl;
+var
 {**
  * Query if the current device is a tablet.
  *
@@ -602,7 +603,6 @@ type
  *
  * \since This function is available since SDL 2.0.9.
  *}
-var
   SDL_IsTablet : TSDL_IsTablet_func = Nil;
 
 

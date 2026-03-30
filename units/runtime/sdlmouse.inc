@@ -50,6 +50,7 @@ function SDL_GetMouseFocus: PSDL_Window; cdecl;
 
 type
   TSDL_GetMouseState_func = function(x: pcint; y: pcint): cuint32; cdecl;
+var
   {**
  * Retrieve the current state of the mouse.
  *
@@ -71,13 +72,13 @@ type
  * \sa SDL_GetRelativeMouseState
  * \sa SDL_PumpEvents
  *}
-var
   SDL_GetMouseState : TSDL_GetMouseState_func = Nil;
 
 
 
 type
   TSDL_GetGlobalMouseState_func = function(x, y: pcint32): cuint32; cdecl;
+var
   {**
  * Get the current state of the mouse in relation to the desktop.
  *
@@ -105,12 +106,12 @@ type
  *
  * \sa SDL_CaptureMouse
  *}
-var
   SDL_GetGlobalMouseState : TSDL_GetGlobalMouseState_func = Nil;
 
 
 type
   TSDL_GetRelativeMouseState_func = function(x: pcint; y: pcint): cuint32; cdecl;
+var
   {**
  * Retrieve the relative state of the mouse.
  *
@@ -128,12 +129,12 @@ type
  *
  * \sa SDL_GetMouseState
  *}
-var
   SDL_GetRelativeMouseState : TSDL_GetRelativeMouseState_func = Nil;
 
 
 type
   TSDL_WarpMouseInWindow_proc = procedure(window: PSDL_Window; x: cint; y: cint); cdecl;
+var
   {**
  * Move the mouse cursor to the given position within the window.
  *
@@ -153,12 +154,12 @@ type
  *
  * \sa SDL_WarpMouseGlobal
  *}
-var
   SDL_WarpMouseInWindow : TSDL_WarpMouseInWindow_proc = Nil;
 
 
 type
   TSDL_WarpMouseGlobal_func = function(x, y: cint): cint; cdecl;
+var
   {**
  * Move the mouse to the given position in global screen space.
  *
@@ -179,12 +180,12 @@ type
  *
  * \sa SDL_WarpMouseInWindow
  *}
-var
   SDL_WarpMouseGlobal : TSDL_WarpMouseGlobal_func = Nil;
 
 
 type
   TSDL_SetRelativeMouseMode_func = function(enabled: TSDL_Bool): cint; cdecl;
+var
   {**
  * Set relative mouse mode.
  *
@@ -208,12 +209,12 @@ type
  *
  * \sa SDL_GetRelativeMouseMode
  *}
-var
   SDL_SetRelativeMouseMode : TSDL_SetRelativeMouseMode_func = Nil;
 
 
 type
   TSDL_CaptureMouse_func = function(enabled: TSDL_Bool): cint; cdecl;
+var
   {**
  * Capture the mouse and to track input outside an SDL window.
  *
@@ -258,7 +259,6 @@ type
  *
  * \sa SDL_GetGlobalMouseState
  *}
-var
   SDL_CaptureMouse : TSDL_CaptureMouse_func = Nil;
 
 
@@ -329,6 +329,7 @@ type
     surface: PSDL_Surface;
      hot_x: cint;
      hot_y: cint): PSDL_Cursor; cdecl;
+var
   {**
  * Create a color cursor.
  *
@@ -343,11 +344,11 @@ type
  * \sa SDL_CreateCursor
  * \sa SDL_FreeCursor
  *}
-var
   SDL_CreateColorCursor : TSDL_CreateColorCursor_func = Nil;
 
 type
   TSDL_CreateSystemCursor_func = function(id: TSDL_SystemCursor): PSDL_Cursor; cdecl;
+var
   {**
  * Create a system cursor.
  *
@@ -359,12 +360,12 @@ type
  *
  * \sa SDL_FreeCursor
  *}
-var
   SDL_CreateSystemCursor : TSDL_CreateSystemCursor_func = Nil;
 
 
 type
   TSDL_SetCursor_proc = procedure(cursor: PSDL_Cursor); cdecl;
+var
   {**
  * Set the active cursor.
  *
@@ -381,7 +382,6 @@ type
  * \sa SDL_GetCursor
  * \sa SDL_ShowCursor
  *}
-var
   SDL_SetCursor : TSDL_SetCursor_proc = Nil;
 
 
@@ -414,6 +414,7 @@ function SDL_GetDefaultCursor: PSDL_Cursor; cdecl;
 
 type
   TSDL_FreeCursor_proc = procedure(cursor: PSDL_Cursor); cdecl;
+var
   {**
  * Free a previously-created cursor.
  *
@@ -428,12 +429,12 @@ type
  * \sa SDL_CreateCursor
  * \sa SDL_CreateSystemCursor
  *}
-var
   SDL_FreeCursor : TSDL_FreeCursor_proc = Nil;
 
 
 type
   TSDL_ShowCursor_func = function(toggle: cint): cint; cdecl;
+var
   {**
  * Toggle whether or not the cursor is shown.
  *
@@ -454,7 +455,6 @@ type
  * \sa SDL_CreateCursor
  * \sa SDL_SetCursor
  *}
-var
   SDL_ShowCursor : TSDL_ShowCursor_func = Nil;
 
 

@@ -224,6 +224,7 @@ function SDL_GetNumAudioDrivers: cint; cdecl;
 
 type
   TSDL_GetAudioDriver_func = function(index: cint): PAnsiChar; cdecl;
+var
 {**
  * Use this function to get the name of a built in audio driver.
  *
@@ -244,7 +245,6 @@ type
  *
  * \sa SDL_GetNumAudioDrivers
  *}
-var
   SDL_GetAudioDriver : TSDL_GetAudioDriver_func = Nil;
 
 
@@ -258,6 +258,7 @@ var
 
 type
   TSDL_AudioInit_func = function(driver_name: PAnsiChar): cint; cdecl;
+var
 {**
  * Use this function to initialize a particular audio driver.
  *
@@ -273,7 +274,6 @@ type
  *
  * \sa SDL_AudioQuit
  *}
-var
   SDL_AudioInit : TSDL_AudioInit_func = Nil;
 
 
@@ -313,6 +313,7 @@ function SDL_GetCurrentAudioDriver: PAnsiChar; cdecl;
 
 type
   TSDL_OpenAudio_func = function(desired: PSDL_AudioSpec; obtained: PSDL_AudioSpec): cint; cdecl;
+var
 {**
  * This function is a legacy means of opening the audio device.
  *
@@ -360,7 +361,6 @@ type
  * \sa SDL_PauseAudio
  * \sa SDL_UnlockAudio
  *}
-var
   SDL_OpenAudio : TSDL_OpenAudio_func = Nil;
 
   {**
@@ -380,6 +380,7 @@ type
 type
   TSDL_GetNumAudioDevices_func = function(iscapture: cint): cint; cdecl;
 
+var
 {**
  * Get the number of built-in audio devices.
  *
@@ -424,12 +425,12 @@ type
  * \sa SDL_GetAudioDeviceName
  * \sa SDL_OpenAudioDevice
  *}
-var
   SDL_GetNumAudioDevices : TSDL_GetNumAudioDevices_func = Nil;
 
 
 type
   TSDL_GetAudioDeviceName_func = function(index: cint; iscapture: cint): PAnsiChar; cdecl;
+var
 {**
  * Get the human-readable name of a specific audio device.
  *
@@ -455,12 +456,12 @@ type
  * \sa SDL_GetNumAudioDevices
  * \sa SDL_GetDefaultAudioInfo
  *}
-var
   SDL_GetAudioDeviceName : TSDL_GetAudioDeviceName_func = Nil;
 
 
 type
   TSDL_GetAudioDeviceSpec_func = function(index: cint; iscapture: cint; spec: PSDL_AudioSpec): cint; cdecl;
+var
 {*
  * Get the preferred audio format of a specific audio device.
  *
@@ -484,12 +485,12 @@ type
  * \sa SDL_GetNumAudioDevices
  * \sa SDL_GetDefaultAudioInfo
   }
-var
   SDL_GetAudioDeviceSpec : TSDL_GetAudioDeviceSpec_func = Nil;
 
 
 type
   TSDL_GetDefaultAudioInfo_func = function(name: PPAnsiChar; spec: PSDL_AudioSpec; iscapture: cint): cint; cdecl;
+var
 {*
  * Get the name and preferred format of the default audio device.
  *
@@ -520,7 +521,6 @@ type
  * \sa SDL_GetAudioDeviceSpec
  * \sa SDL_OpenAudioDevice
   }
-var
   SDL_GetDefaultAudioInfo : TSDL_GetDefaultAudioInfo_func = Nil;
 
 type
@@ -529,6 +529,7 @@ type
                              desired: PSDL_AudioSpec;
                              obtained: PSDL_AudioSpec;
                              allowed_changes: cint): TSDL_AudioDeviceID; cdecl;
+var
 {**
  * Open a specific audio device.
  *
@@ -640,7 +641,6 @@ type
  * \sa SDL_PauseAudioDevice
  * \sa SDL_UnlockAudioDevice
  *}
-var
   SDL_OpenAudioDevice : TSDL_OpenAudioDevice_func = Nil;
 
   {**
@@ -682,6 +682,7 @@ function SDL_GetAudioStatus: TSDL_AudioStatus; cdecl;
 
 type
   TSDL_GetAudioDeviceStatus_func = function(dev: TSDL_AudioDeviceID): TSDL_AudioStatus; cdecl;
+var
 {**
  * Use this function to get the current audio state of an audio device.
  *
@@ -693,7 +694,6 @@ type
  *
  * \sa SDL_PauseAudioDevice
  *}
-var
   SDL_GetAudioDeviceStatus : TSDL_GetAudioDeviceStatus_func = Nil;
 
 
@@ -711,6 +711,7 @@ var
 
 type
   TSDL_PauseAudio_proc = procedure(pause_on: cint); cdecl;
+var
 {**
  * This function is a legacy means of pausing the audio device.
  *
@@ -730,12 +731,12 @@ type
  * \sa SDL_GetAudioStatus
  * \sa SDL_PauseAudioDevice
  *}
-var
   SDL_PauseAudio : TSDL_PauseAudio_proc = Nil;
 
 
 type
   TSDL_PauseAudioDevice_proc = procedure(dev: TSDL_AudioDeviceID; pause_on: cint); cdecl;
+var
 {**
  * Use this function to pause and unpause audio playback on a specified
  * device.
@@ -764,12 +765,18 @@ type
  *
  * \sa SDL_LockAudioDevice
  *}
-var
   SDL_PauseAudioDevice : TSDL_PauseAudioDevice_proc = Nil;
 
 
 {*Pause audio functions*}
 
+type
+  TSDL_LoadWAV_RW_func = function(src: PSDL_RWops;
+                        freesrc: cint;
+                        spec: PSDL_AudioSpec;
+                        audio_buf: ppcuint8;
+                        audio_len: pcuint32): PSDL_AudioSpec; cdecl;
+var
   {**
  * Load the audio data of a WAVE file into memory.
  *
@@ -851,13 +858,6 @@ var
  * \sa SDL_FreeWAV
  * \sa SDL_LoadWAV
  *}
-type
-  TSDL_LoadWAV_RW_func = function(src: PSDL_RWops;
-                        freesrc: cint;
-                        spec: PSDL_AudioSpec;
-                        audio_buf: ppcuint8;
-                        audio_len: pcuint32): PSDL_AudioSpec; cdecl;
-var
   SDL_LoadWAV_RW : TSDL_LoadWAV_RW_func = Nil;
 
 {**
@@ -868,6 +868,7 @@ function SDL_LoadWAV(file_: PAnsiChar; spec: PSDL_AudioSpec; audio_buf: ppcuint8
 
 type
   TSDL_FreeWAV_proc = procedure(audio_buf: pcuint8); cdecl;
+var
 {**
  * Free data previously allocated with SDL_LoadWAV() or SDL_LoadWAV_RW().
  *
@@ -883,7 +884,6 @@ type
  * \sa SDL_LoadWAV
  * \sa SDL_LoadWAV_RW
  *}
-var
   SDL_FreeWAV : TSDL_FreeWAV_proc = Nil;
 
 
@@ -895,6 +895,7 @@ type
                            dst_format: TSDL_AudioFormat;
                            dst_channels: cuint8;
                            dst_rate: cint): cint; cdecl;
+var
 {**
  * Initialize an SDL_AudioCVT structure for conversion.
  *
@@ -927,11 +928,11 @@ type
  *
  * \sa SDL_ConvertAudio
  *}
-var
   SDL_BuildAudioCVT : TSDL_BuildAudioCVT_func = Nil;
 
 type
   TSDL_ConvertAudio_func = function(cvt: PSDL_AudioCVT): cint; cdecl;
+var
 {**
  * Convert audio data to a desired audio format.
  *
@@ -970,7 +971,6 @@ type
  *
  * \sa SDL_BuildAudioCVT
  *}
-var
   SDL_ConvertAudio : TSDL_ConvertAudio_func = Nil;
 
 
@@ -985,6 +985,10 @@ var
 type
   PSDL_AudioStream = type Pointer;
 
+type
+  TSDL_NewAudioStream_func = function(src_format: TSDL_AudioFormat; src_channels: cuint8; src_rate: cint; dst_format: TSDL_AudioFormat; dst_channels: cuint8;
+           dst_rate: cint): PSDL_AudioStream; cdecl;
+var
 {*
  * Create a new audio stream.
  *
@@ -1005,12 +1009,11 @@ type
  * \sa SDL_AudioStreamClear
  * \sa SDL_FreeAudioStream
   }
-type
-  TSDL_NewAudioStream_func = function(src_format: TSDL_AudioFormat; src_channels: cuint8; src_rate: cint; dst_format: TSDL_AudioFormat; dst_channels: cuint8;
-           dst_rate: cint): PSDL_AudioStream; cdecl;
-var
   SDL_NewAudioStream : TSDL_NewAudioStream_func = Nil;
 
+type
+  TSDL_AudioStreamPut_func = function(stream: PSDL_AudioStream; buf: pointer; len: cint): cint; cdecl;
+var
 {*
  * Add data to be converted/resampled to the stream.
  *
@@ -1028,12 +1031,12 @@ var
  * \sa SDL_AudioStreamClear
  * \sa SDL_FreeAudioStream
   }
-type
-  TSDL_AudioStreamPut_func = function(stream: PSDL_AudioStream; buf: pointer; len: cint): cint; cdecl;
-var
   SDL_AudioStreamPut : TSDL_AudioStreamPut_func = Nil;
 
 
+type
+  TSDL_AudioStreamGet_func = function(stream: PSDL_AudioStream; buf: pointer; len: cint): cint; cdecl;
+var
 {*
  * Get converted/resampled data from the stream
  *
@@ -1051,12 +1054,12 @@ var
  * \sa SDL_AudioStreamClear
  * \sa SDL_FreeAudioStream
   }
-type
-  TSDL_AudioStreamGet_func = function(stream: PSDL_AudioStream; buf: pointer; len: cint): cint; cdecl;
-var
   SDL_AudioStreamGet : TSDL_AudioStreamGet_func = Nil;
 
 
+type
+  TSDL_AudioStreamAvailable_func = function(stream: PSDL_AudioStream): cint; cdecl;
+var
 {*
  * Get the number of converted/resampled bytes available.
  *
@@ -1073,12 +1076,12 @@ var
  * \sa SDL_AudioStreamClear
  * \sa SDL_FreeAudioStream
   }
-type
-  TSDL_AudioStreamAvailable_func = function(stream: PSDL_AudioStream): cint; cdecl;
-var
   SDL_AudioStreamAvailable : TSDL_AudioStreamAvailable_func = Nil;
 
 
+type
+  TSDL_AudioStreamFlush_func = function(stream: PSDL_AudioStream): cint; cdecl;
+var
 {*
  * Tell the stream that you're done sending data, and anything being buffered
  * should be converted/resampled and made available immediately.
@@ -1096,12 +1099,12 @@ var
  * \sa SDL_AudioStreamClear
  * \sa SDL_FreeAudioStream
   }
-type
-  TSDL_AudioStreamFlush_func = function(stream: PSDL_AudioStream): cint; cdecl;
-var
   SDL_AudioStreamFlush : TSDL_AudioStreamFlush_func = Nil;
 
 
+type
+  TSDL_AudioStreamClear_proc = procedure(stream: PSDL_AudioStream); cdecl;
+var
 {*
  * Clear any pending data in the stream without converting it
  *
@@ -1114,12 +1117,12 @@ var
  * \sa SDL_AudioStreamFlush
  * \sa SDL_FreeAudioStream
   }
-type
-  TSDL_AudioStreamClear_proc = procedure(stream: PSDL_AudioStream); cdecl;
-var
   SDL_AudioStreamClear : TSDL_AudioStreamClear_proc = Nil;
 
 
+type
+  TSDL_FreeAudioStream_proc = procedure(stream: PSDL_AudioStream); cdecl;
+var
 {*
  * Free an audio stream
  *
@@ -1132,9 +1135,6 @@ var
  * \sa SDL_AudioStreamFlush
  * \sa SDL_AudioStreamClear
   }
-type
-  TSDL_FreeAudioStream_proc = procedure(stream: PSDL_AudioStream); cdecl;
-var
   SDL_FreeAudioStream : TSDL_FreeAudioStream_proc = Nil;
 
 
@@ -1143,6 +1143,7 @@ const
 
 type
   TSDL_MixAudio_proc = procedure(dst: pcuint8; src: pcuint8; len: cuint32; volume: cint); cdecl;
+var
 {**
  * This function is a legacy means of mixing audio.
  *
@@ -1165,12 +1166,12 @@ type
  *
  * \sa SDL_MixAudioFormat
  *}
-var
   SDL_MixAudio : TSDL_MixAudio_proc = Nil;
 
 
 type
   TSDL_MixAudioFormat_proc = procedure(dst: pcuint8; src: pcuint8; format: TSDL_AudioFormat; len: cuint32; volume: cint); cdecl;
+var
   {**
  * Mix audio data in a specified format.
  *
@@ -1201,12 +1202,12 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_MixAudioFormat : TSDL_MixAudioFormat_proc = Nil;
 
 
 type
   TSDL_QueueAudio_func = function(dev: TSDL_AudioDeviceID; data: Pointer; len: cuint32): cint; cdecl;
+var
   {**
  * Queue more audio on non-callback devices.
  *
@@ -1253,12 +1254,12 @@ type
  * \sa SDL_ClearQueuedAudio
  * \sa SDL_GetQueuedAudioSize
  *}
-var
   SDL_QueueAudio : TSDL_QueueAudio_func = Nil;
 
 
 type
   TSDL_DequeueAudio_func = function(dev: TSDL_AudioDeviceID; data: Pointer; len: cuint32): cuint32; cdecl;
+var
   {**
  * Dequeue more audio on non-callback devices.
  *
@@ -1305,12 +1306,12 @@ type
  * \sa SDL_ClearQueuedAudio
  * \sa SDL_GetQueuedAudioSize
  *}
-var
   SDL_DequeueAudio : TSDL_DequeueAudio_func = Nil;
 
 
 type
   TSDL_GetQueuedAudioSize_func = function(dev: TSDL_AudioDeviceID): cuint32; cdecl;
+var
 {**
  * Get the number of bytes of still-queued audio.
  *
@@ -1343,12 +1344,12 @@ type
  * \sa SDL_QueueAudio
  * \sa SDL_DequeueAudio
  *}
-var
   SDL_GetQueuedAudioSize : TSDL_GetQueuedAudioSize_func = Nil;
 
 
 type
   TSDL_ClearQueuedAudio_proc = procedure(dev: TSDL_AudioDeviceID); cdecl;
+var
   {**
  * Drop any queued audio data waiting to be sent to the hardware.
  *
@@ -1381,7 +1382,6 @@ type
  * \sa SDL_QueueAudio
  * \sa SDL_DequeueAudio
  *}
-var
   SDL_ClearQueuedAudio : TSDL_ClearQueuedAudio_proc = Nil;
 
 
@@ -1417,6 +1417,7 @@ procedure SDL_LockAudio; cdecl;
 
 type
   TSDL_LockAudioDevice_proc = procedure(dev: TSDL_AudioDeviceID); cdecl;
+var
 {**
  * Use this function to lock out the audio callback function for a specified
  * device.
@@ -1454,7 +1455,6 @@ type
  *
  * \sa SDL_UnlockAudioDevice
  *}
-var
   SDL_LockAudioDevice : TSDL_LockAudioDevice_proc = Nil;
 
 
@@ -1480,6 +1480,7 @@ procedure SDL_UnlockAudio; cdecl;
 
 type
   TSDL_UnlockAudioDevice_proc = procedure(dev: TSDL_AudioDeviceID); cdecl;
+var
 {**
  * Use this function to unlock the audio callback function for a specified
  * device.
@@ -1492,7 +1493,6 @@ type
  *
  * \sa SDL_LockAudioDevice
  *}
-var
   SDL_UnlockAudioDevice : TSDL_UnlockAudioDevice_proc = Nil;
 
 
@@ -1518,6 +1518,7 @@ procedure SDL_CloseAudio; cdecl;
 
 type
   TSDL_CloseAudioDevice_proc = procedure(dev: TSDL_AudioDeviceID); cdecl;
+var
 {**
  * Use this function to shut down audio processing and close the audio device.
  *
@@ -1540,7 +1541,6 @@ type
  *
  * \sa SDL_OpenAudioDevice
  *}
-var
   SDL_CloseAudioDevice : TSDL_CloseAudioDevice_proc = Nil;
 
 

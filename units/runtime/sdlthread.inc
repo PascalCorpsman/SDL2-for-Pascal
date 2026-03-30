@@ -136,6 +136,7 @@ function SDL_CreateThreadWithStackSize2(fn: TSDL_ThreadFunction; name: PAnsiChar
 type
   TSDL_CreateThread_func = function(fn: TSDL_ThreadFunction; name: PAnsiChar;
   data: Pointer): PSDL_Thread; cdecl;
+var
   {**
    *  Create a thread.
    *
@@ -154,12 +155,12 @@ type
    *    it (truncate, etc), but the original string contents will be available
    *    from SDL_GetThreadName().
    *}
-var
   SDL_CreateThread : TSDL_CreateThread_func = Nil;
 
 type
   TSDL_CreateThreadWithStackSize_func = function(fn: TSDL_ThreadFunction; name: PAnsiChar;
   stacksize: csize_t; data: Pointer): PSDL_Thread; cdecl;
+var
 {**
  * Create a new thread with a specific stack size.
  *
@@ -203,13 +204,13 @@ type
  *
  * \sa SDL_WaitThread
  *}
-var
   SDL_CreateThreadWithStackSize : TSDL_CreateThreadWithStackSize_func = Nil;
 
 {$ENDIF}
 
 type
   TSDL_GetThreadName_func = function(thread: PSDL_Thread): PAnsiChar; cdecl;
+var
   {**
  * Get the thread name as it was specified in SDL_CreateThread().
  *
@@ -224,7 +225,6 @@ type
  *
  * \sa SDL_CreateThread
  *}
-var
   SDL_GetThreadName : TSDL_GetThreadName_func = Nil;
 
 
@@ -249,6 +249,7 @@ function SDL_ThreadID: TSDL_ThreadID; cdecl;
 
 type
   TSDL_GetThreadID_func = function(thread: PSDL_Thread): TSDL_ThreadID; cdecl;
+var
   {**
  * Get the thread identifier for the specified thread.
  *
@@ -264,12 +265,12 @@ type
  *
  * \sa SDL_ThreadID
  *}
-var
   SDL_GetThreadID : TSDL_GetThreadID_func = Nil;
 
 
 type
   TSDL_SetThreadPriority_func = function(priority: TSDL_ThreadPriority): cint; cdecl;
+var
   {**
  * Set the priority for the current thread.
  *
@@ -283,12 +284,12 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_SetThreadPriority : TSDL_SetThreadPriority_func = Nil;
 
 
 type
   TSDL_WaitThread_proc = procedure(thread: PSDL_Thread; status: pcint); cdecl;
+var
   {**
  * Wait for a thread to finish.
  *
@@ -322,12 +323,12 @@ type
  * \sa SDL_CreateThread
  * \sa SDL_DetachThread
  *}
-var
   SDL_WaitThread : TSDL_WaitThread_proc = Nil;
 
 
 type
   TSDL_DetachThread_proc = procedure(thread:PSDL_Thread); cdecl;
+var
   {**
  * Let a thread clean up on exit without intervention.
  *
@@ -362,7 +363,6 @@ type
  * \sa SDL_CreateThread
  * \sa SDL_WaitThread
  *}
-var
   SDL_DetachThread : TSDL_DetachThread_proc = Nil;
 
 
@@ -384,6 +384,7 @@ function SDL_TLSCreate: TSDL_TLSID; cdecl;
 
 type
   TSDL_TLSGet_func = function(id: TSDL_TLSID): Pointer; cdecl;
+var
   {**
  * Get the current thread's value associated with a thread local storage ID.
  *
@@ -396,7 +397,6 @@ type
  * \sa SDL_TLSCreate
  * \sa SDL_TLSSet
  *}
-var
   SDL_TLSGet : TSDL_TLSGet_func = Nil;
 
 
@@ -411,6 +411,7 @@ type
 
 type
   TSDL_TLSSet_func = function(id: TSDL_TLSID; const value: Pointer; destructor_: TTLSDestructor): cint; cdecl;
+var
   {**
  * Set the current thread's value associated with a thread local storage ID.
  *
@@ -434,7 +435,6 @@ type
  * \sa SDL_TLSCreate
  * \sa SDL_TLSGet
  *}
-var
   SDL_TLSSet : TSDL_TLSSet_func = Nil;
 
 

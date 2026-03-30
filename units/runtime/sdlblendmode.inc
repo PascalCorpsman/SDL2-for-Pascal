@@ -65,6 +65,7 @@ const
 
 type
   TSDL_ComposeCustomBlendMode_func = function(srcColorFactor, dstColorFactor: TSDL_BlendFactor; colorOperation: TSDL_BlendOperation; srcAlphaFactor, dstAlphaFactor: TSDL_BlendFactor; alphaOperation: TSDL_BlendOperation): TSDL_BlendMode; cdecl;
+var
 {**
  *  \brief Create a custom blend mode, which may or may not be supported by a given renderer
  *
@@ -80,6 +81,5 @@ type
  *  and
  *      dstA = dstA * dstAlphaFactor alphaOperation srcA * srcAlphaFactor
  *}
-var
   SDL_ComposeCustomBlendMode : TSDL_ComposeCustomBlendMode_func = Nil;
 

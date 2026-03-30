@@ -529,6 +529,7 @@ type
 
 type
   TSDL_GetPixelFormatName_func = function(format: cuint32): PAnsiChar; cdecl;
+var
 {**
  * Get the human readable name of a pixel format.
  *
@@ -538,13 +539,13 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_GetPixelFormatName : TSDL_GetPixelFormatName_func = Nil;
 
 
 type
   TSDL_PixelFormatEnumToMasks_func = function(format: cuint32; bpp: pcint;
   Rmask: pcuint32; Gmask: pcuint32; Bmask: pcuint32; Amask: pcuint32): TSDL_Bool; cdecl;
+var
 {**
  * Convert one of the enumerated pixel formats to a bpp value and RGBA masks.
  *
@@ -561,11 +562,11 @@ type
  *
  * \sa SDL_MasksToPixelFormatEnum
  *}
-var
   SDL_PixelFormatEnumToMasks : TSDL_PixelFormatEnumToMasks_func = Nil;
 
 type
   TSDL_MasksToPixelFormatEnum_func = function(bpp: cint; Rmask: cuint32; Gmask: cuint32; Bmask: cuint32; Amask: cuint32): cuint32; cdecl;
+var
 {**
  * Convert a bpp value and RGBA masks to an enumerated pixel format.
  *
@@ -583,12 +584,12 @@ type
  *
  * \sa SDL_PixelFormatEnumToMasks
  *}
-var
   SDL_MasksToPixelFormatEnum : TSDL_MasksToPixelFormatEnum_func = Nil;
 
 
 type
   TSDL_AllocFormat_func = function(pixel_format: cuint32): PSDL_PixelFormat; cdecl;
+var
 {**
  * Create an SDL_PixelFormat structure corresponding to a pixel format.
  *
@@ -604,12 +605,12 @@ type
  *
  * \sa SDL_FreeFormat
  *}
-var
   SDL_AllocFormat : TSDL_AllocFormat_func = Nil;
 
 
 type
   TSDL_FreeFormat_proc = procedure(format: PSDL_PixelFormat); cdecl;
+var
 {**
  * Free an SDL_PixelFormat structure allocated by SDL_AllocFormat().
  *
@@ -619,12 +620,12 @@ type
  *
  * \sa SDL_AllocFormat
  *}
-var
   SDL_FreeFormat : TSDL_FreeFormat_proc = Nil;
 
 
 type
   TSDL_AllocPalette_func = function(ncolors: cint): PSDL_Palette; cdecl;
+var
 {**
  * Create a palette structure with the specified number of color entries.
  *
@@ -639,12 +640,12 @@ type
  *
  * \sa SDL_FreePalette
  *}
-var
   SDL_AllocPalette : TSDL_AllocPalette_func = Nil;
 
 
 type
   TSDL_SetPixelFormatPalette_func = function(format: PSDL_PixelFormat; palette: PSDL_Palette): cint; cdecl;
+var
 {**
  * Set the palette for a pixel format structure.
  *
@@ -658,12 +659,12 @@ type
  * \sa SDL_AllocPalette
  * \sa SDL_FreePalette
  *}
-var
   SDL_SetPixelFormatPalette : TSDL_SetPixelFormatPalette_func = Nil;
 
 
 type
   TSDL_SetPaletteColors_func = function(palette: PSDL_Palette; const colors: PSDL_Color; firstcolor: cint; ncolors: cint): cint; cdecl;
+var
 {**
  * Set a range of colors in a palette.
  *
@@ -679,12 +680,12 @@ type
  * \sa SDL_AllocPalette
  * \sa SDL_CreateRGBSurface
  *}
-var
   SDL_SetPaletteColors : TSDL_SetPaletteColors_func = Nil;
 
 
 type
   TSDL_FreePalette_proc = procedure(palette: PSDL_Palette); cdecl;
+var
 {**
  * Free a palette created with SDL_AllocPalette().
  *
@@ -694,12 +695,12 @@ type
  *
  * \sa SDL_AllocPalette
  *}
-var
   SDL_FreePalette : TSDL_FreePalette_proc = Nil;
 
 
 type
   TSDL_MapRGB_func = function(const format: PSDL_PixelFormat; r: cuint8; g: cuint8; b: cuint8): cuint32; cdecl;
+var
 {**
  * Map an RGB triple to an opaque pixel value for a given pixel format.
  *
@@ -730,12 +731,12 @@ type
  * \sa SDL_GetRGBA
  * \sa SDL_MapRGBA
  *}
-var
   SDL_MapRGB : TSDL_MapRGB_func = Nil;
 
 
 type
   TSDL_MapRGBA_func = function(const format: PSDL_PixelFormat; r: cuint8; g: cuint8; b: cuint8; a: cuint8): cuint32; cdecl;
+var
 {**
  * Map an RGBA quadruple to a pixel value for a given pixel format.
  *
@@ -768,12 +769,12 @@ type
  * \sa SDL_GetRGBA
  * \sa SDL_MapRGB
  *}
-var
   SDL_MapRGBA : TSDL_MapRGBA_func = Nil;
 
 
 type
   TSDL_GetRGB_proc = procedure(pixel: cuint32; const format: PSDL_PixelFormat; r: pcuint8; g: pcuint8; b: pcuint8); cdecl;
+var
 {**
  * Get RGB values from a pixel in the specified format.
  *
@@ -795,7 +796,6 @@ type
  * \sa SDL_MapRGB
  * \sa SDL_MapRGBA
  *}
-var
   SDL_GetRGB : TSDL_GetRGB_proc = Nil;
 
 
@@ -803,6 +803,7 @@ type
   TSDL_GetRGBA_proc = procedure(pixel: cuint32; const format: PSDL_PixelFormat; r: pcuint8; g: pcuint8; b: pcuint8; a: pcuint8); cdecl;
 type
   TSDL_CalculateGammaRamp_proc = procedure(gamma: cfloat; ramp: pcuint16); cdecl;
+var
 {**
  * Get RGBA values from a pixel in the specified format.
  *
@@ -828,7 +829,6 @@ type
  * \sa SDL_MapRGB
  * \sa SDL_MapRGBA
  *}
-var
   SDL_GetRGBA : TSDL_GetRGBA_proc = Nil;
 
 
@@ -842,6 +842,5 @@ var
  *
  * \sa SDL_SetWindowGammaRamp
  *}
-var
   SDL_CalculateGammaRamp : TSDL_CalculateGammaRamp_proc = Nil;
 

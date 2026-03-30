@@ -672,6 +672,7 @@ type
 
 type
   TSDL_PumpEvents_proc = Procedure ();cdecl;
+var
   {**
    *  Pumps the event loop, gathering events from the input devices.
    *  
@@ -679,7 +680,6 @@ type
    *  
    *  This should only be run in the thread that sets the video mode.
    *}
-var
   SDL_PumpEvents : TSDL_PumpEvents_proc = Nil;
 
 const
@@ -839,6 +839,7 @@ const
 
 type
   TSDL_EventState_func = function(type_: TSDL_EventType; state: cint32): cuint8 cdecl;
+var
   {**
    *  This function allows you to set the state of processing certain events.
    *   - If state is set to SDL_IGNORE, that event will be automatically
@@ -848,7 +849,6 @@ type
    *   - If state is set to SDL_QUERY, SDL_EventState() will return the
    *     current processing state of the specified event.
    *}
-var
   SDL_EventState : TSDL_EventState_func = Nil;
 
   function SDL_GetEventState(type_: TSDL_EventType): cuint8;

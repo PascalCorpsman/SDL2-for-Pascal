@@ -20,6 +20,7 @@ type
   {**
    *  The basic state for the system's power supply.
    *}
+var
   {**
    *  \brief Get the current power supply details.
    *
@@ -33,6 +34,5 @@ type
    *
    *  \return The state of the battery (if any).
    *}
-var
   SDL_GetPowerInfo : TSDL_GetPowerInfo_func = Nil;
 

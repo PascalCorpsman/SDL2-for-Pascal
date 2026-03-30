@@ -46,10 +46,10 @@ function SDL_GetPerformanceFrequency: cuint64; cdecl;
 
 type
   TSDL_Delay_proc = procedure(ms: cuint32); cdecl;
+var
 {**
  *  Wait a specified number of milliseconds before returning.
  *}
-var
   SDL_Delay : TSDL_Delay_proc = Nil;
 
 
@@ -75,17 +75,18 @@ type
 
 type
   TSDL_AddTimer_func = function(interval: cuint32; callback: TSDL_TimerCallback; param: Pointer): TSDL_TimerID; cdecl;
+var
 {**
  *  Add a new timer to the pool of timers already running.
  *
  *  A timer ID, or NULL when an error occurs.
  *}
-var
   SDL_AddTimer : TSDL_AddTimer_func = Nil;
 
 
 type
   TSDL_RemoveTimer_func = function(id: TSDL_TimerID): Boolean; cdecl;
+var
 {**
  *  Remove a timer knowing its ID.
  *
@@ -93,6 +94,5 @@ type
  *
  *  It is not safe to remove a timer multiple times.
  *}
-var
   SDL_RemoveTimer : TSDL_RemoveTimer_func = Nil;
 

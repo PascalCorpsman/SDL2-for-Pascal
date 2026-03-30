@@ -10,12 +10,12 @@
 
 type
   TSDL_SetError_func = function(const fmt: PAnsiChar; args: array of const): cint; cdecl;
+var
 {**
  *  \brief Set the error message for the current thread
  *
  *  \return -1, there is no error handling for this function
  *}
-var
   SDL_SetError : TSDL_SetError_func = Nil;
 
 
@@ -35,6 +35,7 @@ function SDL_GetError: PAnsiChar; cdecl;
 
 type
   TSDL_GetErrorMsg_func = function(const errstr: PAnsiChar; maxlen: cint): PAnsiChar; cdecl;
+var
 {**
  *  \brief Get the last error message that was set for the current thread
  *
@@ -47,7 +48,6 @@ type
  *
  *  \return errstr
  *}
-var
   SDL_GetErrorMsg : TSDL_GetErrorMsg_func = Nil;
 
 
@@ -81,7 +81,7 @@ type
 
 type
   TSDL_Error_func = function(code: TSDL_ErrorCode): cint; cdecl;
-{* SDL_Error() unconditionally returns -1. *}
 var
+{* SDL_Error() unconditionally returns -1. *}
   SDL_Error : TSDL_Error_func = Nil;
 

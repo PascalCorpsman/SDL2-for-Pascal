@@ -92,6 +92,7 @@ type
 
 type
   TSDL_ShowMessageBox_func = function(messageboxdata: PSDL_MessageBoxData; buttonid: pcint): cint; cdecl;
+var
 {**
  *   Create a modal message box.
  *
@@ -106,12 +107,12 @@ type
  *   block execution of that thread until the user clicks a button or
  *   closes the messagebox.
  *}
-var
   SDL_ShowMessageBox : TSDL_ShowMessageBox_func = Nil;
 
 
 type
   TSDL_ShowSimpleMessageBox_func = function(flags: TSDL_MessageBoxFlags; title: PAnsiChar; _message: PAnsiChar; window: PSDL_Window): cint; cdecl;
+var
 {**
  *   Create a simple modal message box
  *
@@ -124,7 +125,6 @@ type
  *
  *   SDL_ShowMessageBox
  *}
-var
   SDL_ShowSimpleMessageBox : TSDL_ShowSimpleMessageBox_func = Nil;
 
 

@@ -807,6 +807,7 @@ function SDL_NumHaptics: cint; cdecl;
 
 type
   TSDL_HapticName_func = function(device_index: cint): PAnsiChar; cdecl;
+var
   {**
  * Get the implementation dependent name of a haptic device.
  *
@@ -821,12 +822,12 @@ type
  *
  * \sa SDL_NumHaptics
  *}
-var
   SDL_HapticName : TSDL_HapticName_func = Nil;
 
 
 type
   TSDL_HapticOpen_func = function(device_index: cint): PSDL_Haptic; cdecl;
+var
   {**
  * Open a haptic device for use.
  *
@@ -852,12 +853,12 @@ type
  * \sa SDL_HapticSetGain
  * \sa SDL_HapticStopAll
  *}
-var
   SDL_HapticOpen : TSDL_HapticOpen_func = Nil;
 
 
 type
   TSDL_HapticOpened_func = function(device_index: cint): cint; cdecl;
+var
   {**
  * Check if the haptic device at the designated index has been opened.
  *
@@ -870,12 +871,12 @@ type
  * \sa SDL_HapticIndex
  * \sa SDL_HapticOpen
  *}
-var
   SDL_HapticOpened : TSDL_HapticOpened_func = Nil;
 
 
 type
   TSDL_HapticIndex_func = function(haptic: PSDL_Haptic): cint; cdecl;
+var
   {**
  * Get the index of a haptic device.
  *
@@ -888,7 +889,6 @@ type
  * \sa SDL_HapticOpen
  * \sa SDL_HapticOpened
  *}
-var
   SDL_HapticIndex : TSDL_HapticIndex_func = Nil;
 
 
@@ -920,6 +920,7 @@ function SDL_HapticOpenFromMouse: PSDL_Haptic; cdecl;
 
 type
   TSDL_JoystickIsHaptic_func = function(joystick: PSDL_Joystick): cint; cdecl;
+var
   {**
  * Query if a joystick has haptic features.
  *
@@ -932,12 +933,12 @@ type
  *
  * \sa SDL_HapticOpenFromJoystick
  *}
-var
   SDL_JoystickIsHaptic : TSDL_JoystickIsHaptic_func = Nil;
 
 
 type
   TSDL_HapticOpenFromJoystick_func = function(joystick: PSDL_Joystick): PSDL_Haptic; cdecl;
+var
   {**
  * Open a haptic device for use from a joystick device.
  *
@@ -959,12 +960,12 @@ type
  * \sa SDL_HapticOpen
  * \sa SDL_JoystickIsHaptic
  *}
-var
   SDL_HapticOpenFromJoystick : TSDL_HapticOpenFromJoystick_func = Nil;
 
 
 type
   TSDL_HapticClose_proc = procedure(haptic: PSDL_Haptic); cdecl;
+var
   {**
  * Close a haptic device previously opened with SDL_HapticOpen().
  *
@@ -974,12 +975,12 @@ type
  *
  * \sa SDL_HapticOpen
  *}
-var
   SDL_HapticClose : TSDL_HapticClose_proc = Nil;
 
 
 type
   TSDL_HapticNumEffects_func = function(haptic: PSDL_Haptic): cint; cdecl;
+var
   {**
  * Get the number of effects a haptic device can store.
  *
@@ -996,12 +997,12 @@ type
  * \sa SDL_HapticNumEffectsPlaying
  * \sa SDL_HapticQuery
  *}
-var
   SDL_HapticNumEffects : TSDL_HapticNumEffects_func = Nil;
 
 
 type
   TSDL_HapticNumEffectsPlaying_func = function(haptic: PSDL_Haptic): cint; cdecl;
+var
   {**
  * Get the number of effects a haptic device can play at the same time.
  *
@@ -1017,12 +1018,12 @@ type
  * \sa SDL_HapticNumEffects
  * \sa SDL_HapticQuery
  *}
-var
   SDL_HapticNumEffectsPlaying : TSDL_HapticNumEffectsPlaying_func = Nil;
 
 
 type
   TSDL_HapticQuery_func = function(haptic: PSDL_Haptic): cint; cdecl;
+var
   {**
  * Get the haptic device's supported features in bitwise manner.
  *
@@ -1035,12 +1036,12 @@ type
  * \sa SDL_HapticEffectSupported
  * \sa SDL_HapticNumEffects
  *}
-var
   SDL_HapticQuery : TSDL_HapticQuery_func = Nil;
 
 
 type
   TSDL_HapticNumAxes_func = function(haptic: PSDL_Haptic): cint; cdecl;
+var
   {**
  * Get the number of haptic axes the device has.
  *
@@ -1053,12 +1054,12 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_HapticNumAxes : TSDL_HapticNumAxes_func = Nil;
 
 
 type
   TSDL_HapticEffectSupported_func = function(haptic: PSDL_Haptic; effect: PSDL_HapticEffect): cint; cdecl;
+var
   {**
  * Check to see if an effect is supported by a haptic device.
  *
@@ -1073,12 +1074,12 @@ type
  * \sa SDL_HapticNewEffect
  * \sa SDL_HapticQuery
  *}
-var
   SDL_HapticEffectSupported : TSDL_HapticEffectSupported_func = Nil;
 
 
 type
   TSDL_HapticNewEffect_func = function(haptic: PSDL_Haptic; effect: PSDL_HapticEffect): cint; cdecl;
+var
   {**
  * Create a new haptic effect on a specified device.
  *
@@ -1094,12 +1095,12 @@ type
  * \sa SDL_HapticRunEffect
  * \sa SDL_HapticUpdateEffect
  *}
-var
   SDL_HapticNewEffect : TSDL_HapticNewEffect_func = Nil;
 
 
 type
   TSDL_HapticUpdateEffect_func = function(haptic: PSDL_Haptic; effect: cint; data: PSDL_HapticEffect): cint; cdecl;
+var
   {**
  * Update the properties of an effect.
  *
@@ -1121,12 +1122,12 @@ type
  * \sa SDL_HapticNewEffect
  * \sa SDL_HapticRunEffect
  *}
-var
   SDL_HapticUpdateEffect : TSDL_HapticUpdateEffect_func = Nil;
 
 
 type
   TSDL_HapticRunEffect_func = function(haptic: PSDL_Haptic; effect: cint; iterations: cuint32): cint; cdecl;
+var
   {**
  * Run the haptic effect on its associated haptic device.
  *
@@ -1149,12 +1150,12 @@ type
  * \sa SDL_HapticGetEffectStatus
  * \sa SDL_HapticStopEffect
  *}
-var
   SDL_HapticRunEffect : TSDL_HapticRunEffect_func = Nil;
 
 
 type
   TSDL_HapticStopEffect_func = function(haptic: PSDL_Haptic; effect: cint): cint; cdecl;
+var
   {**
  * Stop the haptic effect on its associated haptic device.
  *
@@ -1170,12 +1171,12 @@ type
  * \sa SDL_HapticDestroyEffect
  * \sa SDL_HapticRunEffect
  *}
-var
   SDL_HapticStopEffect : TSDL_HapticStopEffect_func = Nil;
 
 
 type
   TSDL_HapticDestroyEffect_proc = procedure(haptic: PSDL_Haptic; effect: cint); cdecl;
+var
   {**
  * Destroy a haptic effect on the device.
  *
@@ -1189,12 +1190,12 @@ type
  *
  * \sa SDL_HapticNewEffect
  *}
-var
   SDL_HapticDestroyEffect : TSDL_HapticDestroyEffect_proc = Nil;
 
 
 type
   TSDL_HapticGetEffectStatus_func = function(haptic: PSDL_Haptic; effect: cint): cint; cdecl;
+var
   {**
  * Get the status of the current effect on the specified haptic device.
  *
@@ -1210,12 +1211,12 @@ type
  * \sa SDL_HapticRunEffect
  * \sa SDL_HapticStopEffect
  *}
-var
   SDL_HapticGetEffectStatus : TSDL_HapticGetEffectStatus_func = Nil;
 
 
 type
   TSDL_HapticSetGain_func = function(haptic: PSDL_Haptic; gain: cint): cint; cdecl;
+var
   {**
  * Set the global gain of the specified haptic device.
  *
@@ -1235,12 +1236,12 @@ type
  *
  * \sa SDL_HapticQuery
  *}
-var
   SDL_HapticSetGain : TSDL_HapticSetGain_func = Nil;
 
 
 type
   TSDL_HapticSetAutocenter_func = function(haptic: PSDL_Haptic; autocenter: cint): cint; cdecl;
+var
   {**
  * Set the global autocenter of the device.
  *
@@ -1258,12 +1259,12 @@ type
  *
  * \sa SDL_HapticQuery
  *}
-var
   SDL_HapticSetAutocenter : TSDL_HapticSetAutocenter_func = Nil;
 
 
 type
   TSDL_HapticPause_func = function(haptic: PSDL_Haptic): cint; cdecl;
+var
   {**
  * Pause a haptic device.
  *
@@ -1281,12 +1282,12 @@ type
  *
  * \sa SDL_HapticUnpause
  *}
-var
   SDL_HapticPause : TSDL_HapticPause_func = Nil;
 
 
 type
   TSDL_HapticUnpause_func = function(haptic: PSDL_Haptic): cint; cdecl;
+var
   {**
  * Unpause a haptic device.
  *
@@ -1300,12 +1301,12 @@ type
  *
  * \sa SDL_HapticPause
  *}
-var
   SDL_HapticUnpause : TSDL_HapticUnpause_func = Nil;
 
 
 type
   TSDL_HapticStopAll_func = function(haptic: PSDL_Haptic): cint; cdecl;
+var
   {**
  * Stop all the currently playing effects on a haptic device.
  *
@@ -1315,12 +1316,12 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *}
-var
   SDL_HapticStopAll : TSDL_HapticStopAll_func = Nil;
 
 
 type
   TSDL_HapticRumbleSupported_func = function(haptic: PSDL_Haptic): cint; cdecl;
+var
   {**
  * Check whether rumble is supported on a haptic device.
  *
@@ -1335,12 +1336,12 @@ type
  * \sa SDL_HapticRumblePlay
  * \sa SDL_HapticRumbleStop
  *}
-var
   SDL_HapticRumbleSupported : TSDL_HapticRumbleSupported_func = Nil;
 
 
 type
   TSDL_HapticRumbleInit_func = function(haptic: PSDL_Haptic): cint; cdecl;
+var
   {**
  * Initialize a haptic device for simple rumble playback.
  *
@@ -1355,12 +1356,12 @@ type
  * \sa SDL_HapticRumbleStop
  * \sa SDL_HapticRumbleSupported
  *}
-var
   SDL_HapticRumbleInit : TSDL_HapticRumbleInit_func = Nil;
 
 
 type
   TSDL_HapticRumblePlay_func = function(haptic: PSDL_Haptic; strength: cfloat; length: cuint32): cint; cdecl;
+var
   {**
  * Run a simple rumble effect on a haptic device.
  *
@@ -1376,12 +1377,12 @@ type
  * \sa SDL_HapticRumbleStop
  * \sa SDL_HapticRumbleSupported
  *}
-var
   SDL_HapticRumblePlay : TSDL_HapticRumblePlay_func = Nil;
 
 
 type
   TSDL_HapticRumbleStop_func = function(haptic: PSDL_Haptic): cint; cdecl;
+var
   {**
  * Stop the simple rumble on a haptic device.
  *
@@ -1395,7 +1396,6 @@ type
  * \sa SDL_HapticRumblePlay
  * \sa SDL_HapticRumbleSupported
  *}
-var
   SDL_HapticRumbleStop : TSDL_HapticRumbleStop_func = Nil;
 
 

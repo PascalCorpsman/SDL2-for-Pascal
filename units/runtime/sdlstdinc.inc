@@ -66,35 +66,35 @@ type
   PSDL_free_func = ^TSDL_free_func;
   TSDL_free_func = procedure(mem: Pointer); cdecl;
 
+var
 (**
  * Allocate a block of memory. The memory is *not* initialized.
  *)
-var
   SDL_malloc : TSDL_malloc_func = Nil;
 
+var
 (**
  * Allocate a block of memory that can fit an array of nmemb elements, each of given size.
  * The memory is initialized by setting every byte to 0.
  *)
-var
   SDL_calloc : TSDL_calloc_func = Nil;
 
+var
 (**
  * Resize a block of memory allocated previously with SDL_malloc() or SDL_calloc().
  *
  * The returned pointer may or may not be the same as the original pointer.
  * If the new size is larger than the old size, any new memory will *not* be initialized.
  *)
-var
   SDL_realloc : TSDL_realloc_func = Nil;
 
+var
 (**
  * Free memory returned by functions like SDL_GetBasePath(), SDL_GetPrefPath(), etc.
  *
  * Calling SDL_free() on the same pointer twice is undefined behaviour and may cause
  * your program to crash or behave in unexpected ways.
  *)
-var
   SDL_free : TSDL_free_func = Nil;
 
 {**
@@ -136,14 +136,14 @@ function SDL_SetMemoryFunctions(
 ): cint; cdecl;
   external SDL_LibName {$IFDEF DELPHI} {$IFDEF MACOS} name '_SDL_SetMemoryFunctions' {$ENDIF} {$ENDIF};
 
+type
+  TSDL_GetNumAllocations_func = function(): cint; cdecl;
+var
 (**
  * Get the number of outstanding (unfreed) allocations
  *
  * \since This function is available since SDL 2.0.7.
  *)
-type
-  TSDL_GetNumAllocations_func = function(): cint; cdecl;
-var
   SDL_GetNumAllocations : TSDL_GetNumAllocations_func = Nil;
 
 {*** --- Character functions --- ***
@@ -151,6 +151,9 @@ var
 SDL2-for-Pascal: All comments are added by us and not found in the include file.}
 
 
+type
+  TSDL_isalpha_func = function(x: cint):cint; cdecl;
+var
 (**
  * Check if the provided ASCII character is an alphabetic character (a letter).
  *
@@ -158,12 +161,12 @@ SDL2-for-Pascal: All comments are added by us and not found in the include file.
  *
  * \since This function is available since SDL 2.0.16.
  *)
-type
-  TSDL_isalpha_func = function(x: cint):cint; cdecl;
-var
   SDL_isalpha : TSDL_isalpha_func = Nil;
 
 
+type
+  TSDL_isalnum_func = function(x: cint):cint; cdecl;
+var
 (**
  * Check if the provided ASCII character is an alphanumeric character.
  *
@@ -171,12 +174,12 @@ var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-type
-  TSDL_isalnum_func = function(x: cint):cint; cdecl;
-var
   SDL_isalnum : TSDL_isalnum_func = Nil;
 
 
+type
+  TSDL_isblank_func = function(x: cint):cint; cdecl;
+var
 (**
  * Check if the provided ASCII character is a blank character (a space or a tab).
  *
@@ -184,12 +187,12 @@ var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-type
-  TSDL_isblank_func = function(x: cint):cint; cdecl;
-var
   SDL_isblank : TSDL_isblank_func = Nil;
 
 
+type
+  TSDL_iscntrl_func = function(x: cint):cint; cdecl;
+var
 (**
  * Check if the provided ASCII character is a control character.
  *
@@ -197,12 +200,12 @@ var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-type
-  TSDL_iscntrl_func = function(x: cint):cint; cdecl;
-var
   SDL_iscntrl : TSDL_iscntrl_func = Nil;
 
 
+type
+  TSDL_isdigit_func = function(x: cint):cint; cdecl;
+var
 (**
  * Check if the provided ASCII character is a decimal digit.
  *
@@ -210,12 +213,12 @@ var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-type
-  TSDL_isdigit_func = function(x: cint):cint; cdecl;
-var
   SDL_isdigit : TSDL_isdigit_func = Nil;
 
 
+type
+  TSDL_isxdigit_func = function(x: cint):cint; cdecl;
+var
 (**
  * Check if the provided ASCII character is a hexadecimal digit.
  *
@@ -223,12 +226,12 @@ var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-type
-  TSDL_isxdigit_func = function(x: cint):cint; cdecl;
-var
   SDL_isxdigit : TSDL_isxdigit_func = Nil;
 
 
+type
+  TSDL_ispunct_func = function(x: cint):cint; cdecl;
+var
 (**
  * Check if the provided ASCII character is any printable character
  * which is not a space or an alphanumeric character.
@@ -237,12 +240,12 @@ var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-type
-  TSDL_ispunct_func = function(x: cint):cint; cdecl;
-var
   SDL_ispunct : TSDL_ispunct_func = Nil;
 
 
+type
+  TSDL_isspace_func = function(x: cint):cint; cdecl;
+var
 (**
  * Check if the provided ASCII character is a whitespace character.
  * This set includes the following characters: space,
@@ -253,12 +256,12 @@ var
  *
  * \since This function is available since SDL 2.0.4.
  *)
-type
-  TSDL_isspace_func = function(x: cint):cint; cdecl;
-var
   SDL_isspace : TSDL_isspace_func = Nil;
 
 
+type
+  TSDL_isupper_func = function(x: cint):cint; cdecl;
+var
 (**
  * Check if the provided ASCII character is an uppercase letter.
  *
@@ -266,12 +269,12 @@ var
  *
  * \since This function is available since SDL 2.0.12.
  *)
-type
-  TSDL_isupper_func = function(x: cint):cint; cdecl;
-var
   SDL_isupper : TSDL_isupper_func = Nil;
 
 
+type
+  TSDL_islower_func = function(x: cint):cint; cdecl;
+var
 (**
  * Check if the provided ASCII character is a lowercase letter.
  *
@@ -279,12 +282,12 @@ var
  *
  * \since This function is available since SDL 2.0.12.
  *)
-type
-  TSDL_islower_func = function(x: cint):cint; cdecl;
-var
   SDL_islower : TSDL_islower_func = Nil;
 
 
+type
+  TSDL_isprint_func = function(x: cint):cint; cdecl;
+var
 (**
  * Check if the provided ASCII character is a printable character (including space).
  *
@@ -292,12 +295,12 @@ var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-type
-  TSDL_isprint_func = function(x: cint):cint; cdecl;
-var
   SDL_isprint : TSDL_isprint_func = Nil;
 
 
+type
+  TSDL_isgraph_func = function(x: cint):cint; cdecl;
+var
 (**
  * Check if the provided ASCII character is a printable character (excluding space).
  *
@@ -305,33 +308,30 @@ var
  *
  * \since This function is available since SDL 2.0.16.
  *)
-type
-  TSDL_isgraph_func = function(x: cint):cint; cdecl;
-var
   SDL_isgraph : TSDL_isgraph_func = Nil;
 
 
+type
+  TSDL_toupper_func = function(x: cint):cint; cdecl;
+var
 (**
  * If the given ASCII character is a lowercase letter, converts it to uppercase.
  * Otherwise returns the original value.
  *
  * \since This function is available since SDL 2.0.4.
  *)
-type
-  TSDL_toupper_func = function(x: cint):cint; cdecl;
-var
   SDL_toupper : TSDL_toupper_func = Nil;
 
 
+type
+  TSDL_tolower_func = function(x: cint):cint; cdecl;
+var
 (**
  * If the given ASCII character is an uppercase letter, converts it to lowercase.
  * Otherwise returns the original value.
  *
  * \since This function is available since SDL 2.0.4.
  *)
-type
-  TSDL_tolower_func = function(x: cint):cint; cdecl;
-var
   SDL_tolower : TSDL_tolower_func = Nil;
 
 
@@ -340,260 +340,262 @@ var
 (*** --- Math functions --- ***)
 
 
-(**
- * Calculate the arc cosine of x;
- * that is, the value (in radians) whose cosine equals x.
- *
- * \since This function is available since SDL 2.0.4.
- *)
 type
   TSDL_acos_func = function(x: cdouble): cdouble; cdecl;
 var
+(**
+ * Calculate the arc cosine of x;
+ * that is, the value (in radians) whose cosine equals x.
+ *
+ * \since This function is available since SDL 2.0.4.
+ *)
   SDL_acos : TSDL_acos_func = Nil;
 
-
+type
+  TSDL_acosf_func = function(x: cfloat): cfloat; cdecl;
+var
 (**
  * Calculate the arc cosine of x;
  * that is, the value (in radians) whose cosine equals x.
  *
  * \since This function is available since SDL 2.0.8.
  *)
-type
-  TSDL_acosf_func = function(x: cfloat): cfloat; cdecl;
-var
   SDL_acosf : TSDL_acosf_func = Nil;
 
 
-(**
- * Calculate the arc sine of x;
- * that is, the value (in radians) whose sine equals x.
- *
- * \since This function is available since SDL 2.0.4.
- *)
 type
   TSDL_asin_func = function(x: cdouble): cdouble; cdecl;
 var
+(**
+ * Calculate the arc sine of x;
+ * that is, the value (in radians) whose sine equals x.
+ *
+ * \since This function is available since SDL 2.0.4.
+ *)
   SDL_asin : TSDL_asin_func = Nil;
 
 
+type
+  TSDL_asinf_func = function(x: cfloat): cfloat; cdecl;
+var
 (**
  * Calculate the arc sine of x;
  * that is, the value (in radians) whose sine equals x.
  *
  * \since This function is available since SDL 2.0.8.
  *)
-type
-  TSDL_asinf_func = function(x: cfloat): cfloat; cdecl;
-var
   SDL_asinf : TSDL_asinf_func = Nil;
 
 
-(**
- * Calculate the arc tangent of x;
- * that is, the value (in radians) whose tangent equals x.
- *
- * \since This function is available since SDL 2.0.4.
- *)
 type
   TSDL_atan_func = function(x: cdouble): cdouble; cdecl;
 var
+(**
+ * Calculate the arc tangent of x;
+ * that is, the value (in radians) whose tangent equals x.
+ *
+ * \since This function is available since SDL 2.0.4.
+ *)
   SDL_atan : TSDL_atan_func = Nil;
 
 
+type
+  TSDL_atanf_func = function(x: cfloat): cfloat; cdecl;
+var
 (**
  * Calculate the arc tangent of x;
  * that is, the value (in radians) whose tangent equals x.
  *
  * \since This function is available since SDL 2.0.8.
  *)
-type
-  TSDL_atanf_func = function(x: cfloat): cfloat; cdecl;
-var
   SDL_atanf : TSDL_atanf_func = Nil;
 
 
-(**
- * Calculate the arc tangent of y/x, using the signs of the two arguments
- * to determine the quadrant of the result.
- *
- * \since This function is available since SDL 2.0.4.
- *)
 type
   TSDL_atan2_func = function(y, x: cdouble): cdouble; cdecl;
 var
+(**
+ * Calculate the arc tangent of y/x, using the signs of the two arguments
+ * to determine the quadrant of the result.
+ *
+ * \since This function is available since SDL 2.0.4.
+ *)
   SDL_atan2 : TSDL_atan2_func = Nil;
 
 
+type
+  TSDL_atan2f_func = function(y, x: cfloat): cfloat; cdecl;
+var
 (**
  * Calculate the arc tangent of y/x, using the signs of the two arguments
  * to determine the quadrant of the result.
  *
  * \since This function is available since SDL 2.0.8.
  *)
-type
-  TSDL_atan2f_func = function(y, x: cfloat): cfloat; cdecl;
-var
   SDL_atan2f : TSDL_atan2f_func = Nil;
 
 
-(**
- * Calculate the smallest integral value that is not less than x.
- *
- * \since This function is available since SDL 2.0.4.
- *)
 type
   TSDL_ceil_func = function(x: cdouble): cdouble; cdecl;
 var
+(**
+ * Calculate the smallest integral value that is not less than x.
+ *
+ * \since This function is available since SDL 2.0.4.
+ *)
   SDL_ceil : TSDL_ceil_func = Nil;
 
 
+type
+  TSDL_ceilf_func = function(x: cfloat): cfloat; cdecl;
+var
 (**
  * Calculate the smallest integral value that is not less than x.
  *
  * \since This function is available since SDL 2.0.8.
  *)
-type
-  TSDL_ceilf_func = function(x: cfloat): cfloat; cdecl;
-var
   SDL_ceilf : TSDL_ceilf_func = Nil;
 
 
-(**
- * Return a number whose absolute value matches that of x,
- * but the sign matches that of y.
- *
- * \since This function is available since SDL 2.0.4.
- *)
 type
   TSDL_copysign_func = function(x, y: cdouble): cdouble; cdecl;
 var
+(**
+ * Return a number whose absolute value matches that of x,
+ * but the sign matches that of y.
+ *
+ * \since This function is available since SDL 2.0.4.
+ *)
   SDL_copysign : TSDL_copysign_func = Nil;
 
 
+type
+  TSDL_copysignf_func = function(x, y: cfloat): cfloat; cdecl;
+var
 (**
  * Return a number whose absolute value matches that of x,
  * but the sign matches that of y.
  *
  * \since This function is available since SDL 2.0.8.
  *)
-type
-  TSDL_copysignf_func = function(x, y: cfloat): cfloat; cdecl;
-var
   SDL_copysignf : TSDL_copysignf_func = Nil;
 
 
-(**
- * Calculate the cosine of x, where x is given in radians.
- *
- * \since This function is available since SDL 2.0.4.
- *)
 type
   TSDL_cos_func = function(x: cdouble): cdouble; cdecl;
 var
-  SDL_cos : TSDL_cos_func = Nil;
-
-
 (**
  * Calculate the cosine of x, where x is given in radians.
  *
  * \since This function is available since SDL 2.0.4.
  *)
+  SDL_cos : TSDL_cos_func = Nil;
+
+
 type
   TSDL_cosf_func = function(x: cfloat): cfloat; cdecl;
 var
+(**
+ * Calculate the cosine of x, where x is given in radians.
+ *
+ * \since This function is available since SDL 2.0.4.
+ *)
   SDL_cosf : TSDL_cosf_func = Nil;
 
 
-(**
- * Calculate the value of e (the base of natural logarithms)
- * raised to the power of x.
- *
- * \since This function is available since SDL 2.0.9.
- *)
 type
   TSDL_exp_func = function(x: cdouble): cdouble; cdecl;
 var
-  SDL_exp : TSDL_exp_func = Nil;
-
-
 (**
  * Calculate the value of e (the base of natural logarithms)
  * raised to the power of x.
  *
  * \since This function is available since SDL 2.0.9.
  *)
+  SDL_exp : TSDL_exp_func = Nil;
+
+
 type
   TSDL_expf_func = function(x: cfloat): cfloat; cdecl;
 var
+(**
+ * Calculate the value of e (the base of natural logarithms)
+ * raised to the power of x.
+ *
+ * \since This function is available since SDL 2.0.9.
+ *)
   SDL_expf : TSDL_expf_func = Nil;
 
 
-(**
- * Calculate the absolute value of x.
- *
- * \since This function is available since SDL 2.0.4.
- *)
 type
   TSDL_fabs_func = function(x: cdouble): cdouble; cdecl;
 var
+(**
+ * Calculate the absolute value of x.
+ *
+ * \since This function is available since SDL 2.0.4.
+ *)
   SDL_fabs : TSDL_fabs_func = Nil;
 
 
+type
+  TSDL_fabsf_func = function(x: cfloat): cfloat; cdecl;
+var
 (**
  * Calculate the absolute value of x.
  *
  * \since This function is available since SDL 2.0.8.
  *)
-type
-  TSDL_fabsf_func = function(x: cfloat): cfloat; cdecl;
-var
   SDL_fabsf : TSDL_fabsf_func = Nil;
 
 
+type
+  TSDL_floor_func = function(x: cdouble): cdouble; cdecl;
+var
 (**
  * Calculate the largest integral value that is not greater than x.
  *
  * \since This function is available since SDL 2.0.4.
  *)
-type
-  TSDL_floor_func = function(x: cdouble): cdouble; cdecl;
-var
   SDL_floor : TSDL_floor_func = Nil;
 
 
+type
+  TSDL_floorf_func = function(x: cfloat): cfloat; cdecl;
+var
 (**
  * Calculate the largest integral value that is not greater than x.
  *
  * \since This function is available since SDL 2.0.8.
  *)
-type
-  TSDL_floorf_func = function(x: cfloat): cfloat; cdecl;
-var
   SDL_floorf : TSDL_floorf_func = Nil;
 
 
-(**
- * Calculate the floating-point remainder of dividing x by y.
- *
- * \since This function is available since SDL 2.0.8.
- *)
 type
   TSDL_fmod_func = function(x, y: cdouble): cdouble; cdecl;
 var
-  SDL_fmod : TSDL_fmod_func = Nil;
-
-
 (**
  * Calculate the floating-point remainder of dividing x by y.
  *
  * \since This function is available since SDL 2.0.8.
  *)
+  SDL_fmod : TSDL_fmod_func = Nil;
+
+
 type
   TSDL_fmodf_func = function(x, y: cfloat): cfloat; cdecl;
 var
+(**
+ * Calculate the floating-point remainder of dividing x by y.
+ *
+ * \since This function is available since SDL 2.0.8.
+ *)
   SDL_fmodf : TSDL_fmodf_func = Nil;
 
 
+type
+  TSDL_nlog_func = function(x: cdouble): cdouble; cdecl;
+var
 (**
  * Calculate the natural logarithm of x.
  *
@@ -603,12 +605,12 @@ var
  but since Pascal names are case-insensitive, it is in conflict with SDL_Log (logging function). 
  Hence we decided to rename it.
  *)
-type
-  TSDL_nlog_func = function(x: cdouble): cdouble; cdecl;
-var
   SDL_nlog : TSDL_nlog_func = Nil;
 
 
+type
+  TSDL_nlogf_func = function(x: cfloat): cfloat; cdecl;
+var
 (**
  * Calculate the natural logarithm of x.
  *
@@ -618,209 +620,206 @@ var
  but to be consistent with the renamed SDL_log function (see comment of SDL_nlog
  for details), we decided to rename it.
  *)
-type
-  TSDL_nlogf_func = function(x: cfloat): cfloat; cdecl;
-var
   SDL_nlogf : TSDL_nlogf_func = Nil;
 
 
-(**
- * Calculate the base 10 logarithm of x.
- *
- * \since This function is available since SDL 2.0.8.
- *)
 type
   TSDL_log10_func = function(x: cdouble): cdouble; cdecl;
 var
-  SDL_log10 : TSDL_log10_func = Nil;
-
-
 (**
  * Calculate the base 10 logarithm of x.
  *
  * \since This function is available since SDL 2.0.8.
  *)
+  SDL_log10 : TSDL_log10_func = Nil;
+
+
 type
   TSDL_log10f_func = function(x: cfloat): cfloat; cdecl;
 var
+(**
+ * Calculate the base 10 logarithm of x.
+ *
+ * \since This function is available since SDL 2.0.8.
+ *)
   SDL_log10f : TSDL_log10f_func = Nil;
 
 
-(**
- * Round to nearest integer, away from zero.
- *
- * \since This function is available since SDL 2.0.16.
- *)
 type
   TSDL_lround_func = function(x: cdouble): clong; cdecl;
 var
-  SDL_lround : TSDL_lround_func = Nil;
-
-
 (**
  * Round to nearest integer, away from zero.
  *
  * \since This function is available since SDL 2.0.16.
  *)
+  SDL_lround : TSDL_lround_func = Nil;
+
+
 type
   TSDL_lroundf_func = function(x: cfloat): clong; cdecl;
 var
+(**
+ * Round to nearest integer, away from zero.
+ *
+ * \since This function is available since SDL 2.0.16.
+ *)
   SDL_lroundf : TSDL_lroundf_func = Nil;
 
 
-(**
- * Calculate the value of x raised to the power of y.
- *
- * \since This function is available since SDL 2.0.4.
- *)
 type
   TSDL_pow_func = function(x, y: cdouble): cdouble; cdecl;
 var
+(**
+ * Calculate the value of x raised to the power of y.
+ *
+ * \since This function is available since SDL 2.0.4.
+ *)
   SDL_pow : TSDL_pow_func = Nil;
 
 
+type
+  TSDL_powf_func = function(x, y: cfloat): cfloat; cdecl;
+var
 (**
  * Calculate the value of x raised to the power of y.
  *
  * \since This function is available since SDL 2.0.8.
  *)
-type
-  TSDL_powf_func = function(x, y: cfloat): cfloat; cdecl;
-var
   SDL_powf : TSDL_powf_func = Nil;
 
 
-(**
- * Round to nearest integral value, away from zero.
- *
- * \since This function is available since SDL 2.0.16.
- *)
 type
   TSDL_round_func = function(x: cdouble): cdouble; cdecl;
 var
-  SDL_round : TSDL_round_func = Nil;
-
-
 (**
  * Round to nearest integral value, away from zero.
  *
  * \since This function is available since SDL 2.0.16.
  *)
+  SDL_round : TSDL_round_func = Nil;
+
+
 type
   TSDL_roundf_func = function(x: cfloat): cfloat; cdecl;
 var
+(**
+ * Round to nearest integral value, away from zero.
+ *
+ * \since This function is available since SDL 2.0.16.
+ *)
   SDL_roundf : TSDL_roundf_func = Nil;
 
 
+type
+  TSDL_scalbn_func = function(x: cdouble; n: cint): cdouble; cdecl;
+var
 (**
  * Calculate x multiplied by the floating-point radix to the power of n.
  * On most systems, the radix is 2, making this equivalent to x*(2**n).
  *
  * \since This function is available since SDL 2.0.4.
  *)
-type
-  TSDL_scalbn_func = function(x: cdouble; n: cint): cdouble; cdecl;
-var
   SDL_scalbn : TSDL_scalbn_func = Nil;
 
 
+type
+  TSDL_scalbnf_func = function(x: cfloat; n: cint): cfloat; cdecl;
+var
 (**
  * Calculate x multiplied by the floating-point radix to the power of n.
  * On most systems, the radix is 2, making this equivalent to x*(2**n).
  *
  * \since This function is available since SDL 2.0.8.
  *)
-type
-  TSDL_scalbnf_func = function(x: cfloat; n: cint): cfloat; cdecl;
-var
   SDL_scalbnf : TSDL_scalbnf_func = Nil;
 
 
-(**
- * Calculate the sine of x, where x is given in radians.
- *
- * \since This function is available since SDL 2.0.4.
- *)
 type
   TSDL_sin_func = function(x: cdouble): cdouble; cdecl;
 var
-  SDL_sin : TSDL_sin_func = Nil;
-
-
 (**
  * Calculate the sine of x, where x is given in radians.
  *
  * \since This function is available since SDL 2.0.4.
  *)
+  SDL_sin : TSDL_sin_func = Nil;
+
+
 type
   TSDL_sinf_func = function(x: cfloat): cfloat; cdecl;
 var
+(**
+ * Calculate the sine of x, where x is given in radians.
+ *
+ * \since This function is available since SDL 2.0.4.
+ *)
   SDL_sinf : TSDL_sinf_func = Nil;
 
 
-(**
- * Calculate the non-negative square root of x.
- *
- * \since This function is available since SDL 2.0.4.
- *)
 type
   TSDL_sqrt_func = function(x: cdouble): cdouble; cdecl;
 var
-  SDL_sqrt : TSDL_sqrt_func = Nil;
-
-
 (**
  * Calculate the non-negative square root of x.
  *
  * \since This function is available since SDL 2.0.4.
  *)
+  SDL_sqrt : TSDL_sqrt_func = Nil;
+
+
 type
   TSDL_sqrtf_func = function(x: cfloat): cfloat; cdecl;
 var
+(**
+ * Calculate the non-negative square root of x.
+ *
+ * \since This function is available since SDL 2.0.4.
+ *)
   SDL_sqrtf : TSDL_sqrtf_func = Nil;
 
 
-(**
- * Calculate the tangent of x, where x is given in radians.
- *
- * \since This function is available since SDL 2.0.4.
- *)
 type
   TSDL_tan_func = function(x: cdouble): cdouble; cdecl;
 var
-  SDL_tan : TSDL_tan_func = Nil;
-
-
 (**
  * Calculate the tangent of x, where x is given in radians.
  *
  * \since This function is available since SDL 2.0.4.
  *)
+  SDL_tan : TSDL_tan_func = Nil;
+
+
 type
   TSDL_tanf_func = function(x: cfloat): cfloat; cdecl;
 var
+(**
+ * Calculate the tangent of x, where x is given in radians.
+ *
+ * \since This function is available since SDL 2.0.4.
+ *)
   SDL_tanf : TSDL_tanf_func = Nil;
 
 
-(**
- * Round to nearest integral value, towards zero.
- *
- * \since This function is available since SDL 2.0.14.
- *)
 type
   TSDL_trunc_func = function(x: cdouble): cdouble; cdecl;
 var
-  SDL_trunc : TSDL_trunc_func = Nil;
-
-
 (**
  * Round to nearest integral value, towards zero.
  *
  * \since This function is available since SDL 2.0.14.
  *)
+  SDL_trunc : TSDL_trunc_func = Nil;
+
+
 type
   TSDL_truncf_func = function(x: cfloat): cfloat; cdecl;
 var
+(**
+ * Round to nearest integral value, towards zero.
+ *
+ * \since This function is available since SDL 2.0.14.
+ *)
   SDL_truncf : TSDL_truncf_func = Nil;
 
 
@@ -829,15 +828,15 @@ var
 (*** --- iconv functions --- ***)
 
 
+type
+  TSDL_iconv_string_func = function(Const tocode, fromcode, inbuf: PAnsiChar; inbytesleft: csize_t): PAnsiChar; cdecl;
+var
 (**
  * This function converts a string between encodings in one pass, returning a
  * string that must be freed with SDL_free(), or NIL on error.
  *
  * \since This function is available since SDL 2.0.0.
  *)
-type
-  TSDL_iconv_string_func = function(Const tocode, fromcode, inbuf: PAnsiChar; inbytesleft: csize_t): PAnsiChar; cdecl;
-var
   SDL_iconv_string : TSDL_iconv_string_func = Nil;
 
 

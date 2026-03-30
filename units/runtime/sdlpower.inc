@@ -6,9 +6,6 @@
  *  Header for the SDL power management routines.
  *}
 
-  {**
-   *  The basic state for the system's power supply.
-   *}
 type
   PPSDL_PowerState = ^PSDL_PowerState;
   PSDL_PowerState = ^TSDL_PowerState;
@@ -18,6 +15,11 @@ type
                      SDL_POWERSTATE_CHARGING,     {**< Plugged in, charging battery *}
                      SDL_POWERSTATE_CHARGED);     {**< Plugged in, battery charged *}
 
+type
+  TSDL_GetPowerInfo_func = function(secs: pcint; pct: pcint): TSDL_PowerState; cdecl;
+  {**
+   *  The basic state for the system's power supply.
+   *}
   {**
    *  \brief Get the current power supply details.
    *
@@ -31,8 +33,6 @@ type
    *
    *  \return The state of the battery (if any).
    *}
-type
-  TSDL_GetPowerInfo_func = function(secs: pcint; pct: pcint): TSDL_PowerState; cdecl;
 var
   SDL_GetPowerInfo : TSDL_GetPowerInfo_func = Nil;
 

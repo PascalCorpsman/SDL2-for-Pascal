@@ -66,6 +66,37 @@ type
   PSDL_free_func = ^TSDL_free_func;
   TSDL_free_func = procedure(mem: Pointer); cdecl;
 
+(**
+ * Allocate a block of memory. The memory is *not* initialized.
+ *)
+var
+  SDL_malloc : TSDL_malloc_func = Nil;
+
+(**
+ * Allocate a block of memory that can fit an array of nmemb elements, each of given size.
+ * The memory is initialized by setting every byte to 0.
+ *)
+var
+  SDL_calloc : TSDL_calloc_func = Nil;
+
+(**
+ * Resize a block of memory allocated previously with SDL_malloc() or SDL_calloc().
+ *
+ * The returned pointer may or may not be the same as the original pointer.
+ * If the new size is larger than the old size, any new memory will *not* be initialized.
+ *)
+var
+  SDL_realloc : TSDL_realloc_func = Nil;
+
+(**
+ * Free memory returned by functions like SDL_GetBasePath(), SDL_GetPrefPath(), etc.
+ *
+ * Calling SDL_free() on the same pointer twice is undefined behaviour and may cause
+ * your program to crash or behave in unexpected ways.
+ *)
+var
+  SDL_free : TSDL_free_func = Nil;
+
 {**
  * Get the original set of SDL memory functions
  *
@@ -114,52 +145,6 @@ type
   TSDL_GetNumAllocations_func = function(): cint; cdecl;
 var
   SDL_GetNumAllocations : TSDL_GetNumAllocations_func = Nil;
-
-
-(**
- * Allocate a block of memory. The memory is *not* initialized.
- *)
-type
-  TSDL_malloc_func = function(size: csize_t): Pointer; cdecl;
-var
-  SDL_malloc : TSDL_malloc_func = Nil;
-
-
-(**
- * Allocate a block of memory that can fit an array of nmemb elements, each of given size.
- * The memory is initialized by setting every byte to 0.
- *)
-type
-  TSDL_calloc_func = function(nmemb, size: csize_t): Pointer; cdecl;
-var
-  SDL_calloc : TSDL_calloc_func = Nil;
-
-
-(**
- * Resize a block of memory allocated previously with SDL_malloc() or SDL_calloc().
- *
- * The returned pointer may or may not be the same as the original pointer.
- * If the new size is larger than the old size, any new memory will *not* be initialized.
- *)
-type
-  TSDL_realloc_func = function(mem: Pointer; size: csize_t): Pointer; cdecl;
-var
-  SDL_realloc : TSDL_realloc_func = Nil;
-
-
-(**
- * Free memory returned by functions like SDL_GetBasePath(), SDL_GetPrefPath(), etc.
- *
- * Calling SDL_free() on the same pointer twice is undefined behaviour and may cause
- * your program to crash or behave in unexpected ways.
- *)
-type
-  TSDL_free_proc = procedure(mem: Pointer); cdecl;
-var
-  SDL_free : TSDL_free_proc = Nil;
-
-
-
 
 {*** --- Character functions --- ***
 

@@ -90,6 +90,8 @@ type
     colorScheme: PSDL_MessageBoxColorScheme;   {**< SDL_MessageBoxColorScheme, can be NULL to use system settings *}
   end;
 
+type
+  TSDL_ShowMessageBox_func = function(messageboxdata: PSDL_MessageBoxData; buttonid: pcint): cint; cdecl;
 {**
  *   Create a modal message box.
  *
@@ -104,12 +106,12 @@ type
  *   block execution of that thread until the user clicks a button or
  *   closes the messagebox.
  *}
-type
-  TSDL_ShowMessageBox_func = function(messageboxdata: PSDL_MessageBoxData; buttonid: pcint): cint; cdecl;
 var
   SDL_ShowMessageBox : TSDL_ShowMessageBox_func = Nil;
 
 
+type
+  TSDL_ShowSimpleMessageBox_func = function(flags: TSDL_MessageBoxFlags; title: PAnsiChar; _message: PAnsiChar; window: PSDL_Window): cint; cdecl;
 {**
  *   Create a simple modal message box
  *
@@ -122,8 +124,6 @@ var
  *
  *   SDL_ShowMessageBox
  *}
-type
-  TSDL_ShowSimpleMessageBox_func = function(flags: TSDL_MessageBoxFlags; title: PAnsiChar; _message: PAnsiChar; window: PSDL_Window): cint; cdecl;
 var
   SDL_ShowSimpleMessageBox : TSDL_ShowSimpleMessageBox_func = Nil;
 

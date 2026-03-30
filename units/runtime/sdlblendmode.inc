@@ -63,6 +63,8 @@ const
   SDL_BLENDFACTOR_DST_ALPHA           = TSDL_BlendFactor($9);  {**< dstA, dstA, dstA, dstA *}
   SDL_BLENDFACTOR_ONE_MINUS_DST_ALPHA = TSDL_BlendFactor($A);  {**< 1-dstA, 1-dstA, 1-dstA, 1-dstA *}
 
+type
+  TSDL_ComposeCustomBlendMode_func = function(srcColorFactor, dstColorFactor: TSDL_BlendFactor; colorOperation: TSDL_BlendOperation; srcAlphaFactor, dstAlphaFactor: TSDL_BlendFactor; alphaOperation: TSDL_BlendOperation): TSDL_BlendMode; cdecl;
 {**
  *  \brief Create a custom blend mode, which may or may not be supported by a given renderer
  *
@@ -78,8 +80,6 @@ const
  *  and
  *      dstA = dstA * dstAlphaFactor alphaOperation srcA * srcAlphaFactor
  *}
-type
-  TSDL_ComposeCustomBlendMode_func = function(srcColorFactor, dstColorFactor: TSDL_BlendFactor; colorOperation: TSDL_BlendOperation; srcAlphaFactor, dstAlphaFactor: TSDL_BlendFactor; alphaOperation: TSDL_BlendOperation): TSDL_BlendMode; cdecl;
 var
   SDL_ComposeCustomBlendMode : TSDL_ComposeCustomBlendMode_func = Nil;
 

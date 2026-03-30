@@ -44,11 +44,11 @@ function SDL_GetPerformanceCounter: cuint64; cdecl;
 function SDL_GetPerformanceFrequency: cuint64; cdecl;
   external SDL_LibName {$IFDEF DELPHI} {$IFDEF MACOS} name '_SDL_GetPerformanceFrequency' {$ENDIF} {$ENDIF};
 
+type
+  TSDL_Delay_proc = procedure(ms: cuint32); cdecl;
 {**
  *  Wait a specified number of milliseconds before returning.
  *}
-type
-  TSDL_Delay_proc = procedure(ms: cuint32); cdecl;
 var
   SDL_Delay : TSDL_Delay_proc = Nil;
 
@@ -73,17 +73,19 @@ type
   PSDL_TimerID = ^TSDL_TimerID;
   TSDL_TimerID = cint;
 
+type
+  TSDL_AddTimer_func = function(interval: cuint32; callback: TSDL_TimerCallback; param: Pointer): TSDL_TimerID; cdecl;
 {**
  *  Add a new timer to the pool of timers already running.
  *
  *  A timer ID, or NULL when an error occurs.
  *}
-type
-  TSDL_AddTimer_func = function(interval: cuint32; callback: TSDL_TimerCallback; param: Pointer): TSDL_TimerID; cdecl;
 var
   SDL_AddTimer : TSDL_AddTimer_func = Nil;
 
 
+type
+  TSDL_RemoveTimer_func = function(id: TSDL_TimerID): Boolean; cdecl;
 {**
  *  Remove a timer knowing its ID.
  *
@@ -91,8 +93,6 @@ var
  *
  *  It is not safe to remove a timer multiple times.
  *}
-type
-  TSDL_RemoveTimer_func = function(id: TSDL_TimerID): Boolean; cdecl;
 var
   SDL_RemoveTimer : TSDL_RemoveTimer_func = Nil;
 

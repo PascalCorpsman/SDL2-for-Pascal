@@ -126,13 +126,13 @@ type
       3: (unknown: TUnknown);
   end;
 
+type
+  TSDL_RWFromFile_func = function(const _file: PAnsiChar; const mode: PAnsiChar): PSDL_RWops; cdecl;
 {**
  *  RWFrom functions
  *
  *  Functions to create SDL_RWops structures from various data streams.
  *}
-type
-  TSDL_RWFromFile_func = function(const _file: PAnsiChar; const mode: PAnsiChar): PSDL_RWops; cdecl;
 var
   SDL_RWFromFile : TSDL_RWFromFile_func = Nil;
 
@@ -173,71 +173,73 @@ const
   RW_SEEK_CUR = 1;       {**< Seek relative to current read point *}
   RW_SEEK_END = 2;       {**< Seek relative to the end of data *}
 
+type
+  TSDL_RWsize_func = function(context: PSDL_RWops): cint64; cdecl;
 {**
  *  Return the size of the file in this rwops, or -1 if unknown
  *}
-type
-  TSDL_RWsize_func = function(context: PSDL_RWops): cint64; cdecl;
 var
   SDL_RWsize : TSDL_RWsize_func = Nil;
 
 
+type
+  TSDL_RWseek_func = function(context: PSDL_RWops; offset: cint64; whence: cint): cint64; cdecl;
 {**
  *  Seek to \c offset relative to \c whence, one of stdio's whence values:
  *  RW_SEEK_SET, RW_SEEK_CUR, RW_SEEK_END
  *
  *  \return the final offset in the data stream, or -1 on error.
  *}
-type
-  TSDL_RWseek_func = function(context: PSDL_RWops; offset: cint64; whence: cint): cint64; cdecl;
 var
   SDL_RWseek : TSDL_RWseek_func = Nil;
 
 
+type
+  TSDL_RWtell_func = function(context: PSDL_RWops): cint64; cdecl;
 {**
  *  Return the current offset in the data stream, or -1 on error.
  *}
-type
-  TSDL_RWtell_func = function(context: PSDL_RWops): cint64; cdecl;
 var
   SDL_RWtell : TSDL_RWtell_func = Nil;
 
 
+type
+  TSDL_RWread_func = function(context: PSDL_RWops; ptr: Pointer; size: csize_t; n: csize_t): csize_t; cdecl;
 {**
  *  Read up to \c maxnum objects each of size \c size from the data
  *  stream to the area pointed at by \c ptr.
  *
  *  \return the number of objects read, or 0 at error or end of file.
  *}
-type
-  TSDL_RWread_func = function(context: PSDL_RWops; ptr: Pointer; size: csize_t; n: csize_t): csize_t; cdecl;
 var
   SDL_RWread : TSDL_RWread_func = Nil;
 
 
+type
+  TSDL_RWwrite_func = function(context: PSDL_RWops; ptr: Pointer; size: csize_t; n: csize_t): csize_t; cdecl;
 {**
  *  Write exactly \c num objects each of size \c size from the area
  *  pointed at by \c ptr to data stream.
  *
  *  \return the number of objects written, or 0 at error or end of file.
  *}
-type
-  TSDL_RWwrite_func = function(context: PSDL_RWops; ptr: Pointer; size: csize_t; n: csize_t): csize_t; cdecl;
 var
   SDL_RWwrite : TSDL_RWwrite_func = Nil;
 
 
+type
+  TSDL_RWclose_func = function(context: PSDL_RWops): cint; cdecl;
 {**
  *  Close and free an allocated SDL_RWops structure.
  *
  *  \return 0 if successful or -1 on write error when flushing data.
  *}
-type
-  TSDL_RWclose_func = function(context: PSDL_RWops): cint; cdecl;
 var
   SDL_RWclose : TSDL_RWclose_func = Nil;
 
 
+type
+  TSDL_LoadFile_RW_func = function(src: PSDL_RWops; datasize: pcsize_t; freesrc: cint): Pointer; cdecl;
 {**
  *  Load all the data from an SDL data stream.
  *
@@ -251,12 +253,12 @@ var
  *
  *  \return the data, or NULL if there was an error.
  *}
-type
-  TSDL_LoadFile_RW_func = function(src: PSDL_RWops; datasize: pcsize_t; freesrc: cint): Pointer; cdecl;
 var
   SDL_LoadFile_RW : TSDL_LoadFile_RW_func = Nil;
 
 
+type
+  TSDL_LoadFile_func = function(file_: PAnsiChar; datasize: pcsize_t): Pointer; cdecl;
 {**
  *  Load an entire file.
  *
@@ -270,19 +272,17 @@ var
  *
  *  \return the data, or NULL if there was an error.
  *}
-type
-  TSDL_LoadFile_func = function(file_: PAnsiChar; datasize: pcsize_t): Pointer; cdecl;
 var
   SDL_LoadFile : TSDL_LoadFile_func = Nil;
 
 
+type
+  TSDL_ReadU8_func = function(src: PSDL_RWops): cuint8; cdecl;
 {**
  *  Read endian functions
  *
  *  Read an item of the specified endianness and return in native format.
  *}
-type
-  TSDL_ReadU8_func = function(src: PSDL_RWops): cuint8; cdecl;
 var
   SDL_ReadU8 : TSDL_ReadU8_func = Nil;
 
@@ -318,13 +318,13 @@ var
 
 { Read endian functions }
 
+type
+  TSDL_WriteU8_func = function(dst: PSDL_RWops; value: cuint8): csize_t; cdecl;
 {**
  *  Write endian functions
  *
  *  Write an item of native format to the specified endianness.
  *}
-type
-  TSDL_WriteU8_func = function(dst: PSDL_RWops; value: cuint8): csize_t; cdecl;
 var
   SDL_WriteU8 : TSDL_WriteU8_func = Nil;
 

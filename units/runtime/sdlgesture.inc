@@ -26,6 +26,8 @@ var
   SDL_RecordGesture : TSDL_RecordGesture_func = Nil;
 
 
+type
+  TSDL_SaveAllDollarTemplates_func = function(dst: PSDL_RWops): cint; cdecl;
   {**
  * Save all currently loaded Dollar Gesture templates.
  *
@@ -38,12 +40,12 @@ var
  * \sa SDL_LoadDollarTemplates
  * \sa SDL_SaveDollarTemplate
  *}
-type
-  TSDL_SaveAllDollarTemplates_func = function(dst: PSDL_RWops): cint; cdecl;
 var
   SDL_SaveAllDollarTemplates : TSDL_SaveAllDollarTemplates_func = Nil;
 
 
+type
+  TSDL_SaveDollarTemplate_func = function(gestureId: TSDL_GestureID; dst: PSDL_RWops): cint; cdecl;
   {**
  * Save a currently loaded Dollar Gesture template.
  *
@@ -57,13 +59,13 @@ var
  * \sa SDL_LoadDollarTemplates
  * \sa SDL_SaveAllDollarTemplates
  *}
-type
-  TSDL_SaveDollarTemplate_func = function(gestureId: TSDL_GestureID; dst: PSDL_RWops): cint; cdecl;
 var
   SDL_SaveDollarTemplate : TSDL_SaveDollarTemplate_func = Nil;
 
 
 
+type
+  TSDL_LoadDollarTemplates_func = function(touchId: TSDL_TouchID; src: PSDL_RWops): cint; cdecl;
   {**
  * Load Dollar Gesture templates from a file.
  *
@@ -77,8 +79,6 @@ var
  * \sa SDL_SaveAllDollarTemplates
  * \sa SDL_SaveDollarTemplate
  *}
-type
-  TSDL_LoadDollarTemplates_func = function(touchId: TSDL_TouchID; src: PSDL_RWops): cint; cdecl;
 var
   SDL_LoadDollarTemplates : TSDL_LoadDollarTemplates_func = Nil;
 

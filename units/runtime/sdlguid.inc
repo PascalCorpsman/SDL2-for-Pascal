@@ -4,6 +4,15 @@
  *  Include file for handling ::SDL_GUID values.
  *}
 
+type
+  PPSDL_GUID = ^PSDL_GUID;
+  PSDL_GUID = ^TSDL_GUID;
+  TSDL_GUID = record
+    data: array[0..15] of cuint8;
+  end;
+
+type
+  TSDL_GUIDToString_proc = procedure(guid: TSDL_GUID; pszGUID: PAnsiChar; cbGUID: cint); cdecl;
 {**
  * An SDL_GUID is a 128-bit identifier for an input device that
  *   identifies that device across runs of SDL programs on the same
@@ -19,13 +28,6 @@
  * GUIDs may be platform-dependent (i.e., the same device may report
  *   different GUIDs on different operating systems).
  *}
-type
-  PPSDL_GUID = ^PSDL_GUID;
-  PSDL_GUID = ^TSDL_GUID;
-  TSDL_GUID = record
-    data: array[0..15] of cuint8;
-  end;
-
   {**
  * Get an ASCII string representation for a given ::SDL_GUID.
  *
@@ -39,12 +41,12 @@ type
  *
  * \sa SDL_GUIDFromString
  *}
-type
-  TSDL_GUIDToString_proc = procedure(guid: TSDL_GUID; pszGUID: PAnsiChar; cbGUID: cint); cdecl;
 var
   SDL_GUIDToString : TSDL_GUIDToString_proc = Nil;
 
 
+type
+  TSDL_GUIDFromString_func = function(const pchGUID: PAnsiChar): TSDL_GUID; cdecl;
 {**
  * Convert a GUID string into a ::SDL_GUID structure.
  *
@@ -59,8 +61,6 @@ var
  *
  * \sa SDL_GUIDToString
  *}
-type
-  TSDL_GUIDFromString_func = function(const pchGUID: PAnsiChar): TSDL_GUID; cdecl;
 var
   SDL_GUIDFromString : TSDL_GUIDFromString_func = Nil;
 

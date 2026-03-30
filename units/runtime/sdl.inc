@@ -36,53 +36,53 @@ const
                               );
   {$EXTERNALSYM SDL_INIT_EVERYTHING}
 
+type
+  TSDL_Init_func = function(flags: TSDL_Init): cint; cdecl;
 {**
  *  This function initializes  the subsystems specified by flags
  *  Unless the SDL_INIT_NOPARACHUTE flag is set, it will install cleanup
  *  signal handlers for some commonly ignored fatal signals (like SIGSEGV).
  *}
-type
-  TSDL_Init_func = function(flags: TSDL_Init): cint; cdecl;
 var
   SDL_Init : TSDL_Init_func = Nil;
 
 
+type
+  TSDL_InitSubSystem_func = function(flags: TSDL_Init): cint; cdecl;
 {**
  *  This function initializes specific SDL subsystems
  *}
-type
-  TSDL_InitSubSystem_func = function(flags: TSDL_Init): cint; cdecl;
 var
   SDL_InitSubSystem : TSDL_InitSubSystem_func = Nil;
 
 
+type
+  TSDL_QuitSubSystem_proc = procedure(flags: TSDL_Init); cdecl;
 {**
  *  This function cleans up specific SDL subsystems
  *}
-type
-  TSDL_QuitSubSystem_proc = procedure(flags: TSDL_Init); cdecl;
 var
   SDL_QuitSubSystem : TSDL_QuitSubSystem_proc = Nil;
 
 
+type
+  TSDL_WasInit_func = function(flags: TSDL_Init): cuint32; cdecl;
 {**
  *  This function returns a mask of the specified subsystems which have
  *  previously been initialized.
  *  
  *  If flags is 0, it returns a mask of all initialized subsystems.
  *}
-type
-  TSDL_WasInit_func = function(flags: TSDL_Init): cuint32; cdecl;
 var
   SDL_WasInit : TSDL_WasInit_func = Nil;
 
 
+type
+  TSDL_Quit_proc = procedure(); cdecl;
 {**
  *  This function cleans up all initialized subsystems. You should
  *  call it upon all exit conditions.
  *}
-type
-  TSDL_Quit_proc = procedure(); cdecl;
 var
   SDL_Quit : TSDL_Quit_proc = Nil;
 

@@ -8,13 +8,13 @@
 
 {* Public functions *}
 
- {**
+type
+  TSDL_SetError_func = function(const fmt: PAnsiChar; args: array of const): cint; cdecl;
+{**
  *  \brief Set the error message for the current thread
  *
  *  \return -1, there is no error handling for this function
  *}
-type
-  TSDL_SetError_func = function(const fmt: PAnsiChar; args: array of const): cint; cdecl;
 var
   SDL_SetError : TSDL_SetError_func = Nil;
 
@@ -33,6 +33,8 @@ var
 function SDL_GetError: PAnsiChar; cdecl;
   external SDL_LibName {$IFDEF DELPHI} {$IFDEF MACOS} name '_SDL_GetError' {$ENDIF} {$ENDIF};
 
+type
+  TSDL_GetErrorMsg_func = function(const errstr: PAnsiChar; maxlen: cint): PAnsiChar; cdecl;
 {**
  *  \brief Get the last error message that was set for the current thread
  *
@@ -45,8 +47,6 @@ function SDL_GetError: PAnsiChar; cdecl;
  *
  *  \return errstr
  *}
-type
-  TSDL_GetErrorMsg_func = function(const errstr: PAnsiChar; maxlen: cint): PAnsiChar; cdecl;
 var
   SDL_GetErrorMsg : TSDL_GetErrorMsg_func = Nil;
 
@@ -79,9 +79,9 @@ type
                     SDL_UNSUPPORTED,
                     SDL_LASTERROR);
 
-{* SDL_Error() unconditionally returns -1. *}
 type
   TSDL_Error_func = function(code: TSDL_ErrorCode): cint; cdecl;
+{* SDL_Error() unconditionally returns -1. *}
 var
   SDL_Error : TSDL_Error_func = Nil;
 

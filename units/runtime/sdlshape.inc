@@ -9,6 +9,8 @@ const
   SDL_INVALID_SHAPE_ARGUMENT = -2;
   SDL_WINDOW_LACKS_SHAPE     = -3;
 
+type
+  TSDL_CreateShapedWindow_func = function(title: PAnsiChar; x: cuint; y: cuint; w: cuint; h: cuint; flags: cuint32): PSDL_Window; cdecl;
 {**
  * Create a window that can be shaped with the specified position, dimensions,
  * and flags.
@@ -33,12 +35,12 @@ const
  *
  * \sa SDL_DestroyWindow
  *}
-type
-  TSDL_CreateShapedWindow_func = function(title: PAnsiChar; x: cuint; y: cuint; w: cuint; h: cuint; flags: cuint32): PSDL_Window; cdecl;
 var
   SDL_CreateShapedWindow : TSDL_CreateShapedWindow_func = Nil;
 
 
+type
+  TSDL_IsShapedWindow_func = function(window: PSDL_Window): TSDL_Bool; cdecl;
 {**
  * Return whether the given window is a shaped window.
  *
@@ -50,8 +52,6 @@ var
  *
  * \sa SDL_CreateShapedWindow
  *}
-type
-  TSDL_IsShapedWindow_func = function(window: PSDL_Window): TSDL_Bool; cdecl;
 var
   SDL_IsShapedWindow : TSDL_IsShapedWindow_func = Nil;
 
@@ -96,6 +96,8 @@ type
     parameters: TSDL_WindowShapeParams;
   end;
 
+type
+  TSDL_SetWindowShape_func = function(window: PSDL_Window; shape: PSDL_Surface; shape_mode: PSDL_WindowShapeMode): cint; cdecl;
 {**
  * Set the shape and parameters of a shaped window.
  *
@@ -111,12 +113,12 @@ type
  * \sa SDL_WindowShapeMode
  * \sa SDL_GetShapedWindowMode
  *}
-type
-  TSDL_SetWindowShape_func = function(window: PSDL_Window; shape: PSDL_Surface; shape_mode: PSDL_WindowShapeMode): cint; cdecl;
 var
   SDL_SetWindowShape : TSDL_SetWindowShape_func = Nil;
 
 
+type
+  TSDL_GetShapedWindowMode_func = function(window: PSDL_Window; shape_mode: PSDL_WindowShapeMode): cint; cdecl;
 {**
  * Get the shape parameters of a shaped window.
  *
@@ -134,8 +136,6 @@ var
  * \sa SDL_WindowShapeMode
  * \sa SDL_SetWindowShape
  *}
-type
-  TSDL_GetShapedWindowMode_func = function(window: PSDL_Window; shape_mode: PSDL_WindowShapeMode): cint; cdecl;
 var
   SDL_GetShapedWindowMode : TSDL_GetShapedWindowMode_func = Nil;
 

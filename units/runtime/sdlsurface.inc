@@ -77,6 +77,8 @@ const
   SDL_YUV_CONVERSION_BT709     = TSDL_YUV_CONVERSION_MODE(2); {**< BT.709 *}
   SDL_YUV_CONVERSION_AUTOMATIC = TSDL_YUV_CONVERSION_MODE(3); {**< BT.601 for SD content, BT.709 for HD content *}
 
+type
+  TSDL_CreateRGBSurfaceWithFormat_func = function(flags: cuint32; width, height, depth: cint; format: cuint32):PSDL_Surface; cdecl;
  {**
  *  Allocate and free an RGB surface.
  *
@@ -102,8 +104,6 @@ var
   SDL_CreateRGBSurface : TSDL_CreateRGBSurface_func = Nil;
 
 {* !!! FIXME for 2.1: why does this ask for depth? Format provides that. *}
-type
-  TSDL_CreateRGBSurfaceWithFormat_func = function(flags: cuint32; width, height, depth: cint; format: cuint32):PSDL_Surface; cdecl;
 var
   SDL_CreateRGBSurfaceWithFormat : TSDL_CreateRGBSurfaceWithFormat_func = Nil;
 
@@ -238,13 +238,13 @@ var
   SDL_SetSurfaceRLE : TSDL_SetSurfaceRLE_func = Nil;
 
 
+type
+  TSDL_HasSurfaceRLE_func = function(surface: PSDL_Surface): TSDL_Bool; cdecl;
 {**
  *  \brief Returns whether the surface is RLE enabled
  *
  *  \return SDL_TRUE if the surface is RLE enabled, or SDL_FALSE if the surface is NULL or not RLE enabled
  *}
-type
-  TSDL_HasSurfaceRLE_func = function(surface: PSDL_Surface): TSDL_Bool; cdecl;
 var
   SDL_HasSurfaceRLE : TSDL_HasSurfaceRLE_func = Nil;
 
@@ -267,13 +267,13 @@ var
   SDL_SetColorKey : TSDL_SetColorKey_func = Nil;
 
 
+type
+  TSDL_HasColorKey_func = function(surface: PSDL_Surface): TSDL_Bool; cdecl;
 {**
  *  \brief Returns whether the surface has a color key
  *
  *  \return SDL_TRUE if the surface has a color key, or SDL_FALSE if the surface is NULL or has no color key
  *}
-type
-  TSDL_HasColorKey_func = function(surface: PSDL_Surface): TSDL_Bool; cdecl;
 var
   SDL_HasColorKey : TSDL_HasColorKey_func = Nil;
 
@@ -421,6 +421,8 @@ var
   SDL_SetClipRect : TSDL_SetClipRect_func = Nil;
 
 
+type
+  TSDL_DuplicateSurface_func = function(surface: PSDL_Surface): PSDL_Surface; cdecl;
   {**
    *  Gets the clipping rectangle for the destination surface in a blit.
    *
@@ -437,8 +439,6 @@ var
 {*
  * Creates a new surface identical to the existing surface
  *}
-type
-  TSDL_DuplicateSurface_func = function(surface: PSDL_Surface): PSDL_Surface; cdecl;
 var
   SDL_DuplicateSurface : TSDL_DuplicateSurface_func = Nil;
 
@@ -632,11 +632,11 @@ var
   SDL_LowerBlitScaled : TSDL_LowerBlitScaled_func = Nil;
 
 
+type
+  TSDL_SetYUVConversionMode_proc = procedure(mode: TSDL_YUV_CONVERSION_MODE); cdecl;
 {**
  *  \brief Set the YUV conversion mode
  *}
-type
-  TSDL_SetYUVConversionMode_proc = procedure(mode: TSDL_YUV_CONVERSION_MODE); cdecl;
 var
   SDL_SetYUVConversionMode : TSDL_SetYUVConversionMode_proc = Nil;
 
@@ -647,11 +647,11 @@ var
 function SDL_GetYUVConversionMode: TSDL_YUV_CONVERSION_MODE; cdecl;
   external SDL_LibName {$IFDEF DELPHI} {$IFDEF MACOS} name '_SDL_GetYUVConversionMode' {$ENDIF} {$ENDIF};
 
+type
+  TSDL_GetYUVConversionModeForResolution_func = function(width: cint; height: cint): TSDL_YUV_CONVERSION_MODE; cdecl;
 {**
  *  \brief Get the YUV conversion mode, returning the correct mode for the resolution when the current conversion mode is SDL_YUV_CONVERSION_AUTOMATIC
  *}
-type
-  TSDL_GetYUVConversionModeForResolution_func = function(width: cint; height: cint): TSDL_YUV_CONVERSION_MODE; cdecl;
 var
   SDL_GetYUVConversionModeForResolution : TSDL_GetYUVConversionModeForResolution_func = Nil;
 

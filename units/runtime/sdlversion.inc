@@ -74,6 +74,8 @@ function SDL_COMPILEDVERSION: Cardinal;
  *}
 function SDL_VERSION_ATLEAST(X,Y,Z: cuint8): Boolean;
 
+type
+  TSDL_GetVersion_proc = procedure(ver: PSDL_Version); cdecl;
 {**
  *  Get the version of SDL that is linked against your program.
  *
@@ -102,8 +104,6 @@ function SDL_VERSION_ATLEAST(X,Y,Z: cuint8): Boolean;
  *
  *  SDL_VERSION
  *}
-type
-  TSDL_GetVersion_proc = procedure(ver: PSDL_Version); cdecl;
 var
   SDL_GetVersion : TSDL_GetVersion_proc = Nil;
 

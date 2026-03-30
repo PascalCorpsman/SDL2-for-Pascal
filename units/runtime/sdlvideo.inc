@@ -342,6 +342,8 @@ var
   SDL_GetDisplayBounds : TSDL_GetDisplayBounds_func = Nil;
 
 
+type
+  TSDL_GetDisplayUsableBounds_func = function(displayIndex: cint; rect: PSDL_Rect): cint; cdecl;
 {**
  *  \brief Get the usable desktop area represented by a display, with the
  *         primary display located at 0,0
@@ -359,12 +361,12 @@ var
  *  \sa SDL_GetDisplayBounds()
  *  \sa SDL_GetNumVideoDisplays()
  *}
-type
-  TSDL_GetDisplayUsableBounds_func = function(displayIndex: cint; rect: PSDL_Rect): cint; cdecl;
 var
   SDL_GetDisplayUsableBounds : TSDL_GetDisplayUsableBounds_func = Nil;
 
 
+type
+  TSDL_GetDisplayDPI_func = function(displayIndex: cint; ddpi, hdpi, vdpi: pcfloat): cint; cdecl;
   {**
    *  \brief Get the dots/pixels-per-inch for a display
    *
@@ -375,12 +377,12 @@ var
    *
    *  \sa SDL_GetNumVideoDisplays()
    *}
-type
-  TSDL_GetDisplayDPI_func = function(displayIndex: cint; ddpi, hdpi, vdpi: pcfloat): cint; cdecl;
 var
   SDL_GetDisplayDPI : TSDL_GetDisplayDPI_func = Nil;
 
 
+type
+  TSDL_GetDisplayOrientation_func = function(displayIndex: cint): TSDL_DisplayOrientation; cdecl;
 {**
  *  \brief Get the orientation of a display
  *
@@ -388,8 +390,6 @@ var
  *
  *  \sa SDL_GetNumVideoDisplays()
  *}
-type
-  TSDL_GetDisplayOrientation_func = function(displayIndex: cint): TSDL_DisplayOrientation; cdecl;
 var
   SDL_GetDisplayOrientation : TSDL_GetDisplayOrientation_func = Nil;
 
@@ -471,6 +471,8 @@ var
   SDL_GetClosestDisplayMode : TSDL_GetClosestDisplayMode_func = Nil;
 
 
+type
+  TSDL_GetPointDisplayIndex_func = function(const point: PSDL_Point): cint; cdecl;
 {**
  * Get the index of the display containing a point
  *
@@ -483,12 +485,12 @@ var
  * \sa SDL_GetDisplayBounds
  * \sa SDL_GetNumVideoDisplays
  *}
-type
-  TSDL_GetPointDisplayIndex_func = function(const point: PSDL_Point): cint; cdecl;
 var
   SDL_GetPointDisplayIndex : TSDL_GetPointDisplayIndex_func = Nil;
 
 
+type
+  TSDL_GetRectDisplayIndex_func = function(const rect: PSDL_Rect): cint; cdecl;
 {**
  * Get the index of the display primarily containing a rect
  *
@@ -502,8 +504,6 @@ var
  * \sa SDL_GetDisplayBounds
  * \sa SDL_GetNumVideoDisplays
  *}
-type
-  TSDL_GetRectDisplayIndex_func = function(const rect: PSDL_Rect): cint; cdecl;
 var
   SDL_GetRectDisplayIndex : TSDL_GetRectDisplayIndex_func = Nil;
 
@@ -555,6 +555,8 @@ var
   SDL_GetWindowDisplayMode : TSDL_GetWindowDisplayMode_func = Nil;
 
 
+type
+  TSDL_GetWindowICCProfile_func = function(window: PSDL_Window; size: pcsize_t): Pointer; cdecl;
 {**
  * Get the raw ICC profile data for the screen the window is currently on.
  *
@@ -567,8 +569,6 @@ var
  *
  * \since This function is available since SDL 2.0.18.
  *}
-type
-  TSDL_GetWindowICCProfile_func = function(window: PSDL_Window; size: pcsize_t): Pointer; cdecl;
 var
   SDL_GetWindowICCProfile : TSDL_GetWindowICCProfile_func = Nil;
 
@@ -819,6 +819,8 @@ var
   SDL_GetWindowSize : TSDL_GetWindowSize_proc = Nil;
 
 
+type
+  TSDL_GetWindowBordersSize_func = function(window: PSDL_Window; top, left, bottom, right: pcint): cint; cdecl;
   {**
    *  \brief Get the size of a window's borders (decorations) around the client area.
    *
@@ -834,12 +836,12 @@ var
    *        initialized to 0, 0, 0, 0 (if a non-NULL pointer is provided), as
    *        if the window in question was borderless.
    *}
-type
-  TSDL_GetWindowBordersSize_func = function(window: PSDL_Window; top, left, bottom, right: pcint): cint; cdecl;
 var
   SDL_GetWindowBordersSize : TSDL_GetWindowBordersSize_func = Nil;
 
 
+type
+  TSDL_GetWindowSizeInPixels_proc = procedure(window: PSDL_Window; w, h: pcuint); cdecl;
   {**
    * Get the size of a window in pixels.
    *
@@ -858,8 +860,6 @@ var
    * \sa SDL_CreateWindow
    * \sa SDL_GetWindowSize
    *}
-type
-  TSDL_GetWindowSizeInPixels_proc = procedure(window: PSDL_Window; w, h: pcuint); cdecl;
 var
   SDL_GetWindowSizeInPixels : TSDL_GetWindowSizeInPixels_proc = Nil;
 
@@ -955,6 +955,8 @@ var
   SDL_SetWindowBordered : TSDL_SetWindowBordered_proc = Nil;
 
 
+type
+  TSDL_SetWindowResizable_proc = procedure(window: PSDL_Window; resizable: TSDL_Bool); cdecl;
   {**
    *  \brief Set the user-resizable state of a window.
    *
@@ -969,12 +971,12 @@ var
    *
    *  \sa SDL_GetWindowFlags()
    *}
-type
-  TSDL_SetWindowResizable_proc = procedure(window: PSDL_Window; resizable: TSDL_Bool); cdecl;
 var
   SDL_SetWindowResizable : TSDL_SetWindowResizable_proc = Nil;
 
 
+type
+  TSDL_SetWindowAlwaysOnTop_proc = procedure(window: PSDL_Window; on_top: TSDL_Bool); cdecl;
 {**
  * Set the window to always be above the others.
  *
@@ -989,8 +991,6 @@ var
  *
  * \sa SDL_GetWindowFlags
  *}
-type
-  TSDL_SetWindowAlwaysOnTop_proc = procedure(window: PSDL_Window; on_top: TSDL_Bool); cdecl;
 var
   SDL_SetWindowAlwaysOnTop : TSDL_SetWindowAlwaysOnTop_proc = Nil;
 
@@ -1081,6 +1081,8 @@ var
   SDL_SetWindowFullscreen : TSDL_SetWindowFullscreen_func = Nil;
 
 
+type
+  TSDL_HasWindowSurface_func = function(window: PSDL_Window): TSDL_Bool; cdecl;
   {**
    * Return whether the window has a surface associated with it.
    *
@@ -1091,8 +1093,6 @@ var
    *
    * \sa SDL_GetWindowSurface
    *}
-type
-  TSDL_HasWindowSurface_func = function(window: PSDL_Window): TSDL_Bool; cdecl;
 var
   SDL_HasWindowSurface : TSDL_HasWindowSurface_func = Nil;
 
@@ -1147,6 +1147,8 @@ var
   SDL_UpdateWindowSurfaceRects : TSDL_UpdateWindowSurfaceRects_func = Nil;
 
 
+type
+  TSDL_DestroyWindowSurface_func = function(window: PSDL_Window): cint; cdecl;
   {**
    * Destroy the surface associated with the window.
    *
@@ -1159,8 +1161,6 @@ var
    * \sa SDL_GetWindowSurface
    * \sa SDL_HasWindowSurface
    *}
-type
-  TSDL_DestroyWindowSurface_func = function(window: PSDL_Window): cint; cdecl;
 var
   SDL_DestroyWindowSurface : TSDL_DestroyWindowSurface_func = Nil;
 
@@ -1193,6 +1193,8 @@ var
   SDL_GetWindowGrab : TSDL_GetWindowGrab_func = Nil;
 
 
+type
+  TSDL_SetWindowKeyboardGrab_proc = procedure(window: PSDL_Window; grabbed: TSDL_Bool); cdecl;
 {**
  * Set a window's keyboard grab mode.
  *
@@ -1221,8 +1223,6 @@ var
  * \sa SDL_SetWindowMouseGrab
  * \sa SDL_SetWindowGrab
  *}
-type
-  TSDL_SetWindowKeyboardGrab_proc = procedure(window: PSDL_Window; grabbed: TSDL_Bool); cdecl;
 var
   SDL_SetWindowKeyboardGrab : TSDL_SetWindowKeyboardGrab_proc = Nil;
 
@@ -1299,6 +1299,8 @@ var
   SDL_GetWindowMouseRect : TSDL_GetWindowMouseRect_func = Nil;
 
 
+type
+  TSDL_GetGrabbedWindow_func = function(): PSDL_Window; cdecl;
   {**
    *  \brief Get the window that currently has an input grab enabled.
    *
@@ -1306,8 +1308,6 @@ var
    *
    *  \sa SDL_SetWindowGrab()
    *}
-type
-  TSDL_GetGrabbedWindow_func = function(): PSDL_Window; cdecl;
 var
   SDL_GetGrabbedWindow : TSDL_GetGrabbedWindow_func = Nil;
 
@@ -1341,6 +1341,8 @@ var
   SDL_GetWindowBrightness : TSDL_GetWindowBrightness_func = Nil;
 
 
+type
+  TSDL_SetWindowOpacity_func = function(window: PSDL_Window; opacity: cfloat): cint; cdecl;
   {**
    *  \brief Set the opacity for a window
    *
@@ -1352,12 +1354,12 @@ var
    *
    *  \sa SDL_GetWindowOpacity()
    *}
-type
-  TSDL_SetWindowOpacity_func = function(window: PSDL_Window; opacity: cfloat): cint; cdecl;
 var
   SDL_SetWindowOpacity : TSDL_SetWindowOpacity_func = Nil;
 
 
+type
+  TSDL_GetWindowOpacity_func = function(window: PSDL_Window; out_opacity: pcfloat): cint; cdecl;
   {**
    *  \brief Get the opacity of a window.
    *
@@ -1371,12 +1373,12 @@ var
    *
    *  \sa SDL_SetWindowOpacity()
    *}
-type
-  TSDL_GetWindowOpacity_func = function(window: PSDL_Window; out_opacity: pcfloat): cint; cdecl;
 var
   SDL_GetWindowOpacity : TSDL_GetWindowOpacity_func = Nil;
 
 
+type
+  TSDL_SetWindowModalFor_func = function(modal_window, parent_window: PSDL_Window): cint; cdecl;
   {** 
    *  \brief Sets the window as a modal for another window
    *
@@ -1385,12 +1387,12 @@ var
    * 
    *  \return 0 on success, or -1 otherwise.
    *}
-type
-  TSDL_SetWindowModalFor_func = function(modal_window, parent_window: PSDL_Window): cint; cdecl;
 var
   SDL_SetWindowModalFor : TSDL_SetWindowModalFor_func = Nil;
 
 
+type
+  TSDL_SetWindowInputFocus_func = function(window: PSDL_Window): cint; cdecl;
   {**
    *  \brief Explicitly sets input focus to the window.
    *
@@ -1403,8 +1405,6 @@ var
    *  \return 0 on success, or -1 otherwise.
    *  \sa SDL_RaiseWindow()
    *}
-type
-  TSDL_SetWindowInputFocus_func = function(window: PSDL_Window): cint; cdecl;
 var
   SDL_SetWindowInputFocus : TSDL_SetWindowInputFocus_func = Nil;
 
@@ -1486,6 +1486,8 @@ type
   PSDL_HitTest = ^TSDL_HitTest;
   TSDL_HitTest = function(win: PSDL_Window; const area: PSDL_Point; data: Pointer): TSDL_HitTestResult; cdecl;
 
+type
+  TSDL_SetWindowHitTest_func = function(window: PSDL_Window; callback: TSDL_HitTest; callback_data: Pointer): cint; cdecl;
   {**
    *  \brief Provide a callback that decides if a window region has special properties.
    *
@@ -1523,12 +1525,12 @@ type
    *  \param callback_data An app-defined void pointer passed to the callback.
    *  \return 0 on success, -1 on error (including unsupported).
    *}
-type
-  TSDL_SetWindowHitTest_func = function(window: PSDL_Window; callback: TSDL_HitTest; callback_data: Pointer): cint; cdecl;
 var
   SDL_SetWindowHitTest : TSDL_SetWindowHitTest_func = Nil;
 
 
+type
+  TSDL_FlashWindow_func = function(window: PSDL_Window; operation: TSDL_FlashOperation): cint; cdecl;
   {**
    * Request a window to demand attention from the user.
    *
@@ -1539,8 +1541,6 @@ var
    *
    * \since This function is available since SDL 2.0.16.
    *}
-type
-  TSDL_FlashWindow_func = function(window: PSDL_Window; operation: TSDL_FlashOperation): cint; cdecl;
 var
   SDL_FlashWindow : TSDL_FlashWindow_func = Nil;
 
@@ -1644,11 +1644,11 @@ var
   SDL_GL_ExtensionSupported : TSDL_GL_ExtensionSupported_func = Nil;
 
 
+type
+  TSDL_GL_ResetAttributes_proc = procedure(); cdecl;
   {**
    *  Reset all previously set OpenGL context attributes to their default values
    *}
-type
-  TSDL_GL_ResetAttributes_proc = procedure(); cdecl;
 var
   SDL_GL_ResetAttributes : TSDL_GL_ResetAttributes_proc = Nil;
 

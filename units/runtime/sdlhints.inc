@@ -2432,6 +2432,8 @@ var
   SDL_SetHint : TSDL_SetHint_func = Nil;
 
 
+type
+  TSDL_ResetHint_func = function(const name: PAnsiChar): TSDL_Bool; cdecl;
 {**
  * Reset a hint to the default value.
  *
@@ -2444,12 +2446,12 @@ var
  *
  * \since This function is available since SDL 2.24.0.
  *}
-type
-  TSDL_ResetHint_func = function(const name: PAnsiChar): TSDL_Bool; cdecl;
 var
   SDL_ResetHint : TSDL_ResetHint_func = Nil;
 
 
+type
+  TSDL_ResetHints_proc = procedure(); cdecl;
 {**
  * Reset all hints to the default values.
  *
@@ -2463,8 +2465,6 @@ var
  * \sa SDL_SetHint
  * \sa SDL_ResetHint
  *}
-type
-  TSDL_ResetHints_proc = procedure(); cdecl;
 var
   SDL_ResetHints : TSDL_ResetHints_proc = Nil;
 
@@ -2522,6 +2522,8 @@ var
   SDL_DelHintCallback : TSDL_DelHintCallback_proc = Nil;
 
 
+type
+  TSDL_ClearHints_proc = procedure(); cdecl;
 {**
  * Clear all hints.
  *
@@ -2536,8 +2538,6 @@ var
  *
  * \sa SDL_ResetHints
  *}
-type
-  TSDL_ClearHints_proc = procedure(); cdecl;
 var
   SDL_ClearHints : TSDL_ClearHints_proc = Nil;
 

@@ -8,11 +8,11 @@
 const
 	SDL_CACHELINE_SIZE = 128;
 
+type
+  TSDL_GetCPUCount_func = function(): cint; cdecl;
 {**
  * This function returns the number of CPU cores available.
  *}
-type
-  TSDL_GetCPUCount_func = function(): cint; cdecl;
 var
   SDL_GetCPUCount : TSDL_GetCPUCount_func = Nil;
 

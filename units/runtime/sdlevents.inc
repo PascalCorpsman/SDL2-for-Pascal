@@ -727,6 +727,9 @@ type
   procedure SDL_FlushEvent(type_: TSDL_EventType) cdecl; external SDL_LibName {$IFDEF DELPHI} {$IFDEF MACOS} name '_SDL_FlushEvent' {$ENDIF} {$ENDIF};
   procedure SDL_FlushEvents(minType, maxType: TSDL_EventType) cdecl; external SDL_LibName {$IFDEF DELPHI} {$IFDEF MACOS} name '_SDL_FlushEvents' {$ENDIF} {$ENDIF};
 
+  type
+    TSDL_PollEvent_func = function (event: PSDL_Event): cint32 cdecl;
+  Var
   {**
    *  Polls for currently pending events.
    *
@@ -735,9 +738,6 @@ type
    *  event - If not nil, the next event is removed from the queue and
    *               stored in that area.
    *}
-type
-  TSDL_PollEvent_func = function (event: PSDL_Event): cint32 cdecl;
-Var
   SDL_PollEvent : TSDL_PollEvent_func = Nil;
 
   {**

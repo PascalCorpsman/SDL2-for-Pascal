@@ -628,6 +628,15 @@ var
   SDL_GameControllerGetSensorData : TSDL_GameControllerGetSensorData_func = Nil;
 
 
+Type
+  TSDL_GameControllerGetSensorDataWithTimestamp_func = function(
+    gamecontroller: PSDL_GameController;
+    senstype: TSDL_SensorType;
+    timestamp: pcuint64;
+    data: pcfloat;
+    num_values: cint
+  ): cint; cdecl;
+var
 {**
  * Get the current state of a game controller sensor with the timestamp of the
  * last update.
@@ -645,15 +654,6 @@ var
  *
  * \since This function is available since SDL 2.26.0.
  *}
-Type
-  TSDL_GameControllerGetSensorDataWithTimestamp_func = function(
-    gamecontroller: PSDL_GameController;
-    senstype: TSDL_SensorType;
-    timestamp: pcuint64;
-    data: pcfloat;
-    num_values: cint
-  ): cint; cdecl;
-var
   SDL_GameControllerGetSensorDataWithTimestamp : TSDL_GameControllerGetSensorDataWithTimestamp_func = Nil;
 
 type

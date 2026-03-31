@@ -7,6 +7,9 @@ type
 
   {* Function prototypes *}
 
+type
+  TSDL_RecordGesture_func = function(touchId: TSDL_TouchID): cint; cdecl;
+var
   {/**
  * Begin recording a gesture on a specified touch device or all touch devices.
  *
@@ -20,9 +23,6 @@ type
  *
  * \sa SDL_GetTouchDevice
  *}
-type
-  TSDL_RecordGesture_func = function(touchId: TSDL_TouchID): cint; cdecl;
-var
   SDL_RecordGesture : TSDL_RecordGesture_func = Nil;
 
 

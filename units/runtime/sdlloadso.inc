@@ -19,6 +19,9 @@
  *      the results you expect.:)
   }
 
+type
+  TSDL_LoadObject_func = function(sofile: PAnsiChar): Pointer; cdecl;
+var
 {*
  * Dynamically load a shared object.
  *
@@ -31,9 +34,6 @@
  * \sa SDL_LoadFunction
  * \sa SDL_UnloadObject
   }
-type
-  TSDL_LoadObject_func = function(sofile: PAnsiChar): Pointer; cdecl;
-var
   SDL_LoadObject : TSDL_LoadObject_func = Nil;
 
 
@@ -65,6 +65,9 @@ var
 function SDL_LoadFunction(handle: Pointer; name: PAnsiChar): Pointer; cdecl;
   external SDL_LibName {$IFDEF DELPHI} {$IFDEF MACOS} name '_SDL_LoadFunction' {$ENDIF} {$ENDIF};
 
+type
+  TSDL_UnloadObject_proc = procedure(handle: Pointer); cdecl;
+var
 {*
  * Unload a shared object from memory.
  *
@@ -75,8 +78,5 @@ function SDL_LoadFunction(handle: Pointer; name: PAnsiChar): Pointer; cdecl;
  * \sa SDL_LoadFunction
  * \sa SDL_LoadObject
   }
-type
-  TSDL_UnloadObject_proc = procedure(handle: Pointer); cdecl;
-var
   SDL_UnloadObject : TSDL_UnloadObject_proc = Nil;
 

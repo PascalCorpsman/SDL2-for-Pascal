@@ -421,6 +421,9 @@ type
 const
   SDL_VIRTUAL_JOYSTICK_DESC_VERSION = 1;
 
+type
+  TSDL_JoystickAttachVirtualEx_func = function(const desc: PSDL_VirtualJoystickDesc): cint; cdecl;
+var
 {/**
  * Attach a new virtual joystick with extended properties.
  *
@@ -428,9 +431,6 @@ const
  *
  * \since This function is available since SDL 2.24.0.
  */}
-type
-  TSDL_JoystickAttachVirtualEx_func = function(const desc: PSDL_VirtualJoystickDesc): cint; cdecl;
-var
   SDL_JoystickAttachVirtualEx : TSDL_JoystickAttachVirtualEx_func = Nil;
 
 

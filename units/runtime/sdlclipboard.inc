@@ -7,6 +7,9 @@
 
 {* Function prototypes *}
 
+type
+  TSDL_SetClipboardText_func = function(text: PAnsiChar): cint; cdecl;
+var
 {*
  * Put UTF-8 text into the clipboard.
  *
@@ -19,12 +22,12 @@
  * \sa SDL_GetClipboardText
  * \sa SDL_HasClipboardText
   }
-type
-  TSDL_SetClipboardText_func = function(text: PAnsiChar): cint; cdecl;
-var
   SDL_SetClipboardText : TSDL_SetClipboardText_func = Nil;
 
 
+type
+  TSDL_GetClipboardText_func = function(): PAnsiChar; cdecl;
+var
 {*
  * Get UTF-8 text from the clipboard, which must be freed with SDL_free().
  *
@@ -41,12 +44,12 @@ var
  * \sa SDL_HasClipboardText
  * \sa SDL_SetClipboardText
   }
-type
-  TSDL_GetClipboardText_func = function(): PAnsiChar; cdecl;
-var
   SDL_GetClipboardText : TSDL_GetClipboardText_func = Nil;
 
 
+type
+  TSDL_HasClipboardText_func = function(): TSDL_bool; cdecl;
+var
 {*
  * Query whether the clipboard exists and contains a non-empty text string.
  *
@@ -57,12 +60,12 @@ var
  * \sa SDL_GetClipboardText
  * \sa SDL_SetClipboardText
   }
-type
-  TSDL_HasClipboardText_func = function(): TSDL_bool; cdecl;
-var
   SDL_HasClipboardText : TSDL_HasClipboardText_func = Nil;
 
 
+type
+  TSDL_SetPrimarySelectionText_func = function(text: PAnsiChar): cint; cdecl;
+var
 {*
  * Put UTF-8 text into the primary selection.
  *
@@ -75,12 +78,12 @@ var
  * \sa SDL_GetPrimarySelectionText
  * \sa SDL_HasPrimarySelectionText
   }
-type
-  TSDL_SetPrimarySelectionText_func = function(text: PAnsiChar): cint; cdecl;
-var
   SDL_SetPrimarySelectionText : TSDL_SetPrimarySelectionText_func = Nil;
 
 
+type
+  TSDL_GetPrimarySelectionText_func = function(): PAnsiChar; cdecl;
+var
 {*
  * Get UTF-8 text from the primary selection, which must be freed with
  * SDL_free().
@@ -98,12 +101,12 @@ var
  * \sa SDL_HasPrimarySelectionText
  * \sa SDL_SetPrimarySelectionText
   }
-type
-  TSDL_GetPrimarySelectionText_func = function(): PAnsiChar; cdecl;
-var
   SDL_GetPrimarySelectionText : TSDL_GetPrimarySelectionText_func = Nil;
 
 
+type
+  TSDL_HasPrimarySelectionText_func = function(): TSDL_bool; cdecl;
+var
 {*
  * Query whether the primary selection exists and contains a non-empty text
  * string.
@@ -116,8 +119,5 @@ var
  * \sa SDL_GetPrimarySelectionText
  * \sa SDL_SetPrimarySelectionText
   }
-type
-  TSDL_HasPrimarySelectionText_func = function(): TSDL_bool; cdecl;
-var
   SDL_HasPrimarySelectionText : TSDL_HasPrimarySelectionText_func = Nil;
 

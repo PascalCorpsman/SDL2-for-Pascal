@@ -2406,6 +2406,9 @@ const
   SDL_HINT_NORMAL    = TSDL_HintPriority(1);
   SDL_HINT_OVERRIDE  = TSDL_HintPriority(2);
 
+type
+  TSDL_SetHintWithPriority_func = function(const name: PAnsiChar; const value: PAnsiChar; priority: TSDL_HintPriority): TSDL_Bool; cdecl;
+var
 {/**
  *  \brief Set a hint with a specific priority
  *
@@ -2415,20 +2418,17 @@ const
  *
  *  \return SDL_TRUE if the hint was set, SDL_FALSE otherwise
  */}
-type
-  TSDL_SetHintWithPriority_func = function(const name: PAnsiChar; const value: PAnsiChar; priority: TSDL_HintPriority): TSDL_Bool; cdecl;
-var
   SDL_SetHintWithPriority : TSDL_SetHintWithPriority_func = Nil;
 
 
+type
+  TSDL_SetHint_func = function(const name: PAnsiChar; const value: PAnsiChar): TSDL_Bool; cdecl;
+var
 {/**
  *  \brief Set a hint with normal priority
  *
  *  \return SDL_TRUE if the hint was set, SDL_FALSE otherwise
  */}
-type
-  TSDL_SetHint_func = function(const name: PAnsiChar; const value: PAnsiChar): TSDL_Bool; cdecl;
-var
   SDL_SetHint : TSDL_SetHint_func = Nil;
 
 
@@ -2469,25 +2469,25 @@ var
   SDL_ResetHints : TSDL_ResetHints_proc = Nil;
 
 
+type
+  TSDL_GetHint_func = function(const name: PAnsiChar): PAnsiChar; cdecl;
+var
 {/**
  *  \brief Get a hint
  *
  *  \return The string value of a hint variable.
  */}
-type
-  TSDL_GetHint_func = function(const name: PAnsiChar): PAnsiChar; cdecl;
-var
   SDL_GetHint : TSDL_GetHint_func = Nil;
 
 
+type
+  TSDL_GetHintBoolean_func = function(const name: PAnsiChar; default_value: TSDL_Bool): TSDL_Bool; cdecl;
+var
 {/**
  *  \brief Get a hint
  *
  *  \return The boolean value of a hint variable.
  */}
-type
-  TSDL_GetHintBoolean_func = function(const name: PAnsiChar; default_value: TSDL_Bool): TSDL_Bool; cdecl;
-var
   SDL_GetHintBoolean : TSDL_GetHintBoolean_func = Nil;
 
 
@@ -2509,6 +2509,9 @@ var
   SDL_AddHintCallback : TSDL_AddHintCallback_proc = Nil;
 
 
+type
+  TSDL_DelHintCallback_proc = procedure(const name: PAnsiChar; callback: TSDL_HintCallback; userdata: Pointer); cdecl;
+var
 {/**
  *  \brief Remove a function watching a particular hint
  *
@@ -2516,9 +2519,6 @@ var
  *  \param callback The function being called when the hint value changes
  *  \param userdata A pointer being passed to the callback function
  */}
-type
-  TSDL_DelHintCallback_proc = procedure(const name: PAnsiChar; callback: TSDL_HintCallback; userdata: Pointer); cdecl;
-var
   SDL_DelHintCallback : TSDL_DelHintCallback_proc = Nil;
 
 

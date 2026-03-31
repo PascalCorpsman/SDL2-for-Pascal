@@ -340,6 +340,9 @@ type
             SDL_SYSWM_UNKNOWN: (dummy: array[0..63] of Byte);
    end;
 
+type
+  TSDL_GetWindowWMInfo_func = function(window: PSDL_Window; info: PSDL_SysWMinfo): TSDL_bool; cdecl;
+var
 (**
  * Get driver-specific information about a window.
  *
@@ -357,8 +360,5 @@ type
  *
  * \since This function is available since SDL 2.0.0.
  *)
-type
-  TSDL_GetWindowWMInfo_func = function(window: PSDL_Window; info: PSDL_SysWMinfo): TSDL_bool; cdecl;
-var
   SDL_GetWindowWMInfo : TSDL_GetWindowWMInfo_func = Nil;
 

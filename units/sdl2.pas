@@ -67,6 +67,26 @@ unit sdl2;
  statically linked into the project. After that you need to call the
  SDL_LoadLib function by your application before using any SDL2 library calls.
 
+ "WARNING: This is an experimental feature! Many functions are not prepared to be
+ loaded at runtime, check beforehand if a function is translated already.
+ You can help adding functions by simply replacing
+
+ { --- describing comment ---}
+ function SDL_CreateWindowAndRenderer(width: cint32; height: cint32; window_flags: cuint32; window: PPSDL_Window; renderer: PPSDL_Renderer): cint32; cdecl; external SDL_LibName {$IFDEF DELPHI} {$IFDEF MACOS} name '_SDL_CreateWindowAndRenderer' {$ENDIF} {$ENDIF};
+
+ by
+
+ type
+ TSDL_CreateWindowAndRenderer_func = function(width: cint32; height: cint32; window_flags: cuint32; window: PPSDL_Window; renderer: PPSDL_Renderer): cint32; cdecl;
+ var
+ { --- describing comment ---}
+ SDL_CreateWindowAndRenderer: TSDL_CreateWindowAndRenderer_func = nil;
+
+ And you need to register the function in sdl_runtime_linking.inc by uncommenting
+ (or adding if not already in the list). For this example I must add:
+
+ SDL_CreateWindowAndRenderer := TSDL_CreateWindowAndRenderer_func(GetProcAddress(LibHandle, 'SDL_CreateWindowAndRenderer'));
+ if not Assigned(SDL_CreateWindowAndRenderer) then Result := False;"
 }
 //{$DEFINE SDL_RUNTIME_LOADING}
 

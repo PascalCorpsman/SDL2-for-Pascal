@@ -61,7 +61,7 @@ unit sdl2;
 
 {$I jedi.inc}
 
-{
+(*
  Enable the following line, or set SDL_RUNTIME_LOADING in your project define
  settings. If set the SDL2 library can be loaded at runtime instead of being
  statically linked into the project. After that you need to call the
@@ -87,7 +87,7 @@ unit sdl2;
 
  SDL_CreateWindowAndRenderer := TSDL_CreateWindowAndRenderer_func(GetProcAddress(LibHandle, 'SDL_CreateWindowAndRenderer'));
  if not Assigned(SDL_CreateWindowAndRenderer) then Result := False;"
-}
+*)
 //{$DEFINE SDL_RUNTIME_LOADING}
 
 

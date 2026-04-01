@@ -111,6 +111,8 @@ begin
     //if not assigned(SDL_GetErrorMsg) then result := false;
     SDL_Error := TSDL_Error_func(GetProcAddress(LibHandle, 'SDL_Error'));
     if not assigned(SDL_Error) then result := false;
+    SDL_GetPlatform :=  TSDL_GetPlatform_func(GetProcAddress(LibHandle, 'SDL_GetPlatform'));
+    if not assigned(SDL_GetPlatform) then result := false;
     SDL_GetBasePath := TSDL_GetBasePath_func(GetProcAddress(LibHandle, 'SDL_GetBasePath'));
     if not assigned(SDL_GetBasePath) then result := false;
     SDL_GetPrefPath := TSDL_GetPrefPath_func(GetProcAddress(LibHandle, 'SDL_GetPrefPath'));

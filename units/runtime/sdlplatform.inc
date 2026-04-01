@@ -6,8 +6,10 @@
  *  Try to get a standard set of platform defines.
  *}
 
+type
+  TSDL_GetPlatform_func = function(): PAnsiChar; cdecl;
+var
 {**
  *  Gets the name of the platform.
  *}
-function SDL_GetPlatform: PAnsiChar; cdecl;
-  external SDL_LibName {$IFDEF DELPHI} {$IFDEF MACOS} name '_SDL_GetPlatform' {$ENDIF} {$ENDIF};
+  SDL_GetPlatform: TSDL_GetPlatform_func = Nil;
